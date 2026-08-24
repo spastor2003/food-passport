@@ -78,57 +78,9 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
 </main>
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="data/restaurants.js"></script>
 <script>
-const restaurant={
- id:"laparisienne",
- name:"La Parisienne",
- location:"48 Rue Madame, 75006 Paris, France",
- date:"10 November 2025",
- lat:48.848207,
- lng:2.3314224,
- photo:"laparisienne.jpg",
- memory:"Why did they get mad at me for speaking French?",
- recipes:[
-  {
-   name:"Quiche Saumon Épinards",category:"Mains",
-   note:"A Parisian salmon and spinach quiche from our visit to La Parisienne.",
-   ingredients:[
-    "1 shortcrust pastry crust, homemade or store-bought","200 g fresh spinach",
-    "280 g fresh salmon fillets, boneless","250 ml (1 cup) heavy cream",
-    "60 g grated Comté cheese","2 eggs","1 spring onion or small white onion",
-    "Salt and pepper","Herbs of your choice — dill, chives, or parsley","1 tablespoon olive oil"
-   ],
-   steps:[
-    "Wash the spinach. Thinly slice the spring onion and cut the salmon into small cubes.",
-    "Heat the olive oil in a frying pan. Sauté the spring onion over medium heat for about 2 minutes.",
-    "Add the spinach and cook over high heat until the mixture has cooked down and most of the moisture has evaporated. Set aside.",
-    "In the same pan, add the salmon cubes and cook over medium heat for about 2 minutes, stirring gently. Add the spinach and combine. Set aside.",
-    "Preheat the oven to 200°C / 400°F (fan/convection).",
-    "Whisk together the eggs and cream. Season with salt, pepper, and herbs. Stir in half of the grated Comté.",
-    "Place the shortcrust pastry into a 23 cm (9-inch) quiche dish. Spread the salmon and spinach mixture over the pastry. Pour the egg-and-cream mixture over the top and sprinkle with the remaining Comté.",
-    "Bake at 210°C / 410°F (fan/convection) for approximately 25–30 minutes, until set and golden."
-   ]
-  },
-  {
-   name:"Baguette au Saumon Fumé",category:"Sandwiches",
-   note:"Smoked salmon and Brie on traditional French baguette, inspired by the La Parisienne bakery style.",
-   ingredients:[
-    "1 traditional French baguette (baguette de tradition)","4 slices high-quality smoked salmon",
-    "80 g (about 3 oz) Brie, preferably Brie de Meaux or double-cream Brie",
-    "20 g (about 1½ tbsp) unsalted or demi-sel butter, softened",
-    "1 handful fresh arugula","½ fresh lemon","Freshly ground black pepper"
-   ],
-   steps:[
-    "Slice the baguette in half lengthwise. You can cut it completely through or leave one side attached so the filling stays secure.",
-    "Spread the softened butter generously over the cut surface of the baguette. You can butter both sides if desired.",
-    "Arrange thin slices of Brie along the entire length of the baguette.",
-    "Gently layer the smoked salmon over the Brie. Add a few drops of fresh lemon juice and a little freshly ground black pepper.",
-    "Top with a handful of clean, dry arugula.",
-    "Close the baguette and gently press it together so the layers settle. Slice diagonally for the classic French bakery presentation."
-   ]
-  }
- ]
-};
+let restaurant = null;
 
 let currentRecipe=0,map=null;
 
@@ -142,61 +94,66 @@ function renderRestaurant(tab="about"){
  document.getElementById("restName").textContent=restaurant.name;
  document.getElementById("restLocation").textContent=restaurant.location;
  document.getElementById("restDate").textContent=restaurant.date;
- document.getElementById("restPhoto").src=restaurant.photo;
+ document.getElementById("restPhoto").src=(restaurant.photo || "laparisienne.jpg").replace("images/paris/laparisienne.jpg","laparisienne.jpg");
  document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.tab===tab));
  const body=document.getElementById("fileBody");
- if(tab==="about") body.innerHTML=`<div class="memory"><p><b>About La Parisienne</b></p><p>${restaurant.memory}</p><p style="color:var(--red)">Tap RECIPES to browse the recipes collected from this place.</p></div>`;
- if(tab==="photos") body.innerHTML=`<img src="${restaurant.photo}" style="max-width:100%;width:650px;border-radius:3px;border:1px solid var(--line)" alt="La Parisienne"><p style="color:var(--muted)">Our La Parisienne photo · ${restaurant.date}</p>`;
- if(tab==="memories") body.innerHTML=`<div class="memory"><p>${restaurant.memory}</p><p>More travel memories can be added here later: people, meals, stories, photos, and notes.</p></div>`;
+ if(tab==="about") body.innerHTML=`<div class="memory"><p><b>About La Parisienne</b></p><p>${restaurant.story}</p><p style="color:var(--red)">Tap RECIPES to browse the recipes collected from this place.</p></div>`;
+ if(tab==="photos") body.innerHTML=`<img src="${(restaurant.photo || "laparisienne.jpg").replace("images/paris/laparisienne.jpg","laparisienne.jpg")}" style="max-width:100%;width:650px;border-radius:3px;border:1px solid var(--line)" alt="La Parisienne"><p style="color:var(--muted)">Our La Parisienne photo · ${restaurant.date}</p>`;
+ if(tab==="memories") body.innerHTML=`<div class="memory"><p>${restaurant.story}</p><p>More travel memories can be added here later: people, meals, stories, photos, and notes.</p></div>`;
  if(tab==="recipes") body.innerHTML=`<div class="recipe-drawer">${restaurant.recipes.map((x,i)=>`<div class="divider" data-recipe="${i}"><h3>${x.name}</h3><p>${x.category}</p></div>`).join("")}</div>`;
  if(tab==="recipes") body.querySelectorAll("[data-recipe]").forEach(el=>el.addEventListener("click",()=>openRecipe(Number(el.dataset.recipe))));
 }
 function openRestaurant(){renderRestaurant("about");showScreen("restaurant")}
 function renderRecipe(){
  const x=restaurant.recipes[currentRecipe];
- document.getElementById("recipeCard").innerHTML=`<div class="paperclip">⌇</div><div class="eyebrow">${x.category} · La Parisienne</div><h1>${x.name}</h1><p style="color:var(--muted)">Collected at ${restaurant.location}</p><div class="recipe-grid"><div><h4>Ingredients</h4><ul>${x.ingredients.map(v=>`<li>${v}</li>`).join("")}</ul></div><div><h4>Notes</h4><p class="notes">${x.note}</p><h4 style="margin-top:25px">Instructions</h4><ol>${x.steps.map(v=>`<li>${v}</li>`).join("")}</ol></div></div><button class="cook-btn" id="cookButton" style="margin-top:18px">Cook this recipe →</button>`;
+ document.getElementById("recipeCard").innerHTML=`<div class="paperclip">⌇</div><div class="eyebrow">${x.category} · La Parisienne</div><h1>${x.name}</h1><p style="color:var(--muted)">Collected at ${restaurant.location}</p><div class="recipe-grid"><div><h4>Ingredients</h4><ul>${x.ingredients.map(v=>`<li>${v}</li>`).join("")}</ul></div><div><h4>Notes</h4><p class="notes">${x.note}</p><h4 style="margin-top:25px">Instructions</h4><ol>${x.instructions.map(v=>`<li>${v}</li>`).join("")}</ol></div></div><button class="cook-btn" id="cookButton" style="margin-top:18px">Cook this recipe →</button>`;
  document.getElementById("counter").textContent=`${currentRecipe+1} / ${restaurant.recipes.length}`;
  document.getElementById("cookButton").addEventListener("click",startCook);
 }
 function openRecipe(i){currentRecipe=i;renderRecipe();showScreen("recipe")}
 function startCook(){
  const x=restaurant.recipes[currentRecipe];
- document.getElementById("cookBox").innerHTML=`<div class="eyebrow">${x.category} · La Parisienne</div><h1>${x.name}</h1><div class="cook-meta">${restaurant.location} · ${restaurant.date}</div><div class="cook-document"><div><h4>Ingredients</h4><ul>${x.ingredients.map(v=>`<li>${v}</li>`).join("")}</ul></div><div><h4>Instructions</h4><ol>${x.steps.map(v=>`<li>${v}</li>`).join("")}</ol></div></div><div class="cook-note"><b>Travel note:</b> ${x.note}</div><div class="cook-footer"><span style="color:var(--muted);font-size:12px">${currentRecipe+1} of ${restaurant.recipes.length} recipes from this file</span><button id="cookBack">← Back to recipe card</button></div>`;
+ document.getElementById("cookBox").innerHTML=`<div class="eyebrow">${x.category} · La Parisienne</div><h1>${x.name}</h1><div class="cook-meta">${restaurant.location} · ${restaurant.date}</div><div class="cook-document"><div><h4>Ingredients</h4><ul>${x.ingredients.map(v=>`<li>${v}</li>`).join("")}</ul></div><div><h4>Instructions</h4><ol>${x.instructions.map(v=>`<li>${v}</li>`).join("")}</ol></div></div><div class="cook-note"><b>Travel note:</b> ${x.note}</div><div class="cook-footer"><span style="color:var(--muted);font-size:12px">${currentRecipe+1} of ${restaurant.recipes.length} recipes from this file</span><button id="cookBack">← Back to recipe card</button></div>`;
  document.getElementById("cookBack").addEventListener("click",()=>{renderRecipe();showScreen("recipe")});
  showScreen("cook");
 }
 function init(){
- const qrTarget=location.href.split("#")[0]+"#paris";
- document.getElementById("qrImg").src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data="+encodeURIComponent(qrTarget);
+  if(typeof restaurants === "undefined" || !Array.isArray(restaurants) || !restaurants.length){
+    document.body.innerHTML='<div style="padding:40px;font-family:Georgia,serif">Restaurant data could not be loaded. Please refresh the page.</div>';
+    return;
+  }
 
- // Navigation works independently of the interactive map.
- document.getElementById("passportBtn").addEventListener("click",()=>showScreen("passport"));
- document.getElementById("mapBtn").addEventListener("click",()=>showScreen("map"));
- document.getElementById("enterParis").addEventListener("click",()=>showScreen("map"));
- document.getElementById("backMap").addEventListener("click",()=>showScreen("map"));
- document.getElementById("backRestaurant").addEventListener("click",()=>{renderRestaurant("recipes");showScreen("restaurant")});
- document.getElementById("backRecipe").addEventListener("click",()=>{renderRecipe();showScreen("recipe")});
- document.getElementById("prevRecipe").addEventListener("click",()=>{currentRecipe=(currentRecipe-1+restaurant.recipes.length)%restaurant.recipes.length;renderRecipe()});
- document.getElementById("nextRecipe").addEventListener("click",()=>{currentRecipe=(currentRecipe+1)%restaurant.recipes.length;renderRecipe()});
- document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>renderRestaurant(b.dataset.tab)));
+  restaurant = restaurants.find(r => r.id === "la-parisienne") || restaurants[0];
 
- // Build the map if Leaflet loaded. If it did not, the rest of the site still works.
- if(typeof L==="undefined"){
-   document.getElementById("leafletMap").innerHTML='<div style="height:100%;display:grid;place-items:center;padding:30px;text-align:center;color:#766957;background:#e8dfca"><div><b>Interactive map is temporarily unavailable.</b><br><br>The restaurant file and recipes are still available. Please refresh later to load the map.</div></div>';
-   return;
- }
+  const qrTarget=location.href.split("#")[0]+"#paris";
+  document.getElementById("qrImg").src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data="+encodeURIComponent(qrTarget);
 
- try{
-   map=L.map("leafletMap").setView([48.8566,2.3522],13);
-   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"© OpenStreetMap contributors"}).addTo(map);
-   const icon=L.divIcon({className:"",html:'<div class="vintage-pin"><span>•</span></div>',iconSize:[28,28],iconAnchor:[10,26],popupAnchor:[4,-22]});
-   const marker=L.marker([restaurant.lat,restaurant.lng],{icon}).addTo(map);
-   marker.bindPopup(`<div class="pin-card"><h3>${restaurant.name}</h3><p>${restaurant.location}</p><p>${restaurant.recipes.length} recipes</p><button id="openLaParisienne">Open file →</button></div>`);
-   marker.on("popupopen",()=>{const b=document.getElementById("openLaParisienne");if(b)b.addEventListener("click",openRestaurant)});
- }catch(err){
-   console.error("Map initialization failed:",err);
-   document.getElementById("leafletMap").innerHTML='<div style="height:100%;display:grid;place-items:center;padding:30px;text-align:center;color:#766957;background:#e8dfca"><div><b>Interactive map could not load.</b><br><br>Please refresh the page. The rest of the Food Passport is still available.</div></div>';
- }
+  document.getElementById("passportBtn").addEventListener("click",()=>showScreen("passport"));
+  document.getElementById("mapBtn").addEventListener("click",()=>showScreen("map"));
+  document.getElementById("enterParis").addEventListener("click",()=>showScreen("map"));
+  document.getElementById("backMap").addEventListener("click",()=>showScreen("map"));
+  document.getElementById("backRestaurant").addEventListener("click",()=>{renderRestaurant("recipes");showScreen("restaurant")});
+  document.getElementById("backRecipe").addEventListener("click",()=>{renderRecipe();showScreen("recipe")});
+  document.getElementById("prevRecipe").addEventListener("click",()=>{currentRecipe=(currentRecipe-1+restaurant.recipes.length)%restaurant.recipes.length;renderRecipe()});
+  document.getElementById("nextRecipe").addEventListener("click",()=>{currentRecipe=(currentRecipe+1)%restaurant.recipes.length;renderRecipe()});
+  document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>renderRestaurant(b.dataset.tab)));
+
+  if(typeof L==="undefined"){
+    document.getElementById("leafletMap").innerHTML='<div style="height:100%;display:grid;place-items:center;padding:30px;text-align:center;color:#766957;background:#e8dfca"><div><b>Interactive map is temporarily unavailable.</b><br><br>The restaurant data is loaded. Please refresh later to load the map.</div></div>';
+    return;
+  }
+
+  try{
+    map=L.map("leafletMap").setView([48.8566,2.3522],13);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"© OpenStreetMap contributors"}).addTo(map);
+    const icon=L.divIcon({className:"",html:'<div class="vintage-pin"><span>•</span></div>',iconSize:[28,28],iconAnchor:[10,26],popupAnchor:[4,-22]});
+    const marker=L.marker([restaurant.coordinates.lat,restaurant.coordinates.lng],{icon}).addTo(map);
+    marker.bindPopup(`<div class="pin-card"><h3>${restaurant.name}</h3><p>${restaurant.address}</p><p>${restaurant.recipes.length} recipes</p><button id="openLaParisienne">Open file →</button></div>`);
+    marker.on("popupopen",()=>{const b=document.getElementById("openLaParisienne");if(b)b.addEventListener("click",openRestaurant)});
+  }catch(err){
+    console.error(err);
+    document.getElementById("leafletMap").innerHTML='<div style="height:100%;display:grid;place-items:center;padding:30px;text-align:center;color:#766957;background:#e8dfca"><div><b>Interactive map could not load.</b><br><br>The restaurant data is loaded. Please refresh the page.</div></div>';
+  }
 }
 init();
 </script>

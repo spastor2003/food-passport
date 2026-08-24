@@ -92,7 +92,7 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
 <div class="app">
 <header>
   <div class="brand"><b>The Digital Food Passport</b><br><span id="crumb">Paris, France</span></div>
-  <div><button class="ghost" id="passportBtn">Passport</button><button class="ghost" id="mapBtn">Paris Map</button></div>
+  <div><button class="ghost" id="passportBtn" type="button" onclick="showScreen('masterPassport')">Passport</button><button class="ghost" id="mapBtn">Paris Map</button></div>
 </header>
 <main>
 
@@ -401,12 +401,36 @@ function init(){
 
   renderJourneys();
 
-  document.getElementById("openPassport").addEventListener("click",()=>showScreen("journeys"));
-  document.getElementById("backJourneys").addEventListener("click",()=>showScreen("journeys"));
-  document.getElementById("openCityMap").addEventListener("click",openCurrentCityMap);
-  document.getElementById("mapBtn").addEventListener("click",()=>{
+  // Navigation: bind every main passport button defensively.
+  const bind=(id,fn)=>{
+    const el=document.getElementById(id);
+    if(el) el.addEventListener("click",fn);
+  };
+
+  bind("openPassport",()=>showScreen("journeys"));
+  bind("backJourneys",()=>showScreen("journeys"));
+  bind("openCityMap",openCurrentCityMap);
+
+  // Header navigation.
+  bind("passportBtn",()=>showScreen("masterPassport"));
+  bind("mapBtn",()=>{
     const paris=cities.find(c=>c.id==="paris");
     if(paris) openCityPage("paris");
+  });
+
+  // Existing map / restaurant / recipe navigation.
+  bind("backMap",()=>showScreen("map"));
+  bind("backRestaurant",()=>{renderRestaurant("about");showScreen("restaurant")});
+  bind("backRecipe",()=>{renderRecipe();showScreen("recipe")});
+  bind("prevRecipe",()=>{
+    if(!restaurant || !restaurant.recipes || !restaurant.recipes.length) return;
+    currentRecipe=(currentRecipe-1+restaurant.recipes.length)%restaurant.recipes.length;
+    renderRecipe();
+  });
+  bind("nextRecipe",()=>{
+    if(!restaurant || !restaurant.recipes || !restaurant.recipes.length) return;
+    currentRecipe=(currentRecipe+1)%restaurant.recipes.length;
+    renderRecipe();
   });
 
   if(typeof L==="undefined"){

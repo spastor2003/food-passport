@@ -36,36 +36,58 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
 .cards{max-width:860px;margin:auto}.recipe-card{background:#f8efdd;border:1px solid #cdbb9e;border-radius:3px;padding:30px;box-shadow:0 12px 28px #372a1b24;min-height:430px;position:relative;background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 31px,rgba(116,103,86,.08) 32px)}.paperclip{position:absolute;right:20px;top:15px;font-size:24px;color:#8d877c}.eyebrow{color:var(--red);text-transform:uppercase;letter-spacing:.12em;font-size:11px}.recipe-card h1{font-size:34px;margin:8px 0 3px}.recipe-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:28px;margin-top:20px}.recipe-grid h4,.cook-document h4{margin:0 0 9px;text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--muted)}ul,ol{padding-left:20px;line-height:1.65}.notes{color:var(--muted);font-style:italic;line-height:1.6}.flipbar{display:flex;justify-content:space-between;align-items:center;margin-top:14px}.flipbar button,.cook-btn{border:1px solid var(--line);background:var(--paper2);border-radius:4px;padding:10px 15px;cursor:pointer}.cook-btn{background:var(--red);color:#fff;border-color:var(--red);font-weight:bold}
 .cook{max-width:920px;margin:auto;background:#f8efdd;color:var(--ink);border:1px solid #cdbb9e;border-top:10px solid var(--turq);border-radius:3px;padding:32px;box-shadow:0 18px 45px #372a1b29}.cook h1{font-size:40px;margin:6px 0 5px}.cook-meta{color:var(--muted);font-size:14px;margin-bottom:25px}.cook-document{display:grid;grid-template-columns:minmax(210px,.75fr) minmax(280px,1.25fr);gap:36px;border-top:1px solid var(--line);padding-top:24px}.cook-document ul,.cook-document ol{line-height:1.75}.cook-note{margin-top:24px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-style:italic;line-height:1.65}.cook-footer{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:15px;border-top:1px solid var(--line)}.cook-footer button{border:1px solid var(--line);background:var(--turq2);padding:11px 15px;border-radius:4px;cursor:pointer;text-transform:uppercase;font-size:10px;letter-spacing:.08em}
 
-.master-passport{max-width:760px;margin:35px auto}
-.passport-cover{position:relative;min-height:620px;padding:75px 60px 55px;text-align:center;background:var(--red);color:#f5e7c9;border:12px double #e5c98d;box-shadow:0 18px 45px #372a1b35;border-radius:6px}
-.passport-emblem{font-size:42px;margin-bottom:22px}
-.passport-kicker{font-size:11px;letter-spacing:.25em;text-transform:uppercase}
-.passport-cover h1{font-family:Georgia,serif;font-size:48px;line-height:1.04;font-weight:normal;text-transform:uppercase;letter-spacing:.04em;margin:30px 0 25px}
-.passport-rule{width:180px;border-top:2px solid #e5c98d;margin:0 auto 22px}
-.passport-subtitle{font-family:Georgia,serif;font-style:italic;font-size:16px;letter-spacing:.08em}
-.passport-stamp{position:absolute;right:42px;bottom:38px;width:72px;height:72px;border:2px solid #e5c98d;border-radius:50%;display:grid;place-items:center;font-size:10px;line-height:1.1;transform:rotate(-10deg)}
-.passport-open{margin-top:70px;background:#f5e7c9;color:#6e261e;border:1px solid #e5c98d;padding:14px 28px;font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.12em;cursor:pointer}
-.passport-page{max-width:900px;margin:25px auto;background:#efe4c9;border:1px solid #c7b58f;box-shadow:0 14px 35px #372a1b25;padding:45px 50px;min-height:600px;position:relative}
-.passport-page:before{content:"";position:absolute;inset:12px;border:1px solid #c7b58f;pointer-events:none}
-.passport-page-header{text-align:center;position:relative}
-.passport-page-kicker{font-size:10px;text-transform:uppercase;letter-spacing:.25em;color:#766957}
-.passport-page-header h1{font-family:Georgia,serif;font-size:40px;font-weight:normal;text-transform:uppercase;margin:10px 0}
-.passport-page-rule{width:150px;border-top:1px solid #a89268;margin:0 auto 12px}
-.passport-page-header p{font-family:Georgia,serif;font-style:italic;color:#766957}
-.passport-city-list{position:relative;margin:35px auto;max-width:680px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.passport-city{background:#f5ecd8;border:1px solid #c7b58f;padding:22px 24px;display:flex;align-items:center;gap:18px;cursor:pointer;box-shadow:3px 4px 0 #c7b58f55}
-.passport-city:hover{transform:translateY(-2px)}
-.passport-city-flag{font-size:30px}
-.passport-city-name{font-family:Georgia,serif;font-size:22px;text-transform:uppercase}
-.passport-city-country{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#766957;margin-top:3px}
-.passport-city-arrow{margin-left:auto;color:#8a342a}
-.passport-page-footer{position:absolute;left:50px;right:50px;bottom:28px;border-top:1px solid #c7b58f;padding-top:10px;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.15em;color:#766957}
-@media(max-width:700px){
- .passport-cover{min-height:520px;padding:55px 30px}
- .passport-cover h1{font-size:38px}
- .passport-page{padding:35px 25px;min-height:560px}
- .passport-city-list{grid-template-columns:1fr}
- .passport-page-footer{left:25px;right:25px}
+.passport-stage{max-width:920px;margin:28px auto 40px;padding:10px}
+.passport-cover-new{background:#173a3d;border:12px double #c9aa68;border-radius:8px;box-shadow:0 22px 50px #372a1b40;min-height:650px;color:#ead9ad;position:relative;overflow:hidden}
+.passport-cover-new:before{content:"";position:absolute;inset:20px;border:1px solid #c9aa68;opacity:.75;pointer-events:none}
+.passport-cover-new:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 15%,#ffffff10,transparent 35%),radial-gradient(circle at 80% 80%,#00000018,transparent 45%);pointer-events:none}
+.passport-cover-inner{position:relative;z-index:1;text-align:center;padding:65px 35px 55px;min-height:530px}
+.passport-emblem-new{font-size:38px;margin-bottom:12px}
+.passport-kicker-new{text-transform:uppercase;letter-spacing:.25em;font-size:11px}
+.passport-cover-new h1{font-family:Georgia,serif;font-size:52px;line-height:1.02;font-weight:normal;text-transform:uppercase;letter-spacing:.045em;margin:28px 0 22px}
+.passport-rule-new{width:190px;border-top:2px solid #c9aa68;margin:0 auto 18px}
+.passport-subtitle-new{font-family:Georgia,serif;font-style:italic;font-size:16px;letter-spacing:.08em}
+.passport-globe{width:105px;height:105px;border:2px solid #c9aa68;border-radius:50%;display:grid;place-items:center;margin:38px auto 22px;font-size:64px;line-height:1}
+.passport-cover-note{font-family:Georgia,serif;font-style:italic;font-size:15px;line-height:1.5}
+.passport-year{font-size:10px;letter-spacing:.2em;margin-top:20px}
+.passport-open-new{margin-top:30px;background:#ead9ad;color:#173a3d;border:1px solid #c9aa68;padding:14px 28px;font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.12em;cursor:pointer;min-height:44px}
+.passport-book{max-width:1080px;margin:24px auto 45px;display:grid;grid-template-columns:1fr 1fr;box-shadow:0 20px 50px #372a1b30}
+.passport-page-left,.passport-page-right{background:#efe4c9;min-height:700px;position:relative;padding:55px 50px 65px;border:1px solid #c7b58f;overflow:hidden}
+.passport-page-left{border-right:none;border-radius:5px 0 0 5px}
+.passport-page-right{border-radius:0 5px 5px 0}
+.passport-page-left:before,.passport-page-right:before{content:"";position:absolute;inset:14px;border:1px solid #c7b58f;pointer-events:none}
+.page-kicker{text-align:center;text-transform:uppercase;letter-spacing:.25em;font-size:10px;color:#766957;position:relative}
+.passport-page-left h1{text-align:center;font-family:Georgia,serif;font-size:46px;font-weight:normal;text-transform:uppercase;margin:10px 0 8px;position:relative}
+.page-intro{text-align:center;font-family:Georgia,serif;font-style:italic;color:#766957;margin:0 0 25px;position:relative}
+.journey-scroll{position:relative;height:455px;overflow-y:auto;padding:5px 15px 15px 5px;scrollbar-width:thin;scrollbar-color:#9d8a67 #e4d7b8}
+.journey-scroll::-webkit-scrollbar{width:8px}
+.journey-scroll::-webkit-scrollbar-track{background:#e4d7b8}
+.journey-scroll::-webkit-scrollbar-thumb{background:#9d8a67}
+.passport-city-entry{position:relative;background:#f6edd9;border:1px solid #c7b58f;margin:0 0 13px;padding:17px 18px;display:grid;grid-template-columns:54px 1fr 28px;gap:13px;align-items:center;cursor:pointer;box-shadow:2px 3px 0 #c7b58f55;min-height:70px}
+.passport-city-entry:hover{transform:translateY(-1px)}
+.city-stamp{width:50px;height:50px;border:2px solid #8b5b45;border-radius:50%;display:grid;place-items:center;font-size:24px;transform:rotate(-6deg)}
+.city-entry-name{font-family:Georgia,serif;font-size:21px;text-transform:uppercase}
+.city-entry-country{font-size:9px;letter-spacing:.17em;text-transform:uppercase;color:#766957;margin-top:3px}
+.city-entry-meta{font-size:9px;color:#8b5b45;margin-top:6px;font-style:italic}
+.city-entry-arrow{font-size:21px;color:#8b5b45;text-align:center}
+.page-number{position:absolute;bottom:26px;left:0;right:0;text-align:center;font-size:9px;letter-spacing:.2em;color:#766957}
+.postmark{position:absolute;right:48px;top:44px;border:2px solid #8b5b45;border-radius:50%;width:75px;height:75px;display:grid;place-items:center;text-align:center;font-size:8px;line-height:1.3;transform:rotate(9deg);color:#8b5b45}
+.map-illustration{position:absolute;left:55px;right:45px;top:145px;height:300px;opacity:.48;background:repeating-linear-gradient(20deg,transparent 0 34px,#9d8a67 35px 36px),repeating-linear-gradient(110deg,transparent 0 49px,#9d8a67 50px 51px);border-radius:48% 42% 52% 40%;transform:rotate(-5deg)}
+.map-line{position:absolute;border-top:2px solid #8b5b45;border-radius:50%}
+.line-1{width:190px;left:25px;top:100px;transform:rotate(17deg)}
+.line-2{width:220px;left:95px;top:180px;transform:rotate(-24deg)}
+.line-3{width:160px;left:145px;top:70px;transform:rotate(42deg)}
+.map-dot{position:absolute;width:9px;height:9px;background:#8b5b45;border-radius:50%}
+.dot-1{left:70px;top:100px}.dot-2{left:230px;top:170px}.dot-3{left:145px;top:70px}.dot-4{left:280px;top:90px}
+.map-label{position:absolute;font-family:Georgia,serif;font-size:10px;letter-spacing:.15em;color:#766957}
+.label-1{left:170px;top:115px}.label-2{left:95px;top:220px}
+.journey-quote{position:absolute;left:50px;right:50px;top:490px;text-align:center;font-family:Georgia,serif;font-style:italic;font-size:17px;line-height:1.5;color:#765849}
+.passport-stamp-new{position:absolute;right:60px;bottom:80px;border:2px solid #8b5b45;padding:12px 15px;text-align:center;font-size:9px;line-height:1.5;letter-spacing:.12em;transform:rotate(-7deg);color:#8b5b45}
+@media(max-width:760px){
+ .passport-cover-new{min-height:560px}.passport-cover-inner{padding:52px 24px 45px}.passport-cover-new h1{font-size:40px}
+ .passport-book{grid-template-columns:1fr;box-shadow:0 15px 35px #372a1b30}
+ .passport-page-left,.passport-page-right{border:1px solid #c7b58f;border-radius:5px;min-height:650px}
+ .passport-page-right{display:none}
+ .journey-scroll{height:430px}
 }
 
 @media(max-width:700px){main{padding:10px}header{padding:12px 14px}.ghost{padding:8px}.map-title{left:10px;top:10px}.map-title h1{font-size:23px}.map-note{right:10px;bottom:10px}#leafletMap{height:72vh;min-height:520px}.file-head{align-items:flex-start;flex-direction:column}.photo{width:100%;height:210px}.recipe-grid,.cook-document{grid-template-columns:1fr}.recipe-card{padding:20px}.recipe-card h1,.cook h1{font-size:29px}}
@@ -75,36 +97,56 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
 <div class="app">
 <header>
   <div class="brand"><b>The Digital Food Passport</b><br><span id="crumb">Paris, France</span></div>
-  <div><button class="ghost" id="masterBtn">Passport</button><button class="ghost" id="passportBtn">Paris</button><button class="ghost" id="mapBtn">Paris Map</button></div>
+  <div><button class="ghost" id="masterBtn">Passport</button><button class="ghost" id="journeysBtn">My Journeys</button><button class="ghost" id="mapBtn">Paris Map</button></div>
 </header>
 <main>
 
 <section id="masterPassport" class="screen active">
-  <div class="master-passport">
-    <div class="passport-cover">
-      <div class="passport-emblem">✦</div>
-      <div class="passport-kicker">A Personal Collection</div>
-      <h1>The Digital<br>Food Passport</h1>
-      <div class="passport-rule"></div>
-      <div class="passport-subtitle">Food • Travel • Memories • Recipes</div>
-      <div class="passport-stamp">EST.<br>2025</div>
-      <button class="passport-open" id="openPassport">Open Passport →</button>
+  <div class="passport-stage">
+    <div class="passport-cover-new">
+      <div class="passport-cover-inner">
+        <div class="passport-emblem-new">✦</div>
+        <div class="passport-kicker-new">A Personal Collection</div>
+        <h1>The Digital<br>Food Passport</h1>
+        <div class="passport-rule-new"></div>
+        <div class="passport-subtitle-new">Food • Travel • Memories • Recipes</div>
+        <div class="passport-globe">◎</div>
+        <div class="passport-cover-note">A collection of meals,<br>places &amp; moments in between.</div>
+        <div class="passport-year">EST. 2025</div>
+        <button type="button" class="passport-open-new" id="openPassport">Open Passport →</button>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="cityPassport" class="screen">
-  <div class="passport-page">
-    <div class="passport-page-header">
-      <div class="passport-page-kicker">Destinations</div>
-      <h1>My Food Passport</h1>
-      <div class="passport-page-rule"></div>
-      <p>Turn the page to explore a city.</p>
+  <div class="passport-book">
+    <div class="passport-page-left">
+      <div class="page-kicker">Destinations</div>
+      <h1>My Journeys</h1>
+      <p class="page-intro">A collection of places, tables and memories.</p>
+
+      <div id="passportCityList" class="journey-scroll" aria-label="Destinations"></div>
+
+      <div class="page-number">PAGE 02</div>
     </div>
-    <div id="passportCityList" class="passport-city-list"></div>
-    <div class="passport-page-footer">
-      <span>THE DIGITAL FOOD PASSPORT</span>
-      <span>PAGE <b id="passportPageNumber">1</b></span>
+
+    <div class="passport-page-right">
+      <div class="postmark">FOOD<br>PASSPORT</div>
+      <div class="map-illustration" aria-hidden="true">
+        <div class="map-line line-1"></div>
+        <div class="map-line line-2"></div>
+        <div class="map-line line-3"></div>
+        <span class="map-dot dot-1"></span>
+        <span class="map-dot dot-2"></span>
+        <span class="map-dot dot-3"></span>
+        <span class="map-dot dot-4"></span>
+        <span class="map-label label-1">EUROPE</span>
+        <span class="map-label label-2">THE WORLD</span>
+      </div>
+      <div class="journey-quote">“The world is a kitchen.<br>Every journey adds flavor.”</div>
+      <div class="passport-stamp-new">GOOD FOOD<br>GOOD PEOPLE<br>GOOD MEMORIES</div>
+      <div class="page-number">PAGE 03</div>
     </div>
   </div>
 </section>
@@ -181,32 +223,27 @@ function startCook(){
  document.getElementById("cookBack").addEventListener("click",()=>{renderRecipe();showScreen("recipe")});
  showScreen("cook");
 }
-
 function renderPassportCities(){
   const list=document.getElementById("passportCityList");
-  list.innerHTML=cities.map(city=>`
-    <div class="passport-city" data-city="${city.id}">
-      <div class="passport-city-flag">${city.flag || "📍"}</div>
-      <div>
-        <div class="passport-city-name">${city.city}</div>
-        <div class="passport-city-country">${city.country}</div>
-      </div>
-      <div class="passport-city-arrow">→</div>
-    </div>
-  `).join("");
-  list.querySelectorAll("[data-city]").forEach(card=>{
-    card.addEventListener("click",()=>{
-      const city=cities.find(c=>c.id===card.dataset.city);
+  list.innerHTML=cities.map(city=>{
+    const count=city.restaurants ? city.restaurants.length : 0;
+    const visit=city.id==="paris" ? "10 NOV 2025" : "A NEW JOURNEY";
+    return `<button type="button" class="passport-city-entry" data-city="${city.id}">
+      <span class="city-stamp">${city.flag || "✦"}</span>
+      <span><span class="city-entry-name">${city.city}</span><span class="city-entry-country">${city.country}</span><span class="city-entry-meta">${visit}${count ? ` · ${count} ${count===1?"restaurant":"restaurants"}` : ""}</span></span>
+      <span class="city-entry-arrow">→</span>
+    </button>`;
+  }).join("");
+  list.querySelectorAll("[data-city]").forEach(entry=>{
+    entry.addEventListener("click",()=>{
+      const city=cities.find(c=>c.id===entry.dataset.city);
       if(!city) return;
       if(city.id==="paris" && city.restaurants && city.restaurants.length){
         restaurant=city.restaurants.find(r=>r.id==="la-parisienne") || city.restaurants[0];
         showScreen("map");
-        if(map){
-          map.setView([city.coordinates.lat,city.coordinates.lng],13);
-          setTimeout(()=>map.invalidateSize(),80);
-        }
+        if(map){map.setView([city.coordinates.lat,city.coordinates.lng],13);setTimeout(()=>map.invalidateSize(),80);}
       }else{
-        alert(`${city.city} is ready for your restaurants. We'll open its city map when you add the first restaurant.`);
+        alert(`${city.city} is ready for your restaurants. We'll add its destination page and map when you add the first restaurant.`);
       }
     });
   });
@@ -229,10 +266,8 @@ function init(){
   const qrTarget=location.href.split("#")[0]+"#paris";
   document.getElementById("qrImg").src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data="+encodeURIComponent(qrTarget);
 
-  document.getElementById("openPassport").addEventListener("click",()=>showScreen("cityPassport"));
   document.getElementById("masterBtn").addEventListener("click",()=>showScreen("masterPassport"));
-  document.getElementById("passportBtn").addEventListener("click",()=>showScreen("map"));
-  renderPassportCities();
+  document.getElementById("journeysBtn").addEventListener("click",()=>showScreen("cityPassport"));
   document.getElementById("mapBtn").addEventListener("click",()=>showScreen("map"));
   document.getElementById("enterParis").addEventListener("click",()=>showScreen("map"));
   document.getElementById("backMap").addEventListener("click",()=>showScreen("map"));
@@ -259,7 +294,6 @@ function init(){
     document.getElementById("leafletMap").innerHTML='<div style="height:100%;display:grid;place-items:center;padding:30px;text-align:center;color:#766957;background:#e8dfca"><div><b>Interactive map could not load.</b><br><br>The restaurant data is loaded. Please refresh the page.</div></div>';
   }
 }
-showScreen("masterPassport");
 init();
 </script>
 </body>

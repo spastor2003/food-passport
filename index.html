@@ -42,7 +42,7 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
   </div>
 </section>
 <section id="map" class="screen">
-  <div class="map-shell"><div id="leafletMap"></div><div class="map-title"><h1>Paris</h1><p>France · May 2024</p></div><div class="map-note">Tap a pin to open a restaurant file.</div></div>
+  <div class="map-shell"><div id="leafletMap"></div><div class="map-title"><h1>Paris</h1><p>France · Food Passport</p></div><div class="map-note">Tap a pin to open a restaurant file.</div></div>
 </section>
 <section id="restaurant" class="screen">
   <div class="backline"><button onclick="showScreen('map')">← Back to Paris map</button></div>
@@ -66,17 +66,52 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 const restaurants=[
- {id:'cafe',name:'Café de Flore',location:'Saint-Germain-des-Prés, Paris',date:'Visited May 22, 2024',lat:48.8546,lng:2.3336,photo:'https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=800&q=80',memory:'Sat here with coffee and people-watched for hours. It felt like the perfect Paris afternoon.',recipes:[
-  {name:'Croque Monsieur',category:'Mains',note:'Our go-to lunch when in Paris. Crisp outside, creamy inside.',ingredients:['2 slices pain de mie','2 slices ham','2 slices Gruyère','1 tbsp béchamel sauce','1 tsp Dijon mustard','Butter'],steps:['Butter the bread and assemble the ham and cheese.','Spread béchamel over the top and add Dijon mustard.','Broil until bubbling and golden.','Rest for 2 minutes, then serve.']},
-  {name:'Café Crème',category:'Drinks',note:'A simple ritual from a long morning walk.',ingredients:['1 espresso','120 ml steamed milk'],steps:['Brew the espresso.','Steam the milk until silky.','Pour together and serve immediately.']},
-  {name:'Tarte Tatin',category:'Desserts',note:'A buttery apple dessert to remember the trip by.',ingredients:['Apples','Butter','Sugar','Puff pastry'],steps:['Caramelize sugar and butter in an oven-safe pan.','Arrange apples over the caramel.','Cover with pastry.','Bake until deeply golden and invert carefully.']}
- ]},
- {id:'chartier',name:'Bouillon Chartier',location:'Grands Boulevards, Paris',date:'Visited May 24, 2024',lat:48.8719,lng:2.3442,photo:'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80',memory:'A lively old-school dining room and the feeling of being dropped into another era.',recipes:[
-  {name:'French Onion Soup',category:'Mains',note:'Deeply caramelized onions and plenty of bread.',ingredients:['Onions','Butter','Beef stock','Bread','Gruyère'],steps:['Slowly caramelize onions in butter.','Add stock and simmer.','Ladle into bowls, top with bread and Gruyère.','Broil until bubbling.']}
- ]},
- {id:'pain',name:'Du Pain et des Idées',location:'Canal Saint-Martin, Paris',date:'Visited May 25, 2024',lat:48.8715,lng:2.3650,photo:'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80',memory:'We picked up pastries for a picnic by the canal.',recipes:[
-  {name:'Pain au Chocolat',category:'Breakfast & Pastries',note:'The pastry that started the morning.',ingredients:['Croissant dough','Dark chocolate','Egg wash'],steps:['Cut and fill the dough with chocolate.','Roll, proof and brush with egg wash.','Bake until crisp and deeply golden.']}
- ]}
+ {id:'laparisienne',name:'La Parisienne',location:'48 Rue Madame, 75006 Paris, France',date:'10 November 2025',lat:48.848207,lng:2.3314224,
+  photo:'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80',
+  memory:'Why did they get mad at me for speaking French?',
+  recipes:[
+   {name:'Quiche Saumon Épinards',category:'Mains',note:'A Parisian salmon and spinach quiche from our visit to La Parisienne.',
+    ingredients:[
+     '1 shortcrust pastry crust, homemade or store-bought',
+     '200 g fresh spinach',
+     '280 g fresh salmon fillets, boneless',
+     '250 ml (1 cup) heavy cream',
+     '60 g grated Comté cheese',
+     '2 eggs',
+     '1 spring onion or small white onion',
+     'Salt and pepper',
+     'Herbs of your choice — dill, chives, or parsley',
+     '1 tablespoon olive oil'
+    ],
+    steps:[
+     'Wash the spinach. Thinly slice the spring onion and cut the salmon into small cubes.',
+     'Heat the olive oil in a frying pan. Sauté the spring onion over medium heat for about 2 minutes.',
+     'Add the spinach and cook over high heat until the mixture has cooked down and most of the moisture has evaporated. Set aside.',
+     'In the same pan, add the salmon cubes and cook over medium heat for about 2 minutes, stirring gently. Add the spinach and combine. Set aside.',
+     'Preheat the oven to 200°C / 400°F (fan/convection).',
+     'Whisk together the eggs and cream. Season with salt, pepper, and herbs. Stir in half of the grated Comté.',
+     'Place the shortcrust pastry into a 23 cm (9-inch) quiche dish. Spread the salmon and spinach mixture over the pastry. Pour the egg-and-cream mixture over the top and sprinkle with the remaining Comté.',
+     'Bake at 210°C / 410°F (fan/convection) for approximately 25–30 minutes, until set and golden.'
+    ]},
+   {name:'Baguette au Saumon Fumé',category:'Sandwiches',note:'Smoked salmon and Brie on traditional French baguette, inspired by the La Parisienne bakery style.',
+    ingredients:[
+     '1 traditional French baguette (baguette de tradition)',
+     '4 slices high-quality smoked salmon',
+     '80 g (about 3 oz) Brie, preferably Brie de Meaux or double-cream Brie',
+     '20 g (about 1½ tbsp) unsalted or demi-sel butter, softened',
+     '1 handful fresh arugula',
+     '½ fresh lemon',
+     'Freshly ground black pepper'
+    ],
+    steps:[
+     'Slice the baguette in half lengthwise. You can cut it completely through or leave one side attached so the filling stays secure.',
+     'Spread the softened butter generously over the cut surface of the baguette. You can butter both sides if desired.',
+     'Arrange thin slices of Brie along the entire length of the baguette.',
+     'Gently layer the smoked salmon over the Brie. Add a few drops of fresh lemon juice and a little freshly ground black pepper.',
+     'Top with a handful of clean, dry arugula.',
+     'Close the baguette and gently press it together so the layers settle. Slice diagonally for the classic French bakery presentation.'
+    ]}
+  ]}
 ];
 let currentRestaurant=null,currentRecipe=0,map=null;
 

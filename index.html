@@ -75,6 +75,16 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
 .map-frame-caption{text-align:center;font-family:Georgia,serif;font-style:italic;color:#766957;font-size:12px;margin-top:15px}.open-city-map{display:block;margin:25px auto 0;background:#173a3d;color:#ead9ad;border:1px solid #c9aa68;padding:14px 25px;font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.1em;cursor:pointer;min-height:44px}.map-page-note{text-align:center;font-size:10px;color:#766957;font-style:italic;margin:12px 30px}
 @media(max-width:760px){.master-cover-inner{min-height:560px;padding:55px 25px}.master-cover h1{font-size:40px}.journey-book,.city-book{grid-template-columns:1fr}.journey-page,.city-page{min-height:650px;border:1px solid #c7b58f!important;border-radius:5px!important}.journey-page:last-child{display:none}.journey-list{height:450px}.city-map-access{margin-top:15px}.city-stamp{width:125px;height:125px}}
 
+
+.landmark-svg{width:72px;height:92px;color:#8b5b45;display:block;opacity:.82;margin:0 auto 2px}
+.stamp-city-text{font-family:Georgia,serif;font-size:15px;letter-spacing:.13em;position:absolute;bottom:28px;left:0;right:0;text-align:center}
+.stamp-country-text{font-family:Georgia,serif;font-size:8px;letter-spacing:.16em;position:absolute;bottom:15px;left:0;right:0;text-align:center}
+.city-stamp{display:grid!important;place-items:center!important;position:relative!important}
+
+
+.city-stamp{width:150px!important;height:150px!important;border:2px solid #8b5b45;border-radius:50%;margin:30px auto 25px;box-sizing:border-box;transform:rotate(-4deg)}
+.city-stamp:before{content:"";position:absolute;inset:7px;border:1px solid #8b5b45;border-radius:50%}
+
 @media(max-width:700px){main{padding:10px}header{padding:12px 14px}.ghost{padding:8px}.map-title{left:10px;top:10px}.map-title h1{font-size:23px}.map-note{right:10px;bottom:10px}#leafletMap{height:72vh;min-height:520px}.file-head{align-items:flex-start;flex-direction:column}.photo{width:100%;height:210px}.recipe-grid,.cook-document{grid-template-columns:1fr}.recipe-card{padding:20px}.recipe-card h1,.cook h1{font-size:29px}}
 </style>
 </head>
@@ -137,12 +147,12 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
       </div>
       <div class="city-visit" id="cityVisit"></div>
       <button type="button" class="back-journeys" id="backJourneys">← My Journeys</button>
-      <div class="page-number">CITY PAGE</div>
+      
     </div>
 
     <div class="city-page city-map-access">
       <div class="map-access-frame">
-        <div class="map-frame-label">CITY MAP</div>
+        
         <div class="map-preview" id="mapPreview">
           <div class="preview-grid"></div>
           <div class="preview-route"></div>
@@ -153,7 +163,7 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
       </div>
       <button type="button" class="open-city-map" id="openCityMap">Open City Map →</button>
       <div class="map-page-note" id="mapPageNote"></div>
-      <div class="page-number">MAP ACCESS</div>
+      
     </div>
   </div>
 </section>
@@ -225,31 +235,100 @@ const cityDetails = {
   paris: {
     region: "Île-de-France",
     fact: "The Eiffel Tower was built for the 1889 World's Fair and was originally intended to be a temporary structure.",
-    stamp: "PARIS"
+    stamp: "PARIS",
+    landmark: "eiffel"
   },
   madrid: {
     region: "Community of Madrid",
     fact: "Madrid became the permanent capital of Spain in 1561, when Philip II moved the royal court there.",
-    stamp: "MADRID"
+    stamp: "MADRID",
+    landmark: "madrid"
   },
   ghent: {
     region: "East Flanders",
     fact: "Ghent grew into one of medieval Europe's great cloth-producing cities, helped by its position along the waterways of Flanders.",
-    stamp: "GHENT"
+    stamp: "GHENT",
+    landmark: "ghent"
   },
   brussels: {
     region: "Brussels-Capital Region",
     fact: "The Grand Place has been the historic heart of Brussels for centuries and is recognized as a UNESCO World Heritage site.",
-    stamp: "BRUSSELS"
+    stamp: "BRUSSELS",
+    landmark: "brussels"
   },
   cordoba: {
     region: "Andalusia",
     fact: "The Great Mosque of Córdoba began construction in 785 and became one of the most celebrated monuments of medieval Islamic Spain.",
-    stamp: "CÓRDOBA"
+    stamp: "CÓRDOBA",
+    landmark: "cordoba"
   }
 };
 
 let currentCity = null;
+
+function landmarkSvg(type){
+  const svgs = {
+    eiffel: `<svg class="landmark-svg" viewBox="0 0 120 150" aria-label="Eiffel Tower silhouette">
+      <g fill="currentColor">
+        <rect x="12" y="143" width="96" height="4" rx="2"/>
+        <path d="M27 143 L45 72 L54 20 L60 6 L66 20 L75 72 L93 143 Z"/>
+        <rect x="46" y="69" width="28" height="5"/>
+        <rect x="41" y="88" width="38" height="5"/>
+        <rect x="34" y="108" width="52" height="5"/>
+        <rect x="54" y="20" width="12" height="3"/>
+      </g>
+    </svg>`,
+    madrid: `<svg class="landmark-svg" viewBox="0 0 120 150" aria-label="Madrid landmark silhouette">
+      <g fill="currentColor">
+        <rect x="18" y="132" width="84" height="10"/>
+        <path d="M28 132 V72 H42 V60 H51 V72 H69 V60 H78 V72 H92 V132 Z"/>
+        <path d="M39 72 V38 H46 V28 H53 V38 H60 V28 H67 V38 H74 V72 Z"/>
+        <circle cx="56" cy="18" r="6"/>
+        <rect x="52" y="16" width="8" height="12"/>
+      </g>
+    </svg>`,
+    ghent: `<svg class="landmark-svg" viewBox="0 0 120 150" aria-label="Ghent castle silhouette">
+      <g fill="currentColor">
+        <rect x="15" y="72" width="90" height="70"/>
+        <rect x="8" y="50" width="22" height="92"/>
+        <rect x="90" y="50" width="22" height="92"/>
+        <path d="M8 50 L19 35 L30 50 Z M90 50 L101 35 L112 50 Z"/>
+        <path d="M32 72 L60 43 L88 72 Z"/>
+        <rect x="50" y="92" width="20" height="50"/>
+        <rect x="37" y="86" width="10" height="16"/>
+        <rect x="73" y="86" width="10" height="16"/>
+      </g>
+    </svg>`,
+    brussels: `<svg class="landmark-svg" viewBox="0 0 120 150" aria-label="Brussels landmark silhouette">
+      <g fill="currentColor">
+        <circle cx="60" cy="35" r="14"/>
+        <circle cx="60" cy="112" r="14"/>
+        <circle cx="23" cy="74" r="14"/>
+        <circle cx="97" cy="74" r="14"/>
+        <circle cx="60" cy="74" r="14"/>
+        <rect x="55" y="47" width="10" height="16" transform="rotate(90 60 55)"/>
+        <rect x="55" y="85" width="10" height="16" transform="rotate(90 60 93)"/>
+        <rect x="35" y="69" width="16" height="10"/>
+        <rect x="69" y="69" width="16" height="10"/>
+      </g>
+    </svg>`,
+    cordoba: `<svg class="landmark-svg" viewBox="0 0 120 150" aria-label="Córdoba landmark silhouette">
+      <g fill="currentColor">
+        <rect x="14" y="57" width="92" height="85"/>
+        <path d="M10 57 L60 25 L110 57 Z"/>
+        <rect x="28" y="76" width="12" height="66"/>
+        <rect x="54" y="76" width="12" height="66"/>
+        <rect x="80" y="76" width="12" height="66"/>
+        <path d="M28 84 Q34 70 40 84 V96 H28 Z"/>
+        <path d="M54 84 Q60 70 66 84 V96 H54 Z"/>
+        <path d="M80 84 Q86 70 92 84 V96 H80 Z"/>
+        <rect x="52" y="18" width="16" height="8"/>
+      </g>
+    </svg>`
+  };
+  return svgs[type] || svgs.eiffel;
+}
+
 
 function renderJourneys(){
   const list=document.getElementById("journeyList");
@@ -286,7 +365,7 @@ function openCityPage(cityId){
   document.getElementById("cityRegion").textContent=city.country.toUpperCase()+" · "+details.region;
   document.getElementById("cityName").textContent=city.city;
   document.getElementById("cityCountry").textContent=city.country;
-  document.getElementById("cityStamp").innerHTML=`<span>${details.stamp}<br><small>${city.country.toUpperCase()}</small></span>`;
+  document.getElementById("cityStamp").innerHTML=landmarkSvg(details.landmark || "eiffel") + `<span class="stamp-city-text">${city.city.toUpperCase()}</span><small class="stamp-country-text">${city.country.toUpperCase()}</small>`;
   document.getElementById("cityFact").textContent=details.fact;
   document.getElementById("cityVisit").textContent=city.id==="paris" ? "Visited · 10 November 2025" : "Journey awaiting your memories";
   document.getElementById("mapPreviewLabel").textContent=city.city;

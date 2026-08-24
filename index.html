@@ -151,7 +151,7 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
   </div>
 </section>
 
-<section id="passport" class="screen active">
+<section id="passport" class="screen">
   <div class="passport">
     <div class="brand">The Digital</div><h1>FOOD PASSPORT</h1><h2>PARIS · FRANCE</h2>
     <div class="qr"><img id="qrImg" alt="Paris QR code"></div>
@@ -266,6 +266,7 @@ function init(){
   const qrTarget=location.href.split("#")[0]+"#paris";
   document.getElementById("qrImg").src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data="+encodeURIComponent(qrTarget);
 
+  document.getElementById("openPassport").addEventListener("click",()=>showScreen("cityPassport"));
   document.getElementById("masterBtn").addEventListener("click",()=>showScreen("masterPassport"));
   document.getElementById("journeysBtn").addEventListener("click",()=>showScreen("cityPassport"));
   document.getElementById("mapBtn").addEventListener("click",()=>showScreen("map"));
@@ -294,6 +295,7 @@ function init(){
     document.getElementById("leafletMap").innerHTML='<div style="height:100%;display:grid;place-items:center;padding:30px;text-align:center;color:#766957;background:#e8dfca"><div><b>Interactive map could not load.</b><br><br>The restaurant data is loaded. Please refresh the page.</div></div>';
   }
 }
+showScreen("masterPassport");
 init();
 </script>
 </body>

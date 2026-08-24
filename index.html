@@ -67,7 +67,7 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
 .route{position:absolute;border-top:2px dashed #8b5b45;border-radius:50%}.r1{width:190px;left:18%;top:42%;transform:rotate(-8deg)}.r2{width:160px;left:42%;top:30%;transform:rotate(24deg)}.r3{width:125px;left:48%;top:62%;transform:rotate(-25deg)}
 .journey-stamp{position:absolute;right:65px;bottom:85px;border:2px solid #8b5b45;padding:12px;text-align:center;font-size:9px;line-height:1.5;letter-spacing:.1em;transform:rotate(-7deg);color:#8b5b45}
 .city-region{margin-top:2px}.city-story-page h1{text-align:center;font-family:Georgia,serif;font-size:54px;font-weight:normal;letter-spacing:.04em;text-transform:uppercase;margin:10px 0 3px;position:relative}.city-country{text-align:center;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#8b5b45;position:relative}
-.city-stamp{width:150px;height:150px;border:3px double #8b5b45;border-radius:50%;margin:32px auto 30px;display:grid;place-items:center;text-align:center;font-family:Georgia,serif;font-size:17px;line-height:1.2;color:#8b5b45;transform:rotate(-6deg);position:relative}.city-stamp:before{content:"✦";display:block;font-size:22px}.city-stamp:after{content:"CITY PASSPORT";font-family:Arial,sans-serif;font-size:7px;letter-spacing:.2em}
+.city-stamp{width:150px;height:150px;border:3px double #8b5b45;border-radius:50%;margin:32px auto 30px;display:grid;place-items:center;text-align:center;font-family:Georgia,serif;font-size:17px;line-height:1.2;color:#8b5b45;transform:rotate(-6deg);position:relative}.city-stamp:before{content:"✦";display:block;font-size:22px}
 .fact-block{position:relative;border-top:1px solid #c7b58f;border-bottom:1px solid #c7b58f;padding:20px 10px;text-align:center}.fact-label{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#766957}.fact-block p{font-family:Georgia,serif;font-size:16px;line-height:1.6;margin:10px auto 0;max-width:430px}
 .city-visit{text-align:center;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#8b5b45;margin-top:25px}.back-journeys{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);background:transparent;border:none;color:#766957;font-family:Georgia,serif;cursor:pointer}
 .map-access-frame{position:relative;border:8px solid #d6c39c;outline:1px solid #9d8a67;outline-offset:-13px;padding:24px;margin-top:45px;background:#e6dbc0}.map-frame-label{text-align:center;font-size:10px;letter-spacing:.25em;color:#766957;margin-bottom:16px}
@@ -86,6 +86,58 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
 .city-stamp:before{content:"";position:absolute;inset:7px;border:1px solid #8b5b45;border-radius:50%}
 
 @media(max-width:700px){main{padding:10px}header{padding:12px 14px}.ghost{padding:8px}.map-title{left:10px;top:10px}.map-title h1{font-size:23px}.map-note{right:10px;bottom:10px}#leafletMap{height:72vh;min-height:520px}.file-head{align-items:flex-start;flex-direction:column}.photo{width:100%;height:210px}.recipe-grid,.cook-document{grid-template-columns:1fr}.recipe-card{padding:20px}.recipe-card h1,.cook h1{font-size:29px}}
+
+.city-stamp .stamp-city-text{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:29px;
+  text-align:center;
+  font-family:Georgia,serif;
+  font-size:15px;
+  letter-spacing:.13em;
+}
+.city-stamp .stamp-country-text{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:16px;
+  text-align:center;
+  font-family:Georgia,serif;
+  font-size:8px;
+  letter-spacing:.16em;
+}
+.city-stamp .landmark-svg{
+  width:72px;
+  height:92px;
+  display:block;
+  color:#8b5b45;
+  opacity:.82;
+  margin:0 auto;
+}
+
+
+.city-page{position:relative}
+.city-page-number{
+  position:absolute;
+  bottom:27px;
+  font-size:9px;
+  letter-spacing:.20em;
+  color:#766957;
+}
+.city-page-number.left{left:0;right:0;text-align:center}
+.city-page-number.right{left:0;right:0;text-align:center}
+.city-story-page .back-journeys{bottom:54px}
+.city-map-access .map-page-note{margin-bottom:34px}
+.journey-entry,.cover-open,.back-journeys,.open-city-map{
+  position:relative;
+  z-index:20;
+  pointer-events:auto;
+}
+
+
+.tab{cursor:pointer;position:relative;z-index:20;pointer-events:auto}
+
 </style>
 </head>
 <body>
@@ -107,7 +159,7 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
       <div class="cover-globe" aria-hidden="true">◎</div>
       <div class="cover-note">A collection of meals,<br>places &amp; moments in between.</div>
       <div class="cover-year">EST. 2025</div>
-      <button type="button" class="cover-open" id="openPassport">Open Passport →</button>
+      <button type="button" class="cover-open" id="openPassport" onclick="showScreen('journeys')">Open Passport →</button>
     </div>
   </div>
 </section>
@@ -146,7 +198,8 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
         <p id="cityFact"></p>
       </div>
       <div class="city-visit" id="cityVisit"></div>
-      <button type="button" class="back-journeys" id="backJourneys">← My Journeys</button>
+      <button type="button" class="back-journeys" id="backJourneys" onclick="showScreen('journeys')">← My Journeys</button>
+      <div class="city-page-number left">PAGE 02</div>
       
     </div>
 
@@ -161,8 +214,9 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
         </div>
         <div class="map-frame-caption">Restaurants, places &amp; food memories</div>
       </div>
-      <button type="button" class="open-city-map" id="openCityMap">Open City Map →</button>
+      <button type="button" class="open-city-map" id="openCityMap" onclick="openCurrentCityMap()">Open City Map →</button>
       <div class="map-page-note" id="mapPageNote"></div>
+      <div class="city-page-number right">PAGE 03</div>
       
     </div>
   </div>
@@ -175,7 +229,7 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
   <div class="file">
     <div class="file-head"><img class="photo" id="restPhoto" alt="La Parisienne"><div><h1 id="restName"></h1><p id="restLocation"></p><p id="restDate" style="color:var(--red)"></p></div></div>
     <div class="tabs">
-      <button class="tab active" data-tab="about">ABOUT</button><button class="tab" data-tab="photos">PHOTOS</button><button class="tab" data-tab="recipes">RECIPES</button><button class="tab" data-tab="memories">MEMORIES</button>
+      <button class="tab active" id="tabAbout" data-tab="about">ABOUT</button><button class="tab" id="tabPhotos" data-tab="photos">PHOTOS</button><button class="tab" id="tabRecipes" data-tab="recipes">RECIPES</button><button class="tab" id="tabMemories" data-tab="memories">MOMENTS</button>
     </div>
     <div class="file-body" id="fileBody"></div>
   </div>
@@ -208,13 +262,20 @@ function renderRestaurant(tab="about"){
  document.getElementById("restLocation").textContent=restaurant.location;
  document.getElementById("restDate").textContent=restaurant.date;
  document.getElementById("restPhoto").src=(restaurant.photo || "laparisienne.jpg").replace("images/paris/laparisienne.jpg","laparisienne.jpg");
- document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.tab===tab));
+ document.querySelectorAll(".tab").forEach(b=>{
+   b.classList.toggle("active",b.dataset.tab===tab);
+   b.onclick=()=>renderRestaurant(b.dataset.tab);
+ });
  const body=document.getElementById("fileBody");
  if(tab==="about") body.innerHTML=`<div class="memory"><p><b>About La Parisienne</b></p><p>${restaurant.story}</p><p style="color:var(--red)">Tap RECIPES to browse the recipes collected from this place.</p></div>`;
  if(tab==="photos") body.innerHTML=`<img src="${(restaurant.photo || "laparisienne.jpg").replace("images/paris/laparisienne.jpg","laparisienne.jpg")}" style="max-width:100%;width:650px;border-radius:3px;border:1px solid var(--line)" alt="La Parisienne"><p style="color:var(--muted)">Our La Parisienne photo · ${restaurant.date}</p>`;
  if(tab==="memories") body.innerHTML=`<div class="memory"><p>${restaurant.story}</p><p>More travel memories can be added here later: people, meals, stories, photos, and notes.</p></div>`;
  if(tab==="recipes") body.innerHTML=`<div class="recipe-drawer">${restaurant.recipes.map((x,i)=>`<div class="divider" data-recipe="${i}"><h3>${x.name}</h3><p>${x.category}</p></div>`).join("")}</div>`;
- if(tab==="recipes") body.querySelectorAll("[data-recipe]").forEach(el=>el.addEventListener("click",()=>openRecipe(Number(el.dataset.recipe))));
+ if(tab==="recipes"){
+   body.querySelectorAll("[data-recipe]").forEach(el=>{
+     el.onclick=()=>openRecipe(Number(el.dataset.recipe));
+   });
+ }
 }
 function openRestaurant(){renderRestaurant("about");showScreen("restaurant")}
 function renderRecipe(){
@@ -335,7 +396,7 @@ function renderJourneys(){
   list.innerHTML=cities.map(city=>{
     const count=city.restaurants ? city.restaurants.length : 0;
     const meta=count ? `${count} ${count===1?"restaurant":"restaurants"}` : "A new journey";
-    return `<button type="button" class="journey-entry" data-city="${city.id}">
+    return `<button type="button" class="journey-entry" data-city="${city.id}" onclick="openCityPage('${city.id}')">
       <span class="journey-entry-stamp">${city.flag || "✦"}</span>
       <span>
         <span class="journey-entry-name">${city.city}</span>
@@ -422,6 +483,10 @@ function init(){
   bind("backMap",()=>showScreen("map"));
   bind("backRestaurant",()=>{renderRestaurant("about");showScreen("restaurant")});
   bind("backRecipe",()=>{renderRecipe();showScreen("recipe")});
+  bind("tabAbout",()=>renderRestaurant("about"));
+  bind("tabPhotos",()=>renderRestaurant("photos"));
+  bind("tabRecipes",()=>renderRestaurant("recipes"));
+  bind("tabMemories",()=>renderRestaurant("memories"));
   bind("prevRecipe",()=>{
     if(!restaurant || !restaurant.recipes || !restaurant.recipes.length) return;
     currentRecipe=(currentRecipe-1+restaurant.recipes.length)%restaurant.recipes.length;

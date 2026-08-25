@@ -125,7 +125,7 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
   letter-spacing:.20em;
   color:#766957;
 }
-.city-page-number.left{left:0;right:0;text-align:center}
+.city-page-number.left{left:0;right:0;text-align:center;bottom:28px!important}
 .city-page-number.right{left:0;right:0;text-align:center}
 .city-story-page .back-journeys{bottom:54px}
 .city-map-access .map-page-note{margin-bottom:34px}
@@ -193,6 +193,45 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
   .globe-wrap{width:min(300px,82%)}
 }
 
+
+/* Make PAGE 02 and PAGE 03 identical in placement and styling */
+.journey-page .journey-page-number{
+  position:absolute!important;
+  bottom:28px!important;
+  left:0!important;
+  right:0!important;
+  text-align:center!important;
+  font-size:9px!important;
+  letter-spacing:.20em!important;
+  color:#766957!important;
+  margin:0!important;
+  top:auto!important;
+  transform:none!important;
+}
+
+/* City page: use the same button treatment as OPEN PARIS MAP */
+.city-story-page .back-journeys{
+  position:absolute!important;
+  left:50%!important;
+  bottom:62px!important;
+  transform:translateX(-50%)!important;
+  margin:0!important;
+  background:#173a3d!important;
+  color:#ead9ad!important;
+  border:1px solid #c9aa68!important;
+  padding:14px 25px!important;
+  font-family:Georgia,serif!important;
+  text-transform:uppercase!important;
+  letter-spacing:.1em!important;
+  cursor:pointer!important;
+  min-height:44px!important;
+  box-sizing:border-box!important;
+}
+.city-story-page .city-visit{
+  margin-top:25px;
+  margin-bottom:88px!important;
+}
+
 </style>
 </head>
 <body>
@@ -226,7 +265,7 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
       <h1>My Journeys</h1>
       <p class="page-intro">A table of contents for the places, tables and memories in this passport.</p>
       <div id="journeyList" class="journey-list" aria-label="Cities"></div>
-      <div class="page-number">PAGE 02</div>
+      <div class="journey-page-number">PAGE 02</div>
     </div>
 
     <div class="journey-page journey-map-page">

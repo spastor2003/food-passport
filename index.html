@@ -581,10 +581,7 @@ function init(){
 
   // Header navigation.
   bind("passportBtn",()=>showScreen("masterPassport"));
-  bind("mapBtn",()=>{
-    const paris=cities.find(c=>c.id==="paris");
-    if(paris) openCityPage("paris");
-  });
+  bind("mapBtn",()=>showScreen("journeys"));
 
   // Existing map / restaurant / recipe navigation.
   bind("backMap",()=>showScreen("map"));

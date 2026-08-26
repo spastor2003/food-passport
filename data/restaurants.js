@@ -73,7 +73,118 @@ const cities = [
             source: "Recipe collected for the Paris food passport."
           }
         ]
-      }
+      },
+
+      {
+        id: "le-machon-dhenri",
+        name: "Le Machon d'Henri",
+        city: "Paris",
+        country: "France",
+        date: "10 November 2025",
+        address: "8 Rue Guisarde, 75006 Paris, France",
+        coordinates: { lat: 48.8519431, lng: 2.3344567 },
+        photo: "images/paris/le-machon-dhenri-storefront.jpg",
+        story: "You wanted to go and take photos at the Eiffel Tower site. Then we decided to go and eat somewhere after walking around the whole area. Since the way there was around like an hour walking we decided to walk around and see the city. However, we eventually got into an argument, one I now do not remember, which was probably something ridiculous, and then ate some of the best food of our life next to some loud Texans.",
+        memories: [
+          "10 November 2025 · Eiffel Tower day and a long walk through Paris.",
+          "An argument we no longer remember, followed by some of the best food of our life next to some loud Texans."
+        ],
+        photos: [
+          "images/paris/le-machon-dhenri-entrecote.jpg",
+          "images/paris/le-machon-dhenri-escargots.jpg",
+          "images/paris/le-machon-dhenri-ravioles.jpg",
+          "images/paris/le-machon-dhenri-interior.jpg",
+          "images/paris/le-machon-dhenri-storefront.jpg"
+        ],
+        photoCaptions: [
+          "Entrecôte with green pepper sauce and gratin dauphinois",
+          "Escargots beurre à l'ail",
+          "Ravioles du Dauphiné with Comté and cream",
+          "Le Machon d'Henri interior",
+          "Le Machon d'Henri storefront"
+        ],
+        recipes: [
+          {
+            name: "Ravioles du Dauphiné with Comté & Cream",
+            category: "Pasta",
+            ingredients: [
+              "2 cups (300 g) 00 flour",
+              "3 large eggs",
+              "Pinch of salt",
+              "150 g Comté cheese, cubed or grated",
+              "2 heaping Tbsp (35 g) crème fraîche or heavy cream",
+              "60 g (4 Tbsp) unsalted butter",
+              "2 Tbsp chopped fresh parsley",
+              "Salt and black pepper, to taste"
+            ],
+            instructions: [
+              "Pour the flour onto a clean surface, make a well, add the eggs and salt, then mix into a dough. Knead for 10–15 minutes, wrap and rest for 1 hour.",
+              "Mix the Comté, crème fraîche and parsley. Season lightly with salt and pepper.",
+              "Roll the dough very thin. Add small dollops of filling, cover with another sheet of dough, press to seal and cut into small squares.",
+              "Boil the ravioles in salted water for about 90 seconds, until they float.",
+              "Melt the butter and an extra spoonful of cream in a warm pan. Toss the cooked ravioles in the sauce and garnish with herbs and black pepper."
+            ],
+            note: "Home-recreation recipe supplied for the passport; not presented as the restaurant's exact recipe.",
+            source: "Recipe sources supplied for the food passport."
+          },
+          {
+            name: "Entrecôte with Green Pepper Sauce & Gratin Dauphinois",
+            category: "Main Course",
+            ingredients: [
+              "2 entrecôte (ribeye) steaks, about 10–12 oz each",
+              "1 Tbsp oil",
+              "2 Tbsp butter",
+              "Fresh rosemary and thyme",
+              "4 large russet potatoes, peeled and thinly sliced",
+              "1½ cups heavy cream",
+              "1½ cups milk",
+              "4 cloves garlic, minced",
+              "2 tsp salt and fresh cracked pepper",
+              "1¾ cups grated Gruyère cheese",
+              "2 Tbsp unsalted butter for the sauce",
+              "2 medium shallots, finely chopped",
+              "2 Tbsp green peppercorns in brine",
+              "⅓ cup cognac",
+              "1 cup heavy cream for the sauce",
+              "1 tsp Dijon mustard"
+            ],
+            instructions: [
+              "Heat the oven to 375°F (190°C) and butter a baking dish.",
+              "Mix cream, milk, garlic, salt and pepper. Layer the potato slices and Gruyère in the dish, pour the cream mixture over them, and bake for 50–60 minutes until tender and golden.",
+              "For the green peppercorn sauce, melt butter, soften the shallots, add green peppercorns and cook for 2 minutes. Add cognac and allow the alcohol to burn off.",
+              "Stir in heavy cream and Dijon mustard and simmer gently until thickened.",
+              "Season the steaks with salt and pepper. Heat oil in a heavy skillet over high heat and sear the steaks for about 3 minutes per side.",
+              "Add butter, rosemary and thyme and spoon the melted butter over the steaks. Rest for 5 minutes.",
+              "Serve the entrecôte with the warm green pepper sauce and gratin dauphinois."
+            ],
+            note: "The passport combines the supplied steak, sauce and gratin recipes into one recreation of the dish you ate.",
+            source: "Recipe sources supplied for the food passport."
+          },
+          {
+            name: "Escargots Beurre à l'Ail",
+            category: "Starter",
+            ingredients: [
+              "1 can (7–8 oz) canned escargots, about 12–24 snails, drained and rinsed",
+              "1 cup (2 sticks) unsalted butter, softened",
+              "3–4 cloves garlic, very finely minced or pressed",
+              "1 small shallot, finely chopped",
+              "⅓ cup fresh flat-leaf parsley, finely chopped",
+              "½ tsp salt and a pinch of black pepper",
+              "Baguette, for serving",
+              "Clean snail shells or a traditional escargot baking dish"
+            ],
+            instructions: [
+              "Heat the oven to 400°F (200°C).",
+              "Mix the softened butter, garlic, shallot, parsley, salt and pepper until smooth.",
+              "Place a little garlic butter in each shell or baking-dish well, add a snail, then cover with more garlic butter.",
+              "Bake for 8–10 minutes, until the butter is melted, bubbling and lightly browned.",
+              "Serve immediately with crusty French bread to soak up the garlic butter."
+            ],
+            note: "Home-recreation recipe supplied for the passport; not presented as the restaurant's exact recipe.",
+            source: "Recipe sources supplied for the food passport."
+          }
+        ]
+      },
     ]
   },
 

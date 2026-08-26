@@ -269,7 +269,56 @@ const cities = [
             source: "Recipe sources supplied for the food passport, including the references provided."
           }
         ]
-      }
+
+      {
+        id: "merisu",
+        name: "Tiramisù Merisù",
+        city: "Madrid",
+        country: "Spain",
+        date: "Several visits",
+        address: "Calle de Santiago, 8, 28013 Madrid, Spain",
+        coordinates: { lat: 40.4163387, lng: -3.7100004 },
+        photo: "images/madrid/madrid-merisu-storefront.jpg",
+        story: "You visited Tiramisù Merisù on several occasions, including getting a heart-shaped tiramisu cake for Valentine's Day.",
+        memories: [
+          "Valentine's Day · Heart-shaped tiramisu cake",
+          "Several visits to Tiramisù Merisù"
+        ],
+        photos: [
+          "images/madrid/madrid-merisu-storefront.jpg",
+          "images/madrid/madrid-merisu-tiramisu.jpg"
+        ],
+        photoCaptions: [
+          "Tiramisù Merisù storefront",
+          "Tiramisú Classico"
+        ],
+        recipes: [
+          {
+            name: "Tiramisú Classico",
+            category: "Dessert",
+            ingredients: [
+              "16 oz (500 g) mascarpone cheese, chilled or at room temperature",
+              "4 large eggs, separated",
+              "½ cup (100 g) caster or granulated sugar",
+              "1½–2 cups freshly brewed espresso or strong coffee, cooled",
+              "1 package ladyfingers (Savoiardi), about 24–30 biscuits",
+              "2 Tbsp cocoa powder, for dusting",
+              "2 Tbsp coffee liqueur or Marsala wine, optional",
+              "Tiny pinch of salt"
+            ],
+            instructions: [
+              "Brew the espresso or strong coffee and let it cool completely in a shallow dish. Stir in optional coffee liqueur or Marsala wine if desired.",
+              "Beat the egg yolks and sugar until pale, thick and creamy. Add mascarpone and beat on low speed just until smooth and combined. Do not overmix.",
+              "In a separate clean bowl, beat the egg whites with a tiny pinch of salt until stiff, glossy peaks form. Gently fold the whites into the mascarpone mixture until uniform and airy.",
+              "Quickly dip each ladyfinger into the cooled espresso for about one second per side. Arrange a single layer in an 8×8-inch or 9×13-inch baking dish.",
+              "Spread half of the mascarpone cream over the ladyfingers. Repeat with another layer of dipped ladyfingers and the remaining mascarpone cream.",
+              "Cover and refrigerate for at least 6 hours, preferably overnight. Just before serving, generously dust the top with cocoa powder."
+            ],
+            note: "This is the home-recreation recipe collected for the food passport; it is not presented as Tiramisù Merisù's exact recipe.",
+            source: "Recipe sources supplied for the food passport."
+          }
+        ]
+      },
     ]
   }
 ];

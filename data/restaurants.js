@@ -269,7 +269,7 @@ const cities = [
             source: "Recipe sources supplied for the food passport, including the references provided."
           }
         ]
-
+      },
       {
         id: "merisu",
         name: "Tiramisù Merisù",

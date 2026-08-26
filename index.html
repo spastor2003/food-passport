@@ -43,7 +43,21 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
 .cover-star{font-size:38px;margin-bottom:12px}.cover-kicker{text-transform:uppercase;letter-spacing:.25em;font-size:11px}
 .master-cover h1{font-family:Georgia,serif;font-size:54px;line-height:1.02;font-weight:normal;text-transform:uppercase;letter-spacing:.04em;margin:28px 0 22px}
 .cover-rule{width:190px;border-top:2px solid #c9aa68;margin:0 auto 18px}.cover-subtitle{font-family:Georgia,serif;font-style:italic;font-size:16px;letter-spacing:.08em}
-.cover-globe{width:105px;height:105px;border:2px solid #c9aa68;border-radius:50%;display:grid;place-items:center;margin:36px auto 20px;font-size:64px}
+.cover-globe{
+  width:min(390px,86%);
+  margin:30px auto 18px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.cover-globe img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:210px;
+  object-fit:contain;
+  background:transparent;
+}
 .cover-note{font-family:Georgia,serif;font-style:italic;font-size:15px;line-height:1.5}.cover-year{font-size:10px;letter-spacing:.2em;margin-top:18px}
 .cover-open{margin-top:28px;background:#ead9ad;color:#173a3d;border:1px solid #c9aa68;padding:14px 28px;font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.12em;cursor:pointer;min-height:44px}
 .journey-book,.city-book{max-width:1080px;margin:24px auto 45px;display:grid;grid-template-columns:1fr 1fr;box-shadow:0 20px 50px #372a1b30}
@@ -73,7 +87,7 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
 .map-access-frame{position:relative;border:8px solid #d6c39c;outline:1px solid #9d8a67;outline-offset:-13px;padding:24px;margin-top:45px;background:#e6dbc0}.map-frame-label{text-align:center;font-size:10px;letter-spacing:.25em;color:#766957;margin-bottom:16px}
 .map-preview{height:390px;background:#dcd4bd;position:relative;overflow:hidden;border:1px solid #b8a984}.preview-grid{position:absolute;inset:-20px;background:repeating-linear-gradient(18deg,transparent 0 35px,#9d8a67 36px 37px),repeating-linear-gradient(102deg,transparent 0 52px,#9d8a67 53px 54px);opacity:.45}.preview-route{position:absolute;width:75%;height:45%;left:12%;top:26%;border:3px solid #8b5b45;border-left-color:transparent;border-bottom-color:transparent;border-radius:50%;transform:rotate(-14deg);opacity:.6}.preview-pin{position:absolute;left:50%;top:48%;width:34px;height:34px;border-radius:50% 50% 50% 0;background:#8b5b45;color:#f3e6ca;display:grid;place-items:center;font-size:22px;transform:rotate(-45deg);box-shadow:0 3px 5px #372a1b40}.preview-city-label{position:absolute;left:50%;top:38%;transform:translateX(-50%);font-family:Georgia,serif;font-size:20px;text-transform:uppercase;color:#6d5944;letter-spacing:.12em}
 .map-frame-caption{text-align:center;font-family:Georgia,serif;font-style:italic;color:#766957;font-size:12px;margin-top:15px}.open-city-map{display:block;margin:25px auto 0;background:#173a3d;color:#ead9ad;border:1px solid #c9aa68;padding:14px 25px;font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.1em;cursor:pointer;min-height:44px}.map-page-note{text-align:center;font-size:10px;color:#766957;font-style:italic;margin:12px 30px}
-@media(max-width:760px){.master-cover-inner{min-height:560px;padding:55px 25px}.master-cover h1{font-size:40px}.journey-book,.city-book{grid-template-columns:1fr}.journey-page,.city-page{min-height:650px;border:1px solid #c7b58f!important;border-radius:5px!important}.journey-page:last-child{display:none}.journey-list{height:450px}.city-map-access{margin-top:15px}.city-stamp{width:125px;height:125px}}
+@media(max-width:760px){.master-cover-inner{min-height:560px;padding:55px 25px}.master-cover h1{font-size:40px}.cover-globe{width:min(340px,92%)}.cover-globe img{max-height:180px}.journey-book,.city-book{grid-template-columns:1fr}.journey-page,.city-page{min-height:650px;border:1px solid #c7b58f!important;border-radius:5px!important}.journey-page:last-child{display:none}.journey-list{height:450px}.city-map-access{margin-top:15px}.city-stamp{width:125px;height:125px}}
 
 
 .landmark-svg{width:72px;height:92px;color:#8b5b45;display:block;opacity:.82;margin:0 auto 2px}
@@ -261,52 +275,6 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
   .photo-grid{grid-template-columns:1fr}
 }
 
-/* Madrid + Paris PNG artwork — transparent, frame-free */
-.city-stamp.image-stamp{
-  border:0!important;
-  background:transparent!important;
-  transform:none!important;
-  overflow:visible!important;
-  width:170px!important;
-  height:170px!important;
-}
-.city-stamp.image-stamp:before{display:none!important}
-.city-stamp.image-stamp img{
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  background:transparent;
-}
-
-.map-access-frame.image-map-frame{
-  border:0!important;
-  outline:0!important;
-  outline-offset:0!important;
-  padding:0!important;
-  margin-top:45px!important;
-  background:transparent!important;
-}
-
-.map-preview.image-map{
-  height:390px!important;
-  background:transparent!important;
-  border:0!important;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:visible!important;
-}
-.map-preview.image-map img{
-  display:block;
-  width:auto!important;
-  height:auto!important;
-  max-width:100%!important;
-  max-height:390px!important;
-  object-fit:contain!important;
-  background:transparent!important;
-}
-
 </style>
 </head>
 <body>
@@ -325,7 +293,7 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
       <h1>The Digital<br>Food Passport</h1>
       <div class="cover-rule"></div>
       <div class="cover-subtitle">Food • Travel • Memories • Recipes</div>
-      <div class="cover-globe" aria-hidden="true">◎</div>
+      <div class="cover-globe"><img src="images/vintage-world-map-transparent.png" alt="Vintage world map"></div>
       <div class="cover-note">A collection of meals,<br>places &amp; moments in between.</div>
       <div class="cover-year">EST. 2025</div>
       <button type="button" class="cover-open" id="openPassport" onclick="showScreen('journeys')">Open Passport →</button>
@@ -524,7 +492,7 @@ const cityDetails = {
     landmark: "eiffel"
   },
   madrid: {
-    region: "Provincia de Madrid",
+    region: "Community of Madrid",
     fact: "Madrid became the permanent capital of Spain in 1561, when Philip II moved the royal court there.",
     stamp: "MADRID",
     landmark: "madrid"
@@ -651,28 +619,10 @@ function openCityPage(cityId){
   document.getElementById("cityRegion").textContent=city.country.toUpperCase()+" · "+details.region;
   document.getElementById("cityName").textContent=city.city;
   document.getElementById("cityCountry").textContent=city.country;
-  const stampBox=document.getElementById("cityStamp");
-  const mapPreview=document.getElementById("mapPreview");
-  const artworkCities=["madrid","paris"];
-
-  if(artworkCities.includes(city.id)){
-    stampBox.classList.add("image-stamp");
-    stampBox.innerHTML=`<img src="images/pages/${city.id}-stamp.png" alt="${city.city} passport stamp">`;
-
-    mapPreview.classList.add("image-map");
-    document.querySelector(".map-access-frame").classList.add("image-map-frame");
-    mapPreview.innerHTML=`<img src="images/pages/${city.id}-map.png" alt="${city.city} regional map">`;
-  }else{
-    stampBox.classList.remove("image-stamp");
-    stampBox.innerHTML=landmarkSvg(details.landmark || "eiffel") + `<span class="stamp-city-text">${city.city.toUpperCase()}</span><small class="stamp-country-text">${city.country.toUpperCase()}</small>`;
-
-    mapPreview.classList.remove("image-map");
-    document.querySelector(".map-access-frame").classList.remove("image-map-frame");
-    mapPreview.innerHTML=`<div class="preview-grid"></div><div class="preview-route"></div><div class="preview-pin">•</div><div class="preview-city-label" id="mapPreviewLabel">${city.city}</div>`;
-  }
-
+  document.getElementById("cityStamp").innerHTML=landmarkSvg(details.landmark || "eiffel") + `<span class="stamp-city-text">${city.city.toUpperCase()}</span><small class="stamp-country-text">${city.country.toUpperCase()}</small>`;
   document.getElementById("cityFact").textContent=details.fact;
   document.getElementById("cityVisit").textContent=city.visitDate ? `Visited · ${city.visitDate}` : "Journey awaiting your memories";
+  document.getElementById("mapPreviewLabel").textContent=city.city;
   document.getElementById("mapPageNote").textContent=city.restaurants && city.restaurants.length
     ? `${city.restaurants.length} restaurant${city.restaurants.length===1?"":"s"} in your food passport`
     : "The map will grow as you add restaurants.";

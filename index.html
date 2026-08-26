@@ -116,19 +116,20 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
 .city-visit{text-align:center;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#8b5b45;margin-top:25px}.back-journeys{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);background:transparent;border:none;color:#766957;font-family:Georgia,serif;cursor:pointer}
 .map-access-frame{position:relative;border:8px solid #d6c39c;outline:1px solid #9d8a67;outline-offset:-13px;padding:24px;margin-top:45px;background:#e6dbc0}.map-frame-label{text-align:center;font-size:10px;letter-spacing:.25em;color:#766957;margin-bottom:16px}
  .map-preview{
-  height:390px;background:#e8dfca;position:relative;overflow:hidden;border:1px solid #b8a984
+  height:390px;background:#e8dfca;position:relative;overflow:hidden;border:1px solid #b8a984;
 }
 .regional-map-svg{width:100%;height:100%;display:block}
 .regional-map-bg{fill:#e8dfca}
-.regional-map-grid{stroke:#b9aa8d;stroke-width:.7;opacity:.42}
-.regional-map-outline{fill:#ded1b4;stroke:#8b5b45;stroke-width:2.2;stroke-linejoin:round}
-.regional-map-inner{fill:none;stroke:#b39e78;stroke-width:1;stroke-dasharray:3 3;opacity:.8}
-.regional-map-title{font-family:Georgia,serif;font-size:11px;letter-spacing:.16em;fill:#766957}
-.regional-map-region{font-family:Georgia,serif;font-size:9px;letter-spacing:.11em;fill:#8b5b45}
-.regional-map-city-dot{fill:#8b5b45;stroke:#f3e6ca;stroke-width:2}
-.regional-map-city-label{font-family:Georgia,serif;font-size:10px;fill:#4f4031}
-.regional-map-city-label.main{font-size:12px;font-weight:bold;letter-spacing:.08em}
-.regional-map-compass{font-family:Georgia,serif;font-size:10px;fill:#8b5b45;letter-spacing:.1em}
+.regional-map-grid{stroke:#b9aa8d;stroke-width:.45;opacity:.34}
+.regional-map-outline{fill:#ded1b4;stroke:#8b5b45;stroke-width:1.35;stroke-linejoin:round}
+.regional-map-inner{fill:none;stroke:#b39e78;stroke-width:.55;stroke-dasharray:2 2;opacity:.72}
+.regional-map-title{font-family:Georgia,serif;font-size:3.2px;letter-spacing:.15em;fill:#766957}
+.regional-map-region{font-family:Georgia,serif;font-size:2.8px;letter-spacing:.08em;fill:#8b5b45}
+.regional-map-city-dot{fill:#8b5b45;stroke:#f3e6ca;stroke-width:1}
+.regional-map-city-label{font-family:Georgia,serif;font-size:2.65px;fill:#4f4031}
+.regional-map-city-label.main{font-size:3.45px;font-weight:bold;letter-spacing:.05em}
+.regional-map-compass{font-family:Georgia,serif;font-size:3px;fill:#8b5b45;letter-spacing:.08em}
+.regional-map-leader{stroke:#8b5b45;stroke-width:.4;opacity:.65}
 @media(max-width:700px){.map-preview{height:330px}}
 .map-frame-caption{text-align:center;font-family:Georgia,serif;font-style:italic;color:#766957;font-size:12px;margin-top:15px}.open-city-map{display:block;margin:25px auto 0;background:#173a3d;color:#ead9ad;border:1px solid #c9aa68;padding:14px 25px;font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.1em;cursor:pointer;min-height:44px}.map-page-note{text-align:center;font-size:10px;color:#766957;font-style:italic;margin:12px 30px}
 @media(max-width:760px){.master-cover-inner{min-height:560px;padding:55px 25px}.master-cover h1{font-size:40px}.journey-book,.city-book{grid-template-columns:1fr}.journey-page,.city-page{min-height:650px;border:1px solid #c7b58f!important;border-radius:5px!important}.journey-page:last-child{display:none}.journey-list{height:450px}.city-map-access{margin-top:15px}.city-stamp{width:125px;height:125px}}
@@ -661,26 +662,63 @@ function renderRegionalPreview(city){
   const preview = document.getElementById("mapPreview");
   const label = document.getElementById("mapFrameLabel");
   if(!preview || !map) return;
+
   label.textContent = `${map.regionLabel} · REGIONAL MAP`;
 
-  const cityNodes = map.cities.map(([name,x,y,kind]) => `
-    <g>
-      <circle cx="${x}" cy="${y}" r="${kind==="main" ? 5 : 3.2}" class="regional-map-city-dot"></circle>
-      <text x="${x}" y="${y + (kind==="main" ? 14 : 11)}" text-anchor="middle" class="regional-map-city-label ${kind}">${name}</text>
-    </g>`).join("");
+  const labelPositions = {
+    madrid: {
+      "Madrid":[50,61,"middle"],
+      "Móstoles":[32,69,"end"],
+      "Fuenlabrada":[43,78,"middle"],
+      "Getafe":[61,74,"start"],
+      "Alcalá de Henares":[75,43,"middle"],
+      "Alcorcón":[34,55,"end"]
+    },
+    paris: {
+      "Paris":[50,61,"middle"],
+      "Saint-Denis":[50,34,"middle"],
+      "Versailles":[27,61,"middle"],
+      "Boulogne-Billancourt":[38,73,"middle"],
+      "Créteil":[72,72,"middle"],
+      "Argenteuil":[31,40,"middle"]
+    },
+    ghent: {
+      "Ghent":[50,58,"middle"],"Aalst":[30,67,"middle"],"Lokeren":[68,34,"middle"],
+      "Sint-Niklaas":[79,53,"middle"],"Deinze":[38,78,"middle"]
+    },
+    brussels: {
+      "Brussels":[51,61,"middle"],"Leuven":[74,37,"middle"],"Mechelen":[64,27,"middle"],
+      "Halle":[32,74,"middle"],"Vilvoorde":[56,37,"middle"]
+    },
+    cordoba: {
+      "Córdoba":[50,60,"middle"],"Lucena":[72,73,"middle"],"Puente Genil":[80,55,"middle"],
+      "Montilla":[65,64,"middle"],"Palma del Río":[33,35,"middle"]
+    }
+  }[city.id] || {};
+
+  const cityNodes = map.cities.map(([name,x,y,kind]) => {
+    const pos = labelPositions[name] || [x,y + (kind==="main" ? 8 : 6),"middle"];
+    const [tx,ty,anchor] = pos;
+    return `
+      <g>
+        <circle cx="${x}" cy="${y}" r="${kind==="main" ? 2.1 : 1.45}" class="regional-map-city-dot"></circle>
+        ${Math.abs(tx-x)+Math.abs(ty-y)>4 ? `<line x1="${x}" y1="${y}" x2="${tx}" y2="${ty-1.5}" class="regional-map-leader"></line>` : ""}
+        <text x="${tx}" y="${ty}" text-anchor="${anchor}" class="regional-map-city-label ${kind}">${name}</text>
+      </g>`;
+  }).join("");
 
   preview.innerHTML = `
-    <svg class="regional-map-svg" viewBox="0 0 100 100" preserveAspectRatio="none" role="img" aria-label="${map.regionLabel} showing ${city.city} and surrounding cities">
-      <rect width="100" height="100" class="regional-map-bg"/>
+    <svg class="regional-map-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${map.regionLabel} showing ${city.city} and surrounding cities">
+      <rect x="0" y="0" width="100" height="100" class="regional-map-bg"/>
       <g class="regional-map-grid">
         <path d="M0 20H100M0 40H100M0 60H100M0 80H100"/>
         <path d="M20 0V100M40 0V100M60 0V100M80 0V100"/>
       </g>
       <path d="${map.outline}" class="regional-map-outline"/>
       <path d="${map.inner}" class="regional-map-inner"/>
-      <text x="50" y="8" text-anchor="middle" class="regional-map-title">${city.city.toUpperCase()}</text>
+      <text x="50" y="9" text-anchor="middle" class="regional-map-title">${city.city.toUpperCase()}</text>
       <text x="50" y="94" text-anchor="middle" class="regional-map-region">${map.regionLabel}</text>
-      <text x="7" y="10" class="regional-map-compass">N</text>
+      <text x="8" y="11" class="regional-map-compass">N</text>
       ${cityNodes}
     </svg>`;
 }

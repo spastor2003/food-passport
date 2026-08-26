@@ -282,6 +282,28 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
   .photo-grid{grid-template-columns:1fr}
 }
 
+/* Madrid + Paris uploaded city artwork */
+.city-stamp-image{
+  display:block;
+  width:170px;
+  height:170px;
+  object-fit:contain;
+  margin:24px auto 24px;
+  background:transparent;
+}
+.city-region-map-image{
+  display:block;
+  width:100%;
+  aspect-ratio:1 / 1;
+  object-fit:contain;
+  background:transparent;
+  border:1px solid #b8a984;
+}
+@media(max-width:760px){
+  .city-stamp-image{width:145px;height:145px}
+}
+
+
 </style>
 </head>
 <body>
@@ -338,7 +360,7 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
       <div class="city-region" id="cityRegion"></div>
       <h1 id="cityName"></h1>
       <div class="city-country" id="cityCountry"></div>
-      <div class="city-stamp" id="cityStamp" aria-label="City stamp"></div>
+      <img class="city-stamp-image" id="cityStampImage" alt="City stamp">
       <div class="fact-block">
         <div class="fact-label">A LITTLE HISTORY</div>
         <p id="cityFact"></p>
@@ -352,12 +374,7 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
     <div class="city-page city-map-access">
       <div class="map-access-frame">
         
-        <div class="map-preview" id="mapPreview">
-          <div class="preview-grid"></div>
-          <div class="preview-route"></div>
-          <div class="preview-pin">•</div>
-          <div class="preview-city-label" id="mapPreviewLabel"></div>
-        </div>
+        <img class="city-region-map-image" id="cityRegionMapImage" alt="Regional map">
         <div class="map-frame-caption">Restaurants, places &amp; food memories</div>
       </div>
       <button type="button" class="open-city-map" id="openCityMap" onclick="openCurrentCityMap()">Open City Map →</button>
@@ -615,10 +632,37 @@ function openCityPage(cityId){
   document.getElementById("cityRegion").textContent=city.country.toUpperCase()+" · "+details.region;
   document.getElementById("cityName").textContent=city.city;
   document.getElementById("cityCountry").textContent=city.country;
-  document.getElementById("cityStamp").innerHTML=landmarkSvg(details.landmark || "eiffel") + `<span class="stamp-city-text">${city.city.toUpperCase()}</span><small class="stamp-country-text">${city.country.toUpperCase()}</small>`;
+  const cityArtwork = {
+    madrid: {
+      stamp: "images/pages/madrid-stamp.png",
+      map: "images/pages/madrid-map.png"
+    },
+    paris: {
+      stamp: "images/pages/paris-stamp.png",
+      map: "images/pages/paris-map.png"
+    }
+  };
+
+  const artwork = cityArtwork[city.id];
+  const stampImage = document.getElementById("cityStampImage");
+  const regionMapImage = document.getElementById("cityRegionMapImage");
+
+  if(artwork){
+    stampImage.src = artwork.stamp;
+    stampImage.alt = `${city.city} stamp`;
+    stampImage.style.display = "block";
+    regionMapImage.src = artwork.map;
+    regionMapImage.alt = `${details.region} regional map`;
+    regionMapImage.style.display = "block";
+  }else{
+    stampImage.removeAttribute("src");
+    stampImage.style.display = "none";
+    regionMapImage.removeAttribute("src");
+    regionMapImage.style.display = "none";
+  }
+
   document.getElementById("cityFact").textContent=details.fact;
   document.getElementById("cityVisit").textContent=city.visitDate ? `Visited · ${city.visitDate}` : "Journey awaiting your memories";
-  document.getElementById("mapPreviewLabel").textContent=city.city;
   document.getElementById("mapPageNote").textContent=city.restaurants && city.restaurants.length
     ? `${city.restaurants.length} restaurant${city.restaurants.length===1?"":"s"} in your food passport`
     : "The map will grow as you add restaurants.";

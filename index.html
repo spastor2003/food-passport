@@ -181,13 +181,20 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
   color:#766957;
 }
 .globe-wrap{
-  width:min(360px,82%);
-  margin:28px auto 14px;
+   width:min(430px,88%);
+   margin:30px auto 18px;
+   display:flex;
+   justify-content:center;
+   align-items:center;
 }
-.globe-svg{width:100%;height:auto;display:block;color:#8b5b45}
-.globe-circle{fill:none;stroke:currentColor;stroke-width:2}
-.globe-line{fill:none;stroke:currentColor;stroke-width:1.2;opacity:.62}
-.globe-land{fill:currentColor;opacity:.23}
+.journey-world-map{
+   display:block;
+   width:100%;
+   height:auto;
+   max-height:360px;
+   object-fit:contain;
+   background:transparent;
+}
 .globe-caption{
   font-size:9px;
   letter-spacing:.18em;
@@ -204,7 +211,7 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
 @media(max-width:760px){
   .journey-map-page{min-height:560px!important}
   .globe-page{inset:40px 24px 60px}
-  .globe-wrap{width:min(300px,82%)}
+  .globe-wrap{width:min(340px,88%)}
 }
 
 
@@ -314,19 +321,8 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
     <div class="journey-page journey-map-page">
       <div class="globe-page">
         <div class="globe-kicker">THE WORLD</div>
-        <div class="globe-wrap" aria-label="Vintage globe illustration">
-          <svg class="globe-svg" viewBox="0 0 420 420" role="img">
-            <circle cx="210" cy="210" r="165" class="globe-circle"/>
-            <ellipse cx="210" cy="210" rx="78" ry="165" class="globe-line"/>
-            <ellipse cx="210" cy="210" rx="135" ry="165" class="globe-line"/>
-            <ellipse cx="210" cy="210" rx="165" ry="58" class="globe-line"/>
-            <ellipse cx="210" cy="210" rx="165" ry="112" class="globe-line"/>
-            <path d="M45 210h330M210 45v330" class="globe-line"/>
-            <path d="M95 125c28-20 48-16 70-3 18 11 26 4 42 17 14 11 18 30 5 43-15 14-24 18-28 38-4 20-19 27-39 23-21-4-29-22-43-32-17-12-31-31-7-47z" class="globe-land"/>
-            <path d="M248 118c24-10 48-2 62 15 12 15 7 30-4 42-10 12-14 25-9 42 6 20-9 32-27 29-18-3-25-17-31-33-7-18-1-33 12-44 11-10 7-28-3-35z" class="globe-land"/>
-            <path d="M222 246c22-9 45 2 55 18 9 15 2 32-10 44-13 13-19 28-13 47 4 13-3 25-18 25-18 0-27-15-30-32-4-20 1-37 10-50 8-11 3-36 6-52z" class="globe-land"/>
-            <path d="M125 275c19-8 34-1 47 10 10 9 8 23 0 33-9 12-25 14-39 8-14-6-24-21-22-35 1-8 6-13 14-16z" class="globe-land"/>
-          </svg>
+        <div class="globe-wrap" aria-label="Vintage world map illustration">
+          <img class="journey-world-map" src="images/vintage-world-map-transparent.png" alt="Vintage world map">
         </div>
         <div class="globe-caption">PLACES • TABLES • MEMORIES</div>
         <div class="globe-quote">Every journey begins<br>with a place worth remembering.</div>

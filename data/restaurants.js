@@ -14,7 +14,7 @@ const cities = [
         date: "10 November 2025",
         address: "48 Rue Madame, 75006 Paris, France",
         coordinates: { lat: 48.848207, lng: 2.3314224 },
-        photo: "images/paris/laparisienne.jpg",
+        photo: "laparisienne.jpg",
         photos: ["images/paris/laparisienne.jpg"],
         story: "Why did they get mad at me for speaking French?",
         memories: [

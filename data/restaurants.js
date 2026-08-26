@@ -3,35 +3,27 @@ const cities = [
     id: "paris",
     city: "Paris",
     country: "France",
-    countryCode: "FR",
     flag: "🇫🇷",
-
-    coordinates: {
-      lat: 48.8566,
-      lng: 2.3522
-    },
-
+    coordinates: { lat: 48.8566, lng: 2.3522 },
     restaurants: [
       {
         id: "la-parisienne",
         name: "La Parisienne",
+        city: "Paris",
+        country: "France",
         date: "10 November 2025",
         address: "48 Rue Madame, 75006 Paris, France",
-
-        coordinates: {
-          lat: 48.848207,
-          lng: 2.3314224
-        },
-
-        photo: "laparisienne.jpg",
-
+        coordinates: { lat: 48.848207, lng: 2.3314224 },
+        photo: "images/paris/laparisienne.jpg",
+        photos: ["images/paris/laparisienne.jpg"],
         story: "Why did they get mad at me for speaking French?",
-
+        memories: [
+          "Our La Parisienne photo · 10 November 2025"
+        ],
         recipes: [
           {
             name: "Quiche Saumon Épinards",
             category: "Mains",
-
             ingredients: [
               "1 shortcrust pastry crust, homemade or store-bought",
               "200 g fresh spinach",
@@ -44,7 +36,6 @@ const cities = [
               "Herbs of your choice — dill, chives, or parsley",
               "1 tablespoon olive oil"
             ],
-
             instructions: [
               "Wash the spinach. Thinly slice the spring onion and cut the salmon into small cubes.",
               "Heat the olive oil in a frying pan. Sauté the spring onion over medium heat for about 2 minutes.",
@@ -55,34 +46,226 @@ const cities = [
               "Place the shortcrust pastry into a 23 cm (9-inch) quiche dish. Spread the salmon and spinach mixture over the pastry. Pour the egg-and-cream mixture over the top and sprinkle with the remaining Comté.",
               "Bake at 210°C / 410°F (fan/convection) for approximately 25–30 minutes, until set and golden."
             ],
-
-            note: "A Parisian salmon and spinach quiche from our visit to La Parisienne."
+            note: "A Parisian salmon and spinach quiche from our visit to La Parisienne.",
+            source: "Recipe collected for the Paris food passport."
           },
-
           {
             name: "Baguette au Saumon Fumé",
             category: "Sandwiches",
-
             ingredients: [
               "1 traditional French baguette (baguette de tradition)",
               "4 slices high-quality smoked salmon",
-              "80 g Brie, preferably Brie de Meaux or double-cream Brie",
-              "20 g unsalted or demi-sel butter, softened",
+              "80 g (about 3 oz) Brie, preferably Brie de Meaux or double-cream Brie",
+              "20 g (about 1½ tbsp) unsalted or demi-sel butter, softened",
               "1 handful fresh arugula",
               "½ fresh lemon",
               "Freshly ground black pepper"
             ],
-
             instructions: [
               "Slice the baguette in half lengthwise. You can cut it completely through or leave one side attached so the filling stays secure.",
-              "Spread the softened butter generously over the cut surface of the baguette.",
+              "Spread the softened butter generously over the cut surface of the baguette. You can butter both sides if desired.",
               "Arrange thin slices of Brie along the entire length of the baguette.",
-              "Gently layer the smoked salmon over the Brie. Add a few drops of fresh lemon juice and freshly ground black pepper.",
+              "Gently layer the smoked salmon over the Brie. Add a few drops of fresh lemon juice and a little freshly ground black pepper.",
               "Top with a handful of clean, dry arugula.",
               "Close the baguette and gently press it together so the layers settle. Slice diagonally for the classic French bakery presentation."
             ],
+            note: "Smoked salmon and Brie on traditional French baguette, inspired by the La Parisienne bakery style.",
+            source: "Recipe collected for the Paris food passport."
+          }
+        ]
+      }
+    ]
+  },
 
-            note: "Smoked salmon and Brie on traditional French baguette, inspired by the La Parisienne bakery style."
+  {
+    id: "madrid",
+    city: "Madrid",
+    country: "Spain",
+    flag: "🇪🇸",
+    coordinates: { lat: 40.4168, lng: -3.7038 },
+    restaurants: [
+      {
+        id: "sushita-castellana",
+        name: "Sushita Castellana",
+        officialName: "Monsieur Sushita",
+        city: "Madrid",
+        country: "Spain",
+        date: "19 September 2025",
+        address: "Calle de Velázquez, 68, 28001 Madrid, Spain",
+        coordinates: { lat: 40.4286177, lng: -3.6836501 },
+        story: "We went for our anniversary dinner. It was the best sushi we had tried in Madrid.",
+        memories: [
+          "We went to Sushita Castellana for our anniversary dinner.",
+          "It was the best sushi we had tried in Madrid."
+        ],
+        photos: [
+          "images/madrid/madrid-sushita-sashimi-salmon.jpg",
+          "images/madrid/madrid-sushita-salmon-braseado.jpg",
+          "images/madrid/madrid-sushita-kushiague.jpg",
+          "images/madrid/madrid-sushita-tempura-gambas.jpg",
+          "images/madrid/madrid-sushita-lubina-manzana.jpg",
+          "images/madrid/madrid-sushita-tartar-tuna.jpg",
+          "images/madrid/madrid-monsieur-sushita-interior.jpg"
+        ],
+        photoCaptions: [
+          "Sashimi de Salmón",
+          "Rollo Salmón Braseado o Sin Brasear",
+          "Maki Kushiague Roll",
+          "Tempura de Gambas Rojas con Chili Dulce",
+          "Maki Roll Lubina y Manzana",
+          "Rollo Tartar de Atún Picante"
+        ],
+        recipes: [
+          {
+            name: "Sashimi de Salmón",
+            category: "Sashimi",
+            ingredients: [
+              "1 pound fillet of sushi-grade salmon",
+              "½ fresh organic lemon",
+              "Espelette pepper",
+              "Ponzu",
+              "Fresh ginger",
+              "For ponzu: ¼ cup shoyu",
+              "For ponzu: 2 Tbsp lemon juice or 1 Tbsp yuzu juice",
+              "For ponzu: 1 tsp fresh citrus zest, optional",
+              "For ponzu: 1 Tbsp mirin",
+              "For ponzu: 1 dashi stock packet"
+            ],
+            instructions: [
+              "Inspect the salmon and remove any bones, excess skin and dark-colored flesh. Optionally wrap the fillet in a pichit sheet and refrigerate for 90 minutes.",
+              "Prepare and thoroughly dry the serving plate or platter.",
+              "Using a sharp knife, cut across the grain and then slice the salmon to the preferred thickness, drawing the knife toward you with each cut. Arrange the slices on the platter.",
+              "Thinly slice the lemon, halve the slices and remove the seeds. Arrange a few pieces over the salmon and dust with Espelette pepper.",
+              "Serve with ponzu and a thin slice of fresh ginger.",
+              "For the ponzu, combine the shoyu, lemon or yuzu juice, citrus zest, mirin and dashi in a clean jar. Refrigerate for three days, then strain the solids."
+            ],
+            note: "This is the home-recreation recipe collected for the passport; it is not presented as Sushita Castellana's exact recipe. A wheat-free tamari can be used for the ponzu if desired.",
+            source: "La Boîte — Salmon Sashimi"
+          },
+          {
+            name: "Rollo Salmón Braseado o Sin Brasear",
+            category: "Sushi Rolls",
+            ingredients: [
+              "1 lb skinless salmon fillet, cut into uniform pieces",
+              "100 g cream cheese",
+              "100 g mascarpone cheese (or additional cream cheese)",
+              "Fresh dill, chopped",
+              "Fresh chives, chopped",
+              "Garlic powder",
+              "Salt",
+              "Black pepper",
+              "1 Tbsp olive oil"
+            ],
+            instructions: [
+              "Combine the cream cheese, mascarpone, chopped dill, chives and garlic powder until smooth.",
+              "Butterfly the salmon by cutting horizontally through the center without cutting all the way through. Open the fillets flat and season lightly with salt and pepper.",
+              "Spread the creamy cheese mixture evenly over the salmon. Carefully roll each piece into a cylinder and secure with kitchen twine or toothpicks.",
+              "Heat the olive oil over medium heat. Sear or braise the salmon rolls until cooked through and lightly browned."
+            ],
+            note: "This recipe is for the braseado (seared/braised) preparation. The restaurant dish was listed as braseado o sin brasear.",
+            source: "Recipe provided for the food passport."
+          },
+          {
+            name: "Maki Kushiague Roll",
+            category: "Sushi Rolls",
+            ingredients: [
+              "1 sheet nori",
+              "100 g cooked sushi rice, seasoned with sushi vinegar",
+              "Gouda cheese, cut into medium sticks",
+              "Flour, for dusting",
+              "1 egg",
+              "½ cup flour",
+              "A splash of milk",
+              "Panko breadcrumbs",
+              "Pinch of salt",
+              "Eel sauce, for serving",
+              "Cooking oil, for frying"
+            ],
+            instructions: [
+              "Place nori on a bamboo rolling mat. Spread a thin layer of seasoned sushi rice over the nori, leaving a small border at the top edge.",
+              "Place the Gouda cheese sticks in the center. Roll the sushi firmly into a tight cylinder.",
+              "Dust the roll with flour. Whisk the egg, ½ cup flour and a splash of milk into a tempura batter. Dip the roll into the batter and coat thoroughly with seasoned panko.",
+              "Heat cooking oil and fry the coated roll until golden brown and crispy.",
+              "Drain briefly, slice into bite-sized pieces with a sharp knife, and drizzle with eel sauce."
+            ],
+            note: "The restaurant description you provided differs from this home recipe: the restaurant dish included shrimp, cream cheese, avocado, furikake katsuo, tempura flakes and kushiage sauce. The passport keeps the restaurant description and recreation recipe separate.",
+            source: "Recipe sources supplied for the food passport, including Japan Centre and the other references provided."
+          },
+          {
+            name: "Tempura de Gambas Rojas con Chili Dulce",
+            category: "Tempura",
+            ingredients: [
+              "8–10 large red prawns (gambas rojas), peeled and deveined, tails intact",
+              "1 egg yolk",
+              "½ cup ice-cold water or sparkling water",
+              "½ cup all-purpose flour",
+              "½ cup cornstarch (maicena)",
+              "Pinch of salt",
+              "Vegetable oil, for frying",
+              "½ cup sweet chili sauce",
+              "2 Tbsp mayonnaise",
+              "1 tsp sriracha, adjusted to taste",
+              "Fresh sesame seeds or chopped chives, for garnish"
+            ],
+            instructions: [
+              "Peel and devein the red prawns while keeping the tails intact. Make small horizontal slits along the belly side and gently press the prawns straight. Pat completely dry.",
+              "Whisk the egg yolk with the ice-cold water and salt. Add the flour and cornstarch and gently mix without overmixing. Keep the batter cold.",
+              "Combine the sweet chili sauce, mayonnaise and sriracha until smooth.",
+              "Heat about 2 inches of vegetable oil to 170–180°C (340–360°F). Dip each prawn in the cold batter and fry in small batches for 1–2 minutes until light golden and crispy. Drain on paper towels.",
+              "Lightly toss the warm prawns with the sweet chili sauce or serve the sauce on the side. Garnish with sesame seeds and chopped chives."
+            ],
+            note: "The recipe emphasizes ice-cold batter, avoiding overmixing, and frying in small batches for a crisp texture.",
+            source: "Recipe sources supplied for the food passport, including the references provided."
+          },
+          {
+            name: "Maki Roll Lubina y Manzana",
+            category: "Sushi Rolls",
+            ingredients: [
+              "2 cups sushi rice, cooked and seasoned with rice vinegar, sugar and salt",
+              "4–5 sheets nori",
+              "150 g fresh sea bass (lubina), skinned and sliced into thin strips",
+              "1 crisp Granny Smith apple, cored and cut into thin matchsticks",
+              "1 small Japanese cucumber, julienned",
+              "Toasted white sesame seeds, optional",
+              "Soy sauce, for serving",
+              "Wasabi, for serving"
+            ],
+            instructions: [
+              "Cook the short-grain rice and gently fold in the rice vinegar mixture while fanning or allowing the rice to cool to room temperature.",
+              "Cover a bamboo rolling mat with plastic wrap. Place nori on the mat with the shiny side down.",
+              "Wet your hands and spread a thin, even layer of sushi rice over the nori, leaving about a 1 cm border at the top edge.",
+              "Place thinly sliced sea bass just below the center. Add the green apple matchsticks and cucumber strips alongside the fish.",
+              "Lift the edge of the bamboo mat and roll firmly over the ingredients, applying gentle pressure to create a snug cylinder.",
+              "Using a sharp, wet knife, cut into 6–8 bite-sized pieces. Serve with soy sauce and wasabi."
+            ],
+            note: "The restaurant description you provided included sea bass, apple, avocado, shrimp, mixed lettuce and red tobiko. This is the home-recreation recipe you supplied and is kept separate from that restaurant description.",
+            source: "Recipe sources supplied for the food passport, including the references provided."
+          },
+          {
+            name: "Rollo Tartar de Atún Picante",
+            category: "Tartare",
+            ingredients: [
+              "300 g fresh sushi-grade tuna (previously frozen for safety)",
+              "2 Tbsp soy sauce",
+              "1 Tbsp sesame oil",
+              "1–2 tsp sriracha or spicy chili sauce",
+              "1 tsp fresh grated ginger",
+              "1 Tbsp green onion or chives, finely chopped",
+              "1 ripe avocado, cut into small cubes",
+              "1 tsp toasted sesame seeds",
+              "1 Tbsp lime or lemon juice",
+              "Pinch of salt",
+              "Black pepper"
+            ],
+            instructions: [
+              "Pat the tuna dry and cut it into small, even 1 cm cubes. Keep the tuna cold in the refrigerator.",
+              "Whisk together the soy sauce, sesame oil, sriracha, grated ginger and lime juice. Season with salt and pepper.",
+              "Add the chopped green onions and half of the sesame seeds. Pour over the tuna and gently fold. Refrigerate for 5 minutes.",
+              "Toss the diced avocado with a small squeeze of lime juice and a pinch of salt.",
+              "Place a ring mold or clean round cup on a plate. Press the avocado into the bottom, add the spicy tuna mixture on top, and press lightly."
+            ],
+            note: "The recipe uses a ring-mold/stack presentation rather than a traditional sushi roll.",
+            source: "Recipe sources supplied for the food passport, including the references provided."
           }
         ]
       }

@@ -439,7 +439,7 @@ const cities = [
         date: "Several visits",
         address: "Avenida de la Reina Victoria 43, 28003 Madrid, Spain",
         coordinates: { lat: 40.4461, lng: -3.7156 },
-        photo: "images/madrid/manduka-1.jpg",
+        photo: "images/madrid/madrid-manduka-storefront.png",
         story: "This bar became a morning tradition to go and get breakfast before class. We even went on our graduation day with your parents and the staff grew to know us. Probably the pinnacle of our senior year experience being recognized as locals.",
         memories: [
           "A morning tradition before class.",
@@ -447,22 +447,24 @@ const cities = [
           "The staff grew to know us and we were recognized as locals."
         ],
         photos: [
-          "images/madrid/manduka-1.jpg",
-          "images/madrid/manduka-2.jpg",
-          "images/madrid/manduka-3.jpg",
-          "images/madrid/manduka-4.jpg",
-          "images/madrid/manduka-5.jpg",
-          "images/madrid/manduka-6.jpg",
-          "images/madrid/manduka-7.jpg"
+          "images/madrid/madrid-manduka-huevos-rotos-chorizo.png",
+          "images/madrid/madrid-manduka-croissant-a-la-plancha.png",
+          "images/madrid/madrid-manduka-huevos-rotos-jamon-serrano.png",
+          "images/madrid/madrid-manduka-tostada-salmon-huevo.png",
+          "images/madrid/madrid-manduka-tosta-solomillo-brie-cebolla.png",
+          "images/madrid/madrid-manduka-calamares-romana.png",
+          "images/madrid/madrid-manduka-alitas-pollo.png",
+          "images/madrid/madrid-manduka-storefront.png"
         ],
         photoCaptions: [
-          "Ración de alitas de pollo",
-          "Calamares a la romana",
-          "Tosta de solomillo con queso Brie y cebolla caramelizada",
-          "Tostada de salmón ahumado, queso y huevo",
-          "Huevos rotos de jamón serrano",
           "Huevos rotos de chorizo",
-          "Croissant a la plancha"
+          "Croissant a la plancha",
+          "Huevos rotos de jamón serrano",
+          "Tostada de salmón ahumado, queso y huevo",
+          "Tosta de solomillo con queso Brie y cebolla caramelizada",
+          "Calamares a la romana",
+          "Ración de alitas de pollo",
+          "Manduka storefront"
         ],
         recipes: [
           {

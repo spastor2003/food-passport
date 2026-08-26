@@ -67,70 +67,11 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
 .route{position:absolute;border-top:2px dashed #8b5b45;border-radius:50%}.r1{width:190px;left:18%;top:42%;transform:rotate(-8deg)}.r2{width:160px;left:42%;top:30%;transform:rotate(24deg)}.r3{width:125px;left:48%;top:62%;transform:rotate(-25deg)}
 .journey-stamp{position:absolute;right:65px;bottom:85px;border:2px solid #8b5b45;padding:12px;text-align:center;font-size:9px;line-height:1.5;letter-spacing:.1em;transform:rotate(-7deg);color:#8b5b45}
 .city-region{margin-top:2px}.city-story-page h1{text-align:center;font-family:Georgia,serif;font-size:54px;font-weight:normal;letter-spacing:.04em;text-transform:uppercase;margin:10px 0 3px;position:relative}.city-country{text-align:center;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#8b5b45;position:relative}
-.city-stamp{
-  width:150px!important;height:150px!important;border:2px solid #8b5b45;
-  border-radius:50%;margin:30px auto 25px;box-sizing:border-box;
-  transform:rotate(-4deg);position:relative!important;display:block!important;overflow:hidden
-}
-.city-stamp:before{
-  content:"";position:absolute;inset:7px;border:1px solid #8b5b45;
-  border-radius:50%;pointer-events:none
-}
-/* Final city-stamp placement: city name above the landmark. */
-.city-stamp .stamp-city-text{
-  position:absolute!important;
-  top:13px!important;
-  left:0!important;
-  right:0!important;
-  bottom:auto!important;
-  text-align:center;
-  font-family:Georgia,serif;
-  font-size:13px!important;
-  font-weight:bold;
-  letter-spacing:.14em!important;
-  line-height:1;
-}
-.city-stamp .stamp-country-text{
-  position:absolute!important;
-  left:0!important;
-  right:0!important;
-  bottom:13px!important;
-  text-align:center;
-  font-family:Georgia,serif;
-  font-size:8px;
-  letter-spacing:.16em;
-}
-.city-stamp .landmark-svg{
-  position:absolute!important;
-  left:50%!important;
-  top:31px!important;
-  transform:translateX(-50%);
-  width:66px!important;
-  height:78px!important;
-  display:block;
-  color:#8b5b45;
-  opacity:.82;
-  margin:0!important;
-}
+.city-stamp{width:150px;height:150px;border:3px double #8b5b45;border-radius:50%;margin:32px auto 30px;display:grid;place-items:center;text-align:center;font-family:Georgia,serif;font-size:17px;line-height:1.2;color:#8b5b45;transform:rotate(-6deg);position:relative}.city-stamp:before{content:"✦";display:block;font-size:22px}
 .fact-block{position:relative;border-top:1px solid #c7b58f;border-bottom:1px solid #c7b58f;padding:20px 10px;text-align:center}.fact-label{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#766957}.fact-block p{font-family:Georgia,serif;font-size:16px;line-height:1.6;margin:10px auto 0;max-width:430px}
 .city-visit{text-align:center;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#8b5b45;margin-top:25px}.back-journeys{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);background:transparent;border:none;color:#766957;font-family:Georgia,serif;cursor:pointer}
 .map-access-frame{position:relative;border:8px solid #d6c39c;outline:1px solid #9d8a67;outline-offset:-13px;padding:24px;margin-top:45px;background:#e6dbc0}.map-frame-label{text-align:center;font-size:10px;letter-spacing:.25em;color:#766957;margin-bottom:16px}
- .map-preview{
-  height:390px;background:#e8dfca;position:relative;overflow:hidden;border:1px solid #b8a984;
-}
-.regional-map-svg{width:100%;height:100%;display:block}
-.regional-map-bg{fill:#e8dfca}
-.regional-map-grid{stroke:#b9aa8d;stroke-width:.45;opacity:.34}
-.regional-map-outline{fill:#ded1b4;stroke:#8b5b45;stroke-width:1.35;stroke-linejoin:round}
-.regional-map-inner{fill:none;stroke:#b39e78;stroke-width:.55;stroke-dasharray:2 2;opacity:.72}
-.regional-map-title{font-family:Georgia,serif;font-size:3.2px;letter-spacing:.15em;fill:#766957}
-.regional-map-region{font-family:Georgia,serif;font-size:2.8px;letter-spacing:.08em;fill:#8b5b45}
-.regional-map-city-dot{fill:#8b5b45;stroke:#f3e6ca;stroke-width:1}
-.regional-map-city-label{font-family:Georgia,serif;font-size:2.65px;fill:#4f4031}
-.regional-map-city-label.main{font-size:3.45px;font-weight:bold;letter-spacing:.05em}
-.regional-map-compass{font-family:Georgia,serif;font-size:3px;fill:#8b5b45;letter-spacing:.08em}
-.regional-map-leader{stroke:#8b5b45;stroke-width:.4;opacity:.65}
-@media(max-width:700px){.map-preview{height:330px}}
+.map-preview{height:390px;background:#dcd4bd;position:relative;overflow:hidden;border:1px solid #b8a984}.preview-grid{position:absolute;inset:-20px;background:repeating-linear-gradient(18deg,transparent 0 35px,#9d8a67 36px 37px),repeating-linear-gradient(102deg,transparent 0 52px,#9d8a67 53px 54px);opacity:.45}.preview-route{position:absolute;width:75%;height:45%;left:12%;top:26%;border:3px solid #8b5b45;border-left-color:transparent;border-bottom-color:transparent;border-radius:50%;transform:rotate(-14deg);opacity:.6}.preview-pin{position:absolute;left:50%;top:48%;width:34px;height:34px;border-radius:50% 50% 50% 0;background:#8b5b45;color:#f3e6ca;display:grid;place-items:center;font-size:22px;transform:rotate(-45deg);box-shadow:0 3px 5px #372a1b40}.preview-city-label{position:absolute;left:50%;top:38%;transform:translateX(-50%);font-family:Georgia,serif;font-size:20px;text-transform:uppercase;color:#6d5944;letter-spacing:.12em}
 .map-frame-caption{text-align:center;font-family:Georgia,serif;font-style:italic;color:#766957;font-size:12px;margin-top:15px}.open-city-map{display:block;margin:25px auto 0;background:#173a3d;color:#ead9ad;border:1px solid #c9aa68;padding:14px 25px;font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.1em;cursor:pointer;min-height:44px}.map-page-note{text-align:center;font-size:10px;color:#766957;font-style:italic;margin:12px 30px}
 @media(max-width:760px){.master-cover-inner{min-height:560px;padding:55px 25px}.master-cover h1{font-size:40px}.journey-book,.city-book{grid-template-columns:1fr}.journey-page,.city-page{min-height:650px;border:1px solid #c7b58f!important;border-radius:5px!important}.journey-page:last-child{display:none}.journey-list{height:450px}.city-map-access{margin-top:15px}.city-stamp{width:125px;height:125px}}
 
@@ -175,6 +116,32 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
   margin:0 auto;
 }
 
+
+
+.city-art-panel{
+  width:min(100%,430px);
+  aspect-ratio:1.79 / 1;
+  margin:22px auto 24px;
+  border:5px double var(--line);
+  border-radius:4px;
+  background-color:#e8dfca;
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+  background-position:center;
+  box-shadow:0 12px 30px #372a1b1f;
+}
+.artwork-frame{display:block}
+.city-art-secondary{
+  width:100%;
+  aspect-ratio:1.79 / 1;
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+  background-position:center;
+  background-color:#e8dfca;
+}
+@media(max-width:700px){
+  .city-art-panel{width:100%;margin:18px auto}
+}
 
 .city-page{position:relative}
 .city-page-number{
@@ -387,7 +354,7 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
       <div class="city-region" id="cityRegion"></div>
       <h1 id="cityName"></h1>
       <div class="city-country" id="cityCountry"></div>
-      <div class="city-stamp" id="cityStamp" aria-label="City stamp"></div>
+      <div class="city-art-panel" id="cityArtPanel" aria-label="City passport artwork"></div>
       <div class="fact-block">
         <div class="fact-label">A LITTLE HISTORY</div>
         <p id="cityFact"></p>
@@ -399,9 +366,8 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
     </div>
 
     <div class="city-page city-map-access">
-      <div class="map-access-frame">
-        <div class="map-frame-label" id="mapFrameLabel">REGIONAL MAP</div>
-        <div class="map-preview regional-map-preview" id="mapPreview" aria-label="Regional map preview"></div>
+      <div class="map-access-frame artwork-frame">
+        <div class="city-art-secondary" id="cityArtSecondary" aria-hidden="true"></div>
         <div class="map-frame-caption">City, region &amp; surrounding places</div>
       </div>
       <button type="button" class="open-city-map" id="openCityMap" onclick="openCurrentCityMap()">Open City Map →</button>
@@ -550,7 +516,7 @@ const cityDetails = {
     landmark: "brussels"
   },
   cordoba: {
-    region: "Province of Córdoba",
+    region: "Andalusia",
     fact: "The Great Mosque of Córdoba began construction in 785 and became one of the most celebrated monuments of medieval Islamic Spain.",
     stamp: "CÓRDOBA",
     landmark: "cordoba"
@@ -623,106 +589,6 @@ function landmarkSvg(type){
 }
 
 
-
-const regionalMaps = {
-  paris:{
-    regionLabel:"ÎLE-DE-FRANCE",
-    outline:"M21,57 C25,38 38,22 57,19 C74,17 87,28 88,43 C91,59 83,76 67,84 C50,92 31,83 21,70 C18,65 18,61 21,57 Z",
-    inner:"M35,48 C46,38 63,37 76,47 M29,67 C43,60 60,61 77,68",
-    cities:[["Paris",50,55,"main"],["Saint-Denis",49,38,""],["Versailles",30,62,""],["Boulogne-Billancourt",42,67,""],["Créteil",69,68,""],["Argenteuil",34,42,""]]
-  },
-  madrid:{
-    regionLabel:"PROVINCIA DE MADRID",
-    outline:"M25,26 C42,18 63,20 78,31 C87,38 88,54 82,69 C76,84 58,89 42,84 C27,79 18,67 19,51 C19,40 20,32 25,26 Z",
-    inner:"M28,47 C42,39 60,39 77,48 M27,63 C42,57 63,58 79,65",
-    cities:[["Madrid",50,54,"main"],["Móstoles",35,66,""],["Fuenlabrada",43,72,""],["Getafe",58,68,""],["Alcalá de Henares",73,48,""],["Alcorcón",38,57,""]]
-  },
-  ghent:{
-    regionLabel:"EAST FLANDERS",
-    outline:"M24,29 C39,20 61,19 77,28 C88,35 88,54 82,69 C74,84 55,87 39,81 C24,76 17,62 20,47 C21,39 21,34 24,29 Z",
-    inner:"M29,49 C43,40 62,41 78,49 M28,64 C43,57 63,58 77,66",
-    cities:[["Ghent",50,52,"main"],["Aalst",34,63,""],["Lokeren",66,37,""],["Sint-Niklaas",77,55,""],["Deinze",39,74,""]]
-  },
-  brussels:{
-    regionLabel:"BRUSSELS-CAPITAL REGION",
-    outline:"M27,27 C42,18 63,20 76,31 C87,40 87,58 79,72 C69,85 51,88 36,80 C23,73 18,60 21,45 C22,36 23,31 27,27 Z",
-    inner:"M29,49 C43,42 61,41 78,50 M29,65 C44,58 62,59 77,66",
-    cities:[["Brussels",51,54,"main"],["Leuven",72,40,""],["Mechelen",62,30,""],["Halle",35,70,""],["Vilvoorde",55,42,""]]
-  },
-  cordoba:{
-    regionLabel:"PROVINCE OF CÓRDOBA",
-    outline:"M22,31 C36,20 59,18 77,29 C88,37 89,56 82,72 C74,86 55,89 38,82 C23,76 17,62 19,47 C20,39 20,35 22,31 Z",
-    inner:"M28,50 C43,41 62,42 78,50 M27,66 C43,59 62,59 78,67",
-    cities:[["Córdoba",50,53,"main"],["Lucena",69,69,""],["Puente Genil",78,57,""],["Montilla",63,61,""],["Palma del Río",35,38,""]]
-  }
-};
-
-function renderRegionalPreview(city){
-  const map = regionalMaps[city.id];
-  const preview = document.getElementById("mapPreview");
-  const label = document.getElementById("mapFrameLabel");
-  if(!preview || !map) return;
-
-  label.textContent = `${map.regionLabel} · REGIONAL MAP`;
-
-  const labelPositions = {
-    madrid: {
-      "Madrid":[50,61,"middle"],
-      "Móstoles":[32,69,"end"],
-      "Fuenlabrada":[43,78,"middle"],
-      "Getafe":[61,74,"start"],
-      "Alcalá de Henares":[75,43,"middle"],
-      "Alcorcón":[34,55,"end"]
-    },
-    paris: {
-      "Paris":[50,61,"middle"],
-      "Saint-Denis":[50,34,"middle"],
-      "Versailles":[27,61,"middle"],
-      "Boulogne-Billancourt":[38,73,"middle"],
-      "Créteil":[72,72,"middle"],
-      "Argenteuil":[31,40,"middle"]
-    },
-    ghent: {
-      "Ghent":[50,58,"middle"],"Aalst":[30,67,"middle"],"Lokeren":[68,34,"middle"],
-      "Sint-Niklaas":[79,53,"middle"],"Deinze":[38,78,"middle"]
-    },
-    brussels: {
-      "Brussels":[51,61,"middle"],"Leuven":[74,37,"middle"],"Mechelen":[64,27,"middle"],
-      "Halle":[32,74,"middle"],"Vilvoorde":[56,37,"middle"]
-    },
-    cordoba: {
-      "Córdoba":[50,60,"middle"],"Lucena":[72,73,"middle"],"Puente Genil":[80,55,"middle"],
-      "Montilla":[65,64,"middle"],"Palma del Río":[33,35,"middle"]
-    }
-  }[city.id] || {};
-
-  const cityNodes = map.cities.map(([name,x,y,kind]) => {
-    const pos = labelPositions[name] || [x,y + (kind==="main" ? 8 : 6),"middle"];
-    const [tx,ty,anchor] = pos;
-    return `
-      <g>
-        <circle cx="${x}" cy="${y}" r="${kind==="main" ? 2.1 : 1.45}" class="regional-map-city-dot"></circle>
-        ${Math.abs(tx-x)+Math.abs(ty-y)>4 ? `<line x1="${x}" y1="${y}" x2="${tx}" y2="${ty-1.5}" class="regional-map-leader"></line>` : ""}
-        <text x="${tx}" y="${ty}" text-anchor="${anchor}" class="regional-map-city-label ${kind}">${name}</text>
-      </g>`;
-  }).join("");
-
-  preview.innerHTML = `
-    <svg class="regional-map-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${map.regionLabel} showing ${city.city} and surrounding cities">
-      <rect x="0" y="0" width="100" height="100" class="regional-map-bg"/>
-      <g class="regional-map-grid">
-        <path d="M0 20H100M0 40H100M0 60H100M0 80H100"/>
-        <path d="M20 0V100M40 0V100M60 0V100M80 0V100"/>
-      </g>
-      <path d="${map.outline}" class="regional-map-outline"/>
-      <path d="${map.inner}" class="regional-map-inner"/>
-      <text x="50" y="9" text-anchor="middle" class="regional-map-title">${city.city.toUpperCase()}</text>
-      <text x="50" y="94" text-anchor="middle" class="regional-map-region">${map.regionLabel}</text>
-      <text x="8" y="11" class="regional-map-compass">N</text>
-      ${cityNodes}
-    </svg>`;
-}
-
 function renderJourneys(){
   const list=document.getElementById("journeyList");
   list.innerHTML=cities.map(city=>{
@@ -759,10 +625,22 @@ function openCityPage(cityId){
   document.getElementById("cityRegion").textContent=city.country.toUpperCase()+" · "+details.region;
   document.getElementById("cityName").textContent=city.city;
   document.getElementById("cityCountry").textContent=city.country;
-  document.getElementById("cityStamp").innerHTML=landmarkSvg(details.landmark || "eiffel") + `<span class="stamp-city-text">${city.city.toUpperCase()}</span><small class="stamp-country-text">${city.country.toUpperCase()}</small>`;
+  const artPath = city.id==="madrid"
+    ? "images/pages/madrid-page-art.png"
+    : city.id==="paris"
+      ? "images/pages/paris-page-art.png"
+      : "";
+  const artPanel=document.getElementById("cityArtPanel");
+  const artSecondary=document.getElementById("cityArtSecondary");
+  if(artPath){
+    artPanel.style.backgroundImage=`url("${artPath}")`;
+    artSecondary.style.backgroundImage=`url("${artPath}")`;
+  }else{
+    artPanel.style.display="none";
+    artSecondary.style.display="none";
+  }
   document.getElementById("cityFact").textContent=details.fact;
   document.getElementById("cityVisit").textContent=city.visitDate ? `Visited · ${city.visitDate}` : "Journey awaiting your memories";
-  renderRegionalPreview(city);
   document.getElementById("mapPageNote").textContent=city.restaurants && city.restaurants.length
     ? `${city.restaurants.length} restaurant${city.restaurants.length===1?"":"s"} in your food passport`
     : "The map will grow as you add restaurants.";

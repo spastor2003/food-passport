@@ -93,6 +93,7 @@ const cities = [
         date: "19 September 2025",
         address: "Calle de Velázquez, 68, 28001 Madrid, Spain",
         coordinates: { lat: 40.4286177, lng: -3.6836501 },
+        photo: "images/madrid/madrid-monsieur-sushita-interior.jpg",
         story: "We went for our anniversary dinner. It was the best sushi we had tried in Madrid.",
         memories: [
           "We went to Sushita Castellana for our anniversary dinner.",

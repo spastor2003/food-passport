@@ -117,32 +117,6 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
 }
 
 
-
-.city-art-panel{
-  width:min(100%,430px);
-  aspect-ratio:1.79 / 1;
-  margin:22px auto 24px;
-  border:5px double var(--line);
-  border-radius:4px;
-  background-color:#e8dfca;
-  background-repeat:no-repeat;
-  background-size:100% 100%;
-  background-position:center;
-  box-shadow:0 12px 30px #372a1b1f;
-}
-.artwork-frame{display:block}
-.city-art-secondary{
-  width:100%;
-  aspect-ratio:1.79 / 1;
-  background-repeat:no-repeat;
-  background-size:100% 100%;
-  background-position:center;
-  background-color:#e8dfca;
-}
-@media(max-width:700px){
-  .city-art-panel{width:100%;margin:18px auto}
-}
-
 .city-page{position:relative}
 .city-page-number{
   position:absolute;
@@ -287,6 +261,37 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
   .photo-grid{grid-template-columns:1fr}
 }
 
+/* Madrid + Paris PNG artwork */
+.city-stamp.image-stamp{
+  border:0!important;
+  background:transparent!important;
+  transform:none!important;
+  overflow:visible!important;
+  width:170px!important;
+  height:170px!important;
+}
+.city-stamp.image-stamp:before{display:none!important}
+.city-stamp.image-stamp img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:transparent;
+}
+.map-preview.image-map{
+  background:#e6dbc0!important;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.map-preview.image-map img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:transparent;
+}
+
 </style>
 </head>
 <body>
@@ -354,7 +359,7 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
       <div class="city-region" id="cityRegion"></div>
       <h1 id="cityName"></h1>
       <div class="city-country" id="cityCountry"></div>
-      <div class="city-art-panel" id="cityArtPanel" aria-label="City passport artwork"></div>
+      <div class="city-stamp" id="cityStamp" aria-label="City stamp"></div>
       <div class="fact-block">
         <div class="fact-label">A LITTLE HISTORY</div>
         <p id="cityFact"></p>
@@ -366,9 +371,15 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
     </div>
 
     <div class="city-page city-map-access">
-      <div class="map-access-frame artwork-frame">
-        <div class="city-art-secondary" id="cityArtSecondary" aria-hidden="true"></div>
-        <div class="map-frame-caption">City, region &amp; surrounding places</div>
+      <div class="map-access-frame">
+        
+        <div class="map-preview" id="mapPreview">
+          <div class="preview-grid"></div>
+          <div class="preview-route"></div>
+          <div class="preview-pin">•</div>
+          <div class="preview-city-label" id="mapPreviewLabel"></div>
+        </div>
+        <div class="map-frame-caption">Restaurants, places &amp; food memories</div>
       </div>
       <button type="button" class="open-city-map" id="openCityMap" onclick="openCurrentCityMap()">Open City Map →</button>
       <div class="map-page-note" id="mapPageNote"></div>
@@ -625,20 +636,24 @@ function openCityPage(cityId){
   document.getElementById("cityRegion").textContent=city.country.toUpperCase()+" · "+details.region;
   document.getElementById("cityName").textContent=city.city;
   document.getElementById("cityCountry").textContent=city.country;
-  const artPath = city.id==="madrid"
-    ? "images/pages/madrid-page-art.png"
-    : city.id==="paris"
-      ? "images/pages/paris-page-art.png"
-      : "";
-  const artPanel=document.getElementById("cityArtPanel");
-  const artSecondary=document.getElementById("cityArtSecondary");
-  if(artPath){
-    artPanel.style.backgroundImage=`url("${artPath}")`;
-    artSecondary.style.backgroundImage=`url("${artPath}")`;
+  const stampBox=document.getElementById("cityStamp");
+  const mapPreview=document.getElementById("mapPreview");
+  const artworkCities=["madrid","paris"];
+
+  if(artworkCities.includes(city.id)){
+    stampBox.classList.add("image-stamp");
+    stampBox.innerHTML=`<img src="images/pages/${city.id}-stamp.png" alt="${city.city} passport stamp">`;
+
+    mapPreview.classList.add("image-map");
+    mapPreview.innerHTML=`<img src="images/pages/${city.id}-map.png" alt="${city.city} regional map">`;
   }else{
-    artPanel.style.display="none";
-    artSecondary.style.display="none";
+    stampBox.classList.remove("image-stamp");
+    stampBox.innerHTML=landmarkSvg(details.landmark || "eiffel") + `<span class="stamp-city-text">${city.city.toUpperCase()}</span><small class="stamp-country-text">${city.country.toUpperCase()}</small>`;
+
+    mapPreview.classList.remove("image-map");
+    mapPreview.innerHTML=`<div class="preview-grid"></div><div class="preview-route"></div><div class="preview-pin">•</div><div class="preview-city-label" id="mapPreviewLabel">${city.city}</div>`;
   }
+
   document.getElementById("cityFact").textContent=details.fact;
   document.getElementById("cityVisit").textContent=city.visitDate ? `Visited · ${city.visitDate}` : "Journey awaiting your memories";
   document.getElementById("mapPageNote").textContent=city.restaurants && city.restaurants.length

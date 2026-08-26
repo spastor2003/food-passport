@@ -232,6 +232,35 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
   margin-bottom:88px!important;
 }
 
+
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+}
+.restaurant-photo{
+  margin:0;
+  background:#f4efe4;
+  border:1px solid var(--line);
+  padding:7px;
+}
+.restaurant-photo img{
+  display:block;
+  width:100%;
+  aspect-ratio:3/2;
+  object-fit:cover;
+}
+.restaurant-photo figcaption{
+  padding:8px 5px 3px;
+  font-family:Georgia,serif;
+  color:var(--muted);
+  font-size:12px;
+}
+.recipe-row{cursor:pointer}
+@media(max-width:700px){
+  .photo-grid{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -366,19 +395,50 @@ function showScreen(id){
 }
 function renderRestaurant(tab="about"){
  document.getElementById("restName").textContent=restaurant.name;
- document.getElementById("restLocation").textContent=restaurant.location;
+ document.getElementById("restLocation").textContent=restaurant.address || restaurant.location || "";
  document.getElementById("restDate").textContent=restaurant.date;
- document.getElementById("restPhoto").src=(restaurant.photo || "laparisienne.jpg").replace("images/paris/laparisienne.jpg","laparisienne.jpg");
+ const body=document.getElementById("fileBody");
+
  document.querySelectorAll(".tab").forEach(b=>{
    b.classList.toggle("active",b.dataset.tab===tab);
    b.onclick=()=>renderRestaurant(b.dataset.tab);
  });
- const body=document.getElementById("fileBody");
- if(tab==="about") body.innerHTML=`<div class="memory"><p><b>About La Parisienne</b></p><p>${restaurant.story}</p><p style="color:var(--red)">Tap RECIPES to browse the recipes collected from this place.</p></div>`;
- if(tab==="photos") body.innerHTML=`<img src="${(restaurant.photo || "laparisienne.jpg").replace("images/paris/laparisienne.jpg","laparisienne.jpg")}" style="max-width:100%;width:650px;border-radius:3px;border:1px solid var(--line)" alt="La Parisienne"><p style="color:var(--muted)">Our La Parisienne photo · ${restaurant.date}</p>`;
- if(tab==="memories") body.innerHTML=`<div class="memory"><p>${restaurant.story}</p><p>More travel memories can be added here later: people, meals, stories, photos, and notes.</p></div>`;
- if(tab==="recipes") body.innerHTML=`<div class="recipe-drawer">${restaurant.recipes.map((x,i)=>`<div class="divider" data-recipe="${i}"><h3>${x.name}</h3><p>${x.category}</p></div>`).join("")}</div>`;
+
+ if(tab==="about"){
+   body.innerHTML=`
+     <div class="memory">
+       <p><b>About ${restaurant.name}</b></p>
+       <p>${restaurant.story || ""}</p>
+       <p style="color:var(--red)">Tap RECIPES to browse the recipes collected from this place.</p>
+     </div>`;
+ }
+ if(tab==="photos"){
+   const photos=restaurant.photos || (restaurant.photo ? [restaurant.photo] : []);
+   body.innerHTML=`
+     <div class="photo-grid">
+       ${photos.map((src,i)=>`
+         <figure class="restaurant-photo">
+           <img src="${src}" alt="${(restaurant.photoCaptions && restaurant.photoCaptions[i]) || restaurant.name}">
+           <figcaption>${(restaurant.photoCaptions && restaurant.photoCaptions[i]) || ""}</figcaption>
+         </figure>`).join("")}
+     </div>`;
+ }
+ if(tab==="memories"){
+   const memories=restaurant.memories || [];
+   body.innerHTML=`
+     <div class="memory">
+       ${memories.map(x=>`<p>${x}</p>`).join("")}
+     </div>`;
+ }
  if(tab==="recipes"){
+   body.innerHTML=`
+     <div class="recipe-drawer">
+       ${restaurant.recipes.map((x,i)=>`
+         <div class="divider recipe-row" data-recipe="${i}">
+           <h3>${x.name}</h3>
+           <p>${x.category}</p>
+         </div>`).join("")}
+     </div>`;
    body.querySelectorAll("[data-recipe]").forEach(el=>{
      el.onclick=()=>openRecipe(Number(el.dataset.recipe));
    });
@@ -387,14 +447,14 @@ function renderRestaurant(tab="about"){
 function openRestaurant(){renderRestaurant("about");showScreen("restaurant")}
 function renderRecipe(){
  const x=restaurant.recipes[currentRecipe];
- document.getElementById("recipeCard").innerHTML=`<div class="paperclip">⌇</div><div class="eyebrow">${x.category} · La Parisienne</div><h1>${x.name}</h1><p style="color:var(--muted)">Collected at ${restaurant.location}</p><div class="recipe-grid"><div><h4>Ingredients</h4><ul>${x.ingredients.map(v=>`<li>${v}</li>`).join("")}</ul></div><div><h4>Notes</h4><p class="notes">${x.note}</p><h4 style="margin-top:25px">Instructions</h4><ol>${x.instructions.map(v=>`<li>${v}</li>`).join("")}</ol></div></div><button class="cook-btn" id="cookButton" style="margin-top:18px">Cook this recipe →</button>`;
+ document.getElementById("recipeCard").innerHTML=`<div class="paperclip">⌇</div><div class="eyebrow">${x.category} · ${restaurant.name}</div><h1>${x.name}</h1><p style="color:var(--muted)">Collected at ${restaurant.location}</p><div class="recipe-grid"><div><h4>Ingredients</h4><ul>${x.ingredients.map(v=>`<li>${v}</li>`).join("")}</ul></div><div><h4>Notes</h4><p class="notes">${x.note}</p><h4 style="margin-top:25px">Instructions</h4><ol>${x.instructions.map(v=>`<li>${v}</li>`).join("")}</ol></div></div><button class="cook-btn" id="cookButton" style="margin-top:18px">Cook this recipe →</button>`;
  document.getElementById("counter").textContent=`${currentRecipe+1} / ${restaurant.recipes.length}`;
  document.getElementById("cookButton").addEventListener("click",startCook);
 }
 function openRecipe(i){currentRecipe=i;renderRecipe();showScreen("recipe")}
 function startCook(){
  const x=restaurant.recipes[currentRecipe];
- document.getElementById("cookBox").innerHTML=`<div class="eyebrow">${x.category} · La Parisienne</div><h1>${x.name}</h1><div class="cook-meta">${restaurant.location} · ${restaurant.date}</div><div class="cook-document"><div><h4>Ingredients</h4><ul>${x.ingredients.map(v=>`<li>${v}</li>`).join("")}</ul></div><div><h4>Instructions</h4><ol>${x.instructions.map(v=>`<li>${v}</li>`).join("")}</ol></div></div><div class="cook-note"><b>Travel note:</b> ${x.note}</div><div class="cook-footer"><span style="color:var(--muted);font-size:12px">${currentRecipe+1} of ${restaurant.recipes.length} recipes from this file</span><button id="cookBack">← Back to recipe card</button></div>`;
+ document.getElementById("cookBox").innerHTML=`<div class="eyebrow">${x.category} · ${restaurant.name}</div><h1>${x.name}</h1><div class="cook-meta">${restaurant.location} · ${restaurant.date}</div><div class="cook-document"><div><h4>Ingredients</h4><ul>${x.ingredients.map(v=>`<li>${v}</li>`).join("")}</ul></div><div><h4>Instructions</h4><ol>${x.instructions.map(v=>`<li>${v}</li>`).join("")}</ol></div></div><div class="cook-note"><b>Travel note:</b> ${x.note}</div><div class="cook-footer"><span style="color:var(--muted);font-size:12px">${currentRecipe+1} of ${restaurant.recipes.length} recipes from this file</span><button id="cookBack">← Back to recipe card</button></div>`;
  document.getElementById("cookBack").addEventListener("click",()=>{renderRecipe();showScreen("recipe")});
  showScreen("cook");
 }
@@ -523,6 +583,7 @@ function openCityPage(cityId){
   const city=cities.find(c=>c.id===cityId);
   if(!city) return;
   currentCity=city;
+  if(!city.visitDate && city.restaurants && city.restaurants[0]) city.visitDate=city.restaurants[0].date;
 
   const details=cityDetails[city.id] || {
     region: "Region",
@@ -535,7 +596,7 @@ function openCityPage(cityId){
   document.getElementById("cityCountry").textContent=city.country;
   document.getElementById("cityStamp").innerHTML=landmarkSvg(details.landmark || "eiffel") + `<span class="stamp-city-text">${city.city.toUpperCase()}</span><small class="stamp-country-text">${city.country.toUpperCase()}</small>`;
   document.getElementById("cityFact").textContent=details.fact;
-  document.getElementById("cityVisit").textContent=city.id==="paris" ? "Visited · 10 November 2025" : "Journey awaiting your memories";
+  document.getElementById("cityVisit").textContent=city.visitDate ? `Visited · ${city.visitDate}` : "Journey awaiting your memories";
   document.getElementById("mapPreviewLabel").textContent=city.city;
   document.getElementById("mapPageNote").textContent=city.restaurants && city.restaurants.length
     ? `${city.restaurants.length} restaurant${city.restaurants.length===1?"":"s"} in your food passport`
@@ -547,19 +608,50 @@ function openCityPage(cityId){
   showScreen("cityPage");
 }
 
+function loadCityMap(city){
+  if(!map || !city) return;
+  map.eachLayer(layer=>{
+    if(layer instanceof L.Marker || layer instanceof L.CircleMarker || layer instanceof L.Polygon || layer instanceof L.Polyline) map.removeLayer(layer);
+  });
+
+  map.setView([city.coordinates.lat,city.coordinates.lng],13);
+  (city.restaurants || []).forEach(r=>{
+    if(!r.coordinates) return;
+    const icon=L.divIcon({
+      className:"",
+      html:'<div class="vintage-pin"><span>•</span></div>',
+      iconSize:[28,28],
+      iconAnchor:[10,26],
+      popupAnchor:[4,-22]
+    });
+    const marker=L.marker([r.coordinates.lat,r.coordinates.lng],{icon}).addTo(map);
+    marker.bindPopup(`
+      <div class="pin-card">
+        <h3>${r.name}</h3>
+        <p>${r.address || ""}</p>
+        <p>${r.recipes ? r.recipes.length : 0} recipes</p>
+        <button class="openRestaurantBtn" data-id="${r.id}">Open file →</button>
+      </div>`);
+    marker.on("popupopen",()=>{
+      const b=document.querySelector(`.openRestaurantBtn[data-id="${r.id}"]`);
+      if(b)b.onclick=()=>{
+        restaurant=r;
+        currentRecipe=0;
+        renderRestaurant("about");
+        showScreen("restaurant");
+      };
+    });
+  });
+  setTimeout(()=>map.invalidateSize(),80);
+}
+
 function openCurrentCityMap(){
   if(!currentCity || !currentCity.restaurants || !currentCity.restaurants.length) return;
-  const first=currentCity.restaurants[0];
-  restaurant=first;
   document.getElementById("fullMapCityName").textContent=currentCity.city;
   document.getElementById("fullMapCityCountry").textContent=`${currentCity.country} · Food Passport`;
   document.getElementById("fullMapNote").textContent="Tap a restaurant pin to open its file.";
-
   showScreen("map");
-  if(map){
-    map.setView([currentCity.coordinates.lat,currentCity.coordinates.lng],13);
-    setTimeout(()=>map.invalidateSize(),80);
-  }
+  loadCityMap(currentCity);
 }
 function init(){
   if(typeof cities==="undefined" || !Array.isArray(cities) || !cities.length){
@@ -608,27 +700,23 @@ function init(){
   }
 
   try{
-    const paris=cities.find(c=>c.id==="paris");
-    if(!paris || !paris.restaurants || !paris.restaurants.length) return;
-    restaurant=paris.restaurants.find(r=>r.id==="la-parisienne") || paris.restaurants[0];
+    const firstCity=cities.find(c=>c.restaurants && c.restaurants.length) || cities[0];
+    const firstRestaurant=firstCity && firstCity.restaurants ? firstCity.restaurants[0] : null;
+    if(!firstCity || !firstRestaurant) return;
 
-    map=L.map("leafletMap").setView([paris.coordinates.lat,paris.coordinates.lng],13);
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"© OpenStreetMap contributors"}).addTo(map);
-    const icon=L.divIcon({className:"",html:'<div class="vintage-pin"><span>•</span></div>',iconSize:[28,28],iconAnchor:[10,26],popupAnchor:[4,-22]});
-    paris.restaurants.forEach(r=>{
-      if(!r.coordinates) return;
-      const marker=L.marker([r.coordinates.lat,r.coordinates.lng],{icon}).addTo(map);
-      marker.bindPopup(`<div class="pin-card"><h3>${r.name}</h3><p>${r.address || ""}</p><p>${r.recipes ? r.recipes.length : 0} recipes</p><button class="openRestaurantBtn" data-id="${r.id}">Open file →</button></div>`);
-      marker.on("popupopen",()=>{
-        const b=document.querySelector(`.openRestaurantBtn[data-id="${r.id}"]`);
-        if(b)b.addEventListener("click",()=>{
-          restaurant=r;
-          renderRestaurant("about");
-          showScreen("restaurant");
-        });
-      });
-    });
-  }catch(err){
+    currentCity=firstCity;
+    restaurant=firstRestaurant;
+    document.getElementById("fullMapCityName").textContent=firstCity.city;
+    document.getElementById("fullMapCityCountry").textContent=`${firstCity.country} · Food Passport`;
+
+    map=L.map("leafletMap").setView([firstCity.coordinates.lat,firstCity.coordinates.lng],13);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
+      maxZoom:19,
+      attribution:"© OpenStreetMap contributors"
+    }).addTo(map);
+
+    loadCityMap(firstCity);
+    }catch(err){
     console.error(err);
     document.getElementById("leafletMap").innerHTML='<div style="height:100%;display:grid;place-items:center;padding:30px;text-align:center;color:#766957;background:#e8dfca"><div><b>Interactive map could not load.</b><br><br>The restaurant data is loaded. Please refresh the page.</div></div>';
   }

@@ -430,6 +430,190 @@ const cities = [
           }
         ]
       },
+
+      {
+        id: "manduka",
+        name: "Manduka",
+        city: "Madrid",
+        country: "Spain",
+        date: "Several visits",
+        address: "Avenida de la Reina Victoria 43, 28003 Madrid, Spain",
+        coordinates: { lat: 40.4461, lng: -3.7156 },
+        photo: "images/madrid/manduka-1.jpg",
+        story: "This bar became a morning tradition to go and get breakfast before class. We even went on our graduation day with your parents and the staff grew to know us. Probably the pinnacle of our senior year experience being recognized as locals.",
+        memories: [
+          "A morning tradition before class.",
+          "We even went on our graduation day with your parents.",
+          "The staff grew to know us and we were recognized as locals."
+        ],
+        photos: [
+          "images/madrid/manduka-1.jpg",
+          "images/madrid/manduka-2.jpg",
+          "images/madrid/manduka-3.jpg",
+          "images/madrid/manduka-4.jpg",
+          "images/madrid/manduka-5.jpg",
+          "images/madrid/manduka-6.jpg",
+          "images/madrid/manduka-7.jpg"
+        ],
+        photoCaptions: [
+          "Ración de alitas de pollo",
+          "Calamares a la romana",
+          "Tosta de solomillo con queso Brie y cebolla caramelizada",
+          "Tostada de salmón ahumado, queso y huevo",
+          "Huevos rotos de jamón serrano",
+          "Huevos rotos de chorizo",
+          "Croissant a la plancha"
+        ],
+        recipes: [
+          {
+            name: "Ración de alitas de pollo",
+            category: "Starter",
+            ingredients: [
+              "2 lbs (1 kg) chicken wings, split into flats and drums, tips removed",
+              "4–5 cloves of garlic",
+              "1 tablespoon sweet Spanish paprika (or a mix with spicy paprika)",
+              "All-purpose flour, for a light coating",
+              "Extra virgin olive oil, for frying",
+              "Salt and black pepper, to taste",
+              "A splash of fresh lemon juice, optional"
+            ],
+            instructions: [
+              "Season the chicken wings with salt and pepper. Add crushed garlic cloves, paprika and lemon juice. Mix, cover and refrigerate for at least 2 hours or overnight.",
+              "Heat plenty of extra virgin olive oil in a deep, wide skillet over medium heat. Add 2–3 bashed whole garlic cloves to the cold oil as it heats to infuse it.",
+              "Lightly dredge the marinated wings in flour, shaking off excess.",
+              "Fry until golden and crispy and fully cooked, about 10–12 minutes. Drain on paper towels."
+            ],
+            note: "Home-recreation recipe supplied for the passport; not presented as Manduka's exact recipe.",
+            source: "Recipe supplied for the food passport."
+          },
+          {
+            name: "Calamares a la romana",
+            category: "Starter",
+            ingredients: [
+              "1.1 lbs (500 g) clean squid, cut into ½-inch (1 cm) rings",
+              "1¼ cups (150 g) all-purpose flour",
+              "1 egg",
+              "½ cup (100 ml) ice-cold sparkling water or beer",
+              "1 teaspoon baking powder",
+              "Neutral oil or light olive oil, for frying",
+              "Salt, to taste",
+              "Lemon wedges, for serving"
+            ],
+            instructions: [
+              "Pat the squid rings thoroughly dry and season with a pinch of salt.",
+              "Whisk the egg with salt. Add the ice-cold sparkling water or beer, then gradually whisk in flour and baking powder until smooth and thick like pancake batter.",
+              "Lightly coat the squid rings in flour and shake off excess.",
+              "Heat oil to about 350°F / 180°C. Dip the floured rings in batter and fry in small batches for 1–2 minutes per side until golden. Do not overcook.",
+              "Drain on paper towels and serve immediately with lemon wedges."
+            ],
+            note: "Home-recreation recipe supplied for the passport; not presented as Manduka's exact recipe.",
+            source: "Recipe supplied for the food passport."
+          },
+          {
+            name: "Tosta de solomillo con queso Brie y cebolla caramelizada",
+            category: "Toast",
+            ingredients: [
+              "1 pork tenderloin, cut into ¾-inch (2 cm) medallions",
+              "1 wheel or wedge of Brie cheese, sliced into thick strips",
+              "4 thick slices of rustic bread or artisan loaf",
+              "2 large onions",
+              "Extra virgin olive oil",
+              "Salt and freshly ground black pepper, to taste",
+              "1 teaspoon brown sugar, optional",
+              "A splash of balsamic vinegar, optional"
+            ],
+            instructions: [
+              "Cut the onions into thin julienne strips. Cook slowly in olive oil with a pinch of salt over very low heat for 30–40 minutes until dark, tender and sweet. Optionally add brown sugar and balsamic vinegar after 15 minutes.",
+              "Toast the bread with a few drops of olive oil until golden and crunchy.",
+              "Season the pork medallions with salt and pepper. Sear over high heat with olive oil for about 2 minutes per side.",
+              "Place the hot pork on the toast, add Brie immediately, and top with warm caramelized onions.",
+              "Optionally broil for about 1 minute to melt and lightly brown the Brie."
+            ],
+            note: "Home-recreation recipe supplied for the passport; not presented as Manduka's exact recipe.",
+            source: "Recipe supplied for the food passport."
+          },
+          {
+            name: "Tostada de salmón ahumado, queso y huevo",
+            category: "Breakfast",
+            ingredients: [
+              "4 thick slices of rustic bread or sourdough loaf",
+              "5 oz (150 g) sliced smoked salmon",
+              "4 fresh eggs",
+              "5 oz (150 g) cream cheese",
+              "1 teaspoon fresh or dried dill, optional",
+              "Extra virgin olive oil",
+              "Salt and freshly ground black pepper, to taste",
+              "A splash of white vinegar, for poaching"
+            ],
+            instructions: [
+              "Mix cream cheese with dill and black pepper. Add a few drops of olive oil if needed to soften it.",
+              "Toast the bread until crunchy outside but soft inside. Drizzle lightly with olive oil.",
+              "Bring water to a gentle simmer, add vinegar, and poach each egg for exactly 3 minutes so the white sets while the yolk stays runny. Drain.",
+              "Spread the seasoned cream cheese over each toast, add smoked salmon, then place a warm poached egg on top.",
+              "Make a small cut in the egg so the yolk peeks out. Season with salt and black pepper."
+            ],
+            note: "Home-recreation recipe supplied for the passport; not presented as Manduka's exact recipe.",
+            source: "Recipe supplied for the food passport."
+          },
+          {
+            name: "Huevos rotos de jamón serrano",
+            category: "Main Course",
+            ingredients: [
+              "4 large potatoes",
+              "4 large fresh eggs",
+              "5 oz (150 g) high-quality Serrano ham",
+              "Extra virgin olive oil, plenty for frying",
+              "Salt, to taste"
+            ],
+            instructions: [
+              "Peel and cut the potatoes into thick rustic fries or thin patatas panadera slices. Rinse and dry thoroughly.",
+              "Gently confit the potatoes in olive oil over medium-low heat for 10–12 minutes, then increase the heat for the final 2 minutes to crisp and brown them. Drain and season.",
+              "Fry the eggs over high heat for about 1 minute, aiming for crispy lacy puntilla edges while keeping the yolks liquid.",
+              "Place the potatoes on a serving dish, arrange the Serrano ham over them, and place the fried eggs on top.",
+              "At the table, break the eggs with a knife and fork and mix the runny yolks into the potatoes and ham."
+            ],
+            note: "Home-recreation recipe supplied for the passport; not presented as Manduka's exact recipe.",
+            source: "Recipe supplied for the food passport."
+          },
+          {
+            name: "Huevos rotos de chorizo",
+            category: "Main Course",
+            ingredients: [
+              "4 large potatoes, suitable for frying",
+              "4 large fresh eggs",
+              "5 oz (150 g) fresh chorizo sausage",
+              "Extra virgin olive oil",
+              "Salt, to taste"
+            ],
+            instructions: [
+              "Peel and cut the potatoes into thick rustic fries. Rinse and dry. Fry in plenty of olive oil over medium heat for 10–12 minutes, then increase the heat for the final 2 minutes. Drain, season and arrange on a platter.",
+              "Remove the chorizo casing and slice or crumble it. Cook over medium heat with little or no oil until cooked through and slightly crispy. Spoon over the potatoes and drizzle 1–2 tablespoons of the chorizo fat over them.",
+              "Fry the eggs one by one in very hot oil for about 1 minute, keeping the yolks liquid and creating crisp puntilla edges.",
+              "Place the eggs over the chorizo and serve hot. Break the eggs and mix everything together."
+            ],
+            note: "Home-recreation recipe supplied for the passport; not presented as Manduka's exact recipe.",
+            source: "Recipe supplied for the food passport."
+          },
+          {
+            name: "Croissant a la plancha",
+            category: "Breakfast",
+            ingredients: [
+              "1–2 bakery croissants, ideally day-old",
+              "Butter, at room temperature",
+              "Jam, marmalade or chocolate spread, optional"
+            ],
+            instructions: [
+              "Slice the croissant horizontally all the way through.",
+              "Spread a thin, even layer of butter over both exposed inside faces.",
+              "Heat a skillet, griddle or flat pan over medium-low heat. Place the halves buttered-side down and press firmly. Grill for about 2–3 minutes until golden, crispy and slightly caramelized.",
+              "Optionally flip and press for another minute to warm the crust.",
+              "Serve immediately, plain or with strawberry or peach jam."
+            ],
+            note: "Home-recreation recipe supplied for the passport; not presented as Manduka's exact recipe.",
+            source: "Recipe supplied for the food passport."
+          }
+        ]
+      },
     ]
   }
 ];

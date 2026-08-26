@@ -397,6 +397,11 @@ function renderRestaurant(tab="about"){
  document.getElementById("restName").textContent=restaurant.name;
  document.getElementById("restLocation").textContent=restaurant.address || restaurant.location || "";
  document.getElementById("restDate").textContent=restaurant.date;
+ const profilePhoto = restaurant.photo || (restaurant.photos && restaurant.photos[0]) || "";
+ const restPhoto = document.getElementById("restPhoto");
+ restPhoto.src = profilePhoto;
+ restPhoto.alt = restaurant.name || "Restaurant";
+ restPhoto.style.display = profilePhoto ? "block" : "none";
  const body=document.getElementById("fileBody");
 
  document.querySelectorAll(".tab").forEach(b=>{
@@ -444,7 +449,13 @@ function renderRestaurant(tab="about"){
    });
  }
 }
-function openRestaurant(){renderRestaurant("about");showScreen("restaurant")}
+function openRestaurantFor(r){
+  restaurant = r;
+  currentRecipe = 0;
+  renderRestaurant("about");
+  showScreen("restaurant");
+}
+function openRestaurant(){openRestaurantFor(restaurant)}
 function renderRecipe(){
  const x=restaurant.recipes[currentRecipe];
  document.getElementById("recipeCard").innerHTML=`<div class="paperclip">⌇</div><div class="eyebrow">${x.category} · ${restaurant.name}</div><h1>${x.name}</h1><p style="color:var(--muted)">Collected at ${restaurant.location}</p><div class="recipe-grid"><div><h4>Ingredients</h4><ul>${x.ingredients.map(v=>`<li>${v}</li>`).join("")}</ul></div><div><h4>Notes</h4><p class="notes">${x.note}</p><h4 style="margin-top:25px">Instructions</h4><ol>${x.instructions.map(v=>`<li>${v}</li>`).join("")}</ol></div></div><button class="cook-btn" id="cookButton" style="margin-top:18px">Cook this recipe →</button>`;
@@ -635,10 +646,7 @@ function loadCityMap(city){
     marker.on("popupopen",()=>{
       const b=document.querySelector(`.openRestaurantBtn[data-id="${r.id}"]`);
       if(b)b.onclick=()=>{
-        restaurant=r;
-        currentRecipe=0;
-        renderRestaurant("about");
-        showScreen("restaurant");
+        openRestaurantFor(r);
       };
     });
   });

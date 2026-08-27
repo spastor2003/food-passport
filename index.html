@@ -181,19 +181,19 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
   color:#766957;
 }
 .globe-wrap{
-   width:min(430px,88%);
-   margin:30px auto 18px;
-   display:flex;
-   justify-content:center;
-   align-items:center;
+  width:min(430px,88%);
+  margin:30px auto 18px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 .journey-world-map{
-   display:block;
-   width:100%;
-   height:auto;
-   max-height:360px;
-   object-fit:contain;
-   background:transparent;
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:360px;
+  object-fit:contain;
+  background:transparent;
 }
 .globe-caption{
   font-size:9px;
@@ -282,28 +282,6 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
   .photo-grid{grid-template-columns:1fr}
 }
 
-/* Madrid + Paris uploaded city artwork */
-.city-stamp-image{
-  display:block;
-  width:170px;
-  height:170px;
-  object-fit:contain;
-  margin:24px auto 24px;
-  background:transparent;
-}
-.city-region-map-image{
-  display:block;
-  width:100%;
-  aspect-ratio:1 / 1;
-  object-fit:contain;
-  background:transparent;
-  border:1px solid #b8a984;
-}
-@media(max-width:760px){
-  .city-stamp-image{width:145px;height:145px}
-}
-
-
 </style>
 </head>
 <body>
@@ -360,7 +338,7 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
       <div class="city-region" id="cityRegion"></div>
       <h1 id="cityName"></h1>
       <div class="city-country" id="cityCountry"></div>
-      <img class="city-stamp-image" id="cityStampImage" alt="City stamp">
+      <div class="city-stamp" id="cityStamp" aria-label="City stamp"></div>
       <div class="fact-block">
         <div class="fact-label">A LITTLE HISTORY</div>
         <p id="cityFact"></p>
@@ -374,7 +352,12 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
     <div class="city-page city-map-access">
       <div class="map-access-frame">
         
-        <img class="city-region-map-image" id="cityRegionMapImage" alt="Regional map">
+        <div class="map-preview" id="mapPreview">
+          <div class="preview-grid"></div>
+          <div class="preview-route"></div>
+          <div class="preview-pin">•</div>
+          <div class="preview-city-label" id="mapPreviewLabel"></div>
+        </div>
         <div class="map-frame-caption">Restaurants, places &amp; food memories</div>
       </div>
       <button type="button" class="open-city-map" id="openCityMap" onclick="openCurrentCityMap()">Open City Map →</button>
@@ -408,7 +391,7 @@ main{padding:18px}.screen{display:none}.screen.active{display:block}
 </main>
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="data/restaurants.js"></script>
+<script src="data/restaurants.js?v=20260826-quirico"></script>
 <script>
 let restaurant = null;
 
@@ -485,14 +468,14 @@ function openRestaurantFor(r){
 function openRestaurant(){openRestaurantFor(restaurant)}
 function renderRecipe(){
  const x=restaurant.recipes[currentRecipe];
- document.getElementById("recipeCard").innerHTML=`<div class="paperclip">⌇</div><div class="eyebrow">${x.category} · ${restaurant.name}</div><h1>${x.name}</h1><p style="color:var(--muted)">Collected at ${restaurant.location}</p><div class="recipe-grid"><div><h4>Ingredients</h4><ul>${x.ingredients.map(v=>`<li>${v}</li>`).join("")}</ul></div><div><h4>Notes</h4><p class="notes">${x.note}</p><h4 style="margin-top:25px">Instructions</h4><ol>${x.instructions.map(v=>`<li>${v}</li>`).join("")}</ol></div></div><button class="cook-btn" id="cookButton" style="margin-top:18px">Cook this recipe →</button>`;
+ document.getElementById("recipeCard").innerHTML=`<div class="paperclip">⌇</div><div class="eyebrow">${x.category} · ${restaurant.name}</div><h1>${x.name}</h1><p style="color:var(--muted)">Collected at ${restaurant.address || restaurant.location || ""}</p><div class="recipe-grid"><div><h4>Ingredients</h4><ul>${x.ingredients.map(v=>`<li>${v}</li>`).join("")}</ul></div><div><h4>Notes</h4><p class="notes">${x.note}</p><h4 style="margin-top:25px">Instructions</h4><ol>${x.instructions.map(v=>`<li>${v}</li>`).join("")}</ol></div></div><button class="cook-btn" id="cookButton" style="margin-top:18px">Cook this recipe →</button>`;
  document.getElementById("counter").textContent=`${currentRecipe+1} / ${restaurant.recipes.length}`;
  document.getElementById("cookButton").addEventListener("click",startCook);
 }
 function openRecipe(i){currentRecipe=i;renderRecipe();showScreen("recipe")}
 function startCook(){
  const x=restaurant.recipes[currentRecipe];
- document.getElementById("cookBox").innerHTML=`<div class="eyebrow">${x.category} · ${restaurant.name}</div><h1>${x.name}</h1><div class="cook-meta">${restaurant.location} · ${restaurant.date}</div><div class="cook-document"><div><h4>Ingredients</h4><ul>${x.ingredients.map(v=>`<li>${v}</li>`).join("")}</ul></div><div><h4>Instructions</h4><ol>${x.instructions.map(v=>`<li>${v}</li>`).join("")}</ol></div></div><div class="cook-note"><b>Travel note:</b> ${x.note}</div><div class="cook-footer"><span style="color:var(--muted);font-size:12px">${currentRecipe+1} of ${restaurant.recipes.length} recipes from this file</span><button id="cookBack">← Back to recipe card</button></div>`;
+ document.getElementById("cookBox").innerHTML=`<div class="eyebrow">${x.category} · ${restaurant.name}</div><h1>${x.name}</h1><div class="cook-meta">${restaurant.address || restaurant.location || ""} · ${restaurant.date}</div><div class="cook-document"><div><h4>Ingredients</h4><ul>${x.ingredients.map(v=>`<li>${v}</li>`).join("")}</ul></div><div><h4>Instructions</h4><ol>${x.instructions.map(v=>`<li>${v}</li>`).join("")}</ol></div></div><div class="cook-note"><b>Travel note:</b> ${x.note}</div><div class="cook-footer"><span style="color:var(--muted);font-size:12px">${currentRecipe+1} of ${restaurant.recipes.length} recipes from this file</span><button id="cookBack">← Back to recipe card</button></div>`;
  document.getElementById("cookBack").addEventListener("click",()=>{renderRecipe();showScreen("recipe")});
  showScreen("cook");
 }
@@ -632,37 +615,10 @@ function openCityPage(cityId){
   document.getElementById("cityRegion").textContent=city.country.toUpperCase()+" · "+details.region;
   document.getElementById("cityName").textContent=city.city;
   document.getElementById("cityCountry").textContent=city.country;
-  const cityArtwork = {
-    madrid: {
-      stamp: "images/pages/madrid-stamp.png",
-      map: "images/pages/madrid-map.png"
-    },
-    paris: {
-      stamp: "images/pages/paris-stamp.png",
-      map: "images/pages/paris-map.png"
-    }
-  };
-
-  const artwork = cityArtwork[city.id];
-  const stampImage = document.getElementById("cityStampImage");
-  const regionMapImage = document.getElementById("cityRegionMapImage");
-
-  if(artwork){
-    stampImage.src = artwork.stamp;
-    stampImage.alt = `${city.city} stamp`;
-    stampImage.style.display = "block";
-    regionMapImage.src = artwork.map;
-    regionMapImage.alt = `${details.region} regional map`;
-    regionMapImage.style.display = "block";
-  }else{
-    stampImage.removeAttribute("src");
-    stampImage.style.display = "none";
-    regionMapImage.removeAttribute("src");
-    regionMapImage.style.display = "none";
-  }
-
+  document.getElementById("cityStamp").innerHTML=landmarkSvg(details.landmark || "eiffel") + `<span class="stamp-city-text">${city.city.toUpperCase()}</span><small class="stamp-country-text">${city.country.toUpperCase()}</small>`;
   document.getElementById("cityFact").textContent=details.fact;
   document.getElementById("cityVisit").textContent=city.visitDate ? `Visited · ${city.visitDate}` : "Journey awaiting your memories";
+  document.getElementById("mapPreviewLabel").textContent=city.city;
   document.getElementById("mapPageNote").textContent=city.restaurants && city.restaurants.length
     ? `${city.restaurants.length} restaurant${city.restaurants.length===1?"":"s"} in your food passport`
     : "The map will grow as you add restaurants.";

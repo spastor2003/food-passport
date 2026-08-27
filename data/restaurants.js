@@ -613,7 +613,7 @@ const cities = [
             source: "Recipe supplied for the food passport."
           }
         ]
-      },,
+      },
 
       {
         id: "quirico",

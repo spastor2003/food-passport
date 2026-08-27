@@ -432,17 +432,201 @@ const cities = [
       },
 
       {
+        id: "manduka",
+        name: "Manduka",
+        city: "Madrid",
+        country: "Spain",
+        date: "Several visits",
+        address: "Avenida de la Reina Victoria 43, 28003 Madrid, Spain",
+        coordinates: { lat: 40.4461, lng: -3.7156 },
+        photo: "images/madrid/manduka-1.jpg",
+        story: "This bar became a morning tradition to go and get breakfast before class. We even went on our graduation day with your parents and the staff grew to know us. Probably the pinnacle of our senior year experience being recognized as locals.",
+        memories: [
+          "A morning tradition before class.",
+          "We even went on our graduation day with your parents.",
+          "The staff grew to know us and we were recognized as locals."
+        ],
+        photos: [
+          "images/madrid/manduka-1.jpg",
+          "images/madrid/manduka-2.jpg",
+          "images/madrid/manduka-3.jpg",
+          "images/madrid/manduka-4.jpg",
+          "images/madrid/manduka-5.jpg",
+          "images/madrid/manduka-6.jpg",
+          "images/madrid/manduka-7.jpg"
+        ],
+        photoCaptions: [
+          "Ración de alitas de pollo",
+          "Calamares a la romana",
+          "Tosta de solomillo con queso Brie y cebolla caramelizada",
+          "Tostada de salmón ahumado, queso y huevo",
+          "Huevos rotos de jamón serrano",
+          "Huevos rotos de chorizo",
+          "Croissant a la plancha"
+        ],
+        recipes: [
+          {
+            name: "Ración de alitas de pollo",
+            category: "Starter",
+            ingredients: [
+              "2 lbs (1 kg) chicken wings, split into flats and drums, tips removed",
+              "4–5 cloves of garlic",
+              "1 tablespoon sweet Spanish paprika (or a mix with spicy paprika)",
+              "All-purpose flour, for a light coating",
+              "Extra virgin olive oil, for frying",
+              "Salt and black pepper, to taste",
+              "A splash of fresh lemon juice, optional"
+            ],
+            instructions: [
+              "Season the chicken wings with salt and pepper. Add crushed garlic cloves, paprika and lemon juice. Mix, cover and refrigerate for at least 2 hours or overnight.",
+              "Heat plenty of extra virgin olive oil in a deep, wide skillet over medium heat. Add 2–3 bashed whole garlic cloves to the cold oil as it heats to infuse it.",
+              "Lightly dredge the marinated wings in flour, shaking off excess.",
+              "Fry until golden and crispy and fully cooked, about 10–12 minutes. Drain on paper towels."
+            ],
+            note: "Home-recreation recipe supplied for the passport; not presented as Manduka's exact recipe.",
+            source: "Recipe supplied for the food passport."
+          },
+          {
+            name: "Calamares a la romana",
+            category: "Starter",
+            ingredients: [
+              "1.1 lbs (500 g) clean squid, cut into ½-inch (1 cm) rings",
+              "1¼ cups (150 g) all-purpose flour",
+              "1 egg",
+              "½ cup (100 ml) ice-cold sparkling water or beer",
+              "1 teaspoon baking powder",
+              "Neutral oil or light olive oil, for frying",
+              "Salt, to taste",
+              "Lemon wedges, for serving"
+            ],
+            instructions: [
+              "Pat the squid rings thoroughly dry and season with a pinch of salt.",
+              "Whisk the egg with salt. Add the ice-cold sparkling water or beer, then gradually whisk in flour and baking powder until smooth and thick like pancake batter.",
+              "Lightly coat the squid rings in flour and shake off excess.",
+              "Heat oil to about 350°F / 180°C. Dip the floured rings in batter and fry in small batches for 1–2 minutes per side until golden. Do not overcook.",
+              "Drain on paper towels and serve immediately with lemon wedges."
+            ],
+            note: "Home-recreation recipe supplied for the passport; not presented as Manduka's exact recipe.",
+            source: "Recipe supplied for the food passport."
+          },
+          {
+            name: "Tosta de solomillo con queso Brie y cebolla caramelizada",
+            category: "Toast",
+            ingredients: [
+              "1 pork tenderloin, cut into ¾-inch (2 cm) medallions",
+              "1 wheel or wedge of Brie cheese, sliced into thick strips",
+              "4 thick slices of rustic bread or artisan loaf",
+              "2 large onions",
+              "Extra virgin olive oil",
+              "Salt and freshly ground black pepper, to taste",
+              "1 teaspoon brown sugar, optional",
+              "A splash of balsamic vinegar, optional"
+            ],
+            instructions: [
+              "Cut the onions into thin julienne strips. Cook slowly in olive oil with a pinch of salt over very low heat for 30–40 minutes until dark, tender and sweet. Optionally add brown sugar and balsamic vinegar after 15 minutes.",
+              "Toast the bread with a few drops of olive oil until golden and crunchy.",
+              "Season the pork medallions with salt and pepper. Sear over high heat with olive oil for about 2 minutes per side.",
+              "Place the hot pork on the toast, add Brie immediately, and top with warm caramelized onions.",
+              "Optionally broil for about 1 minute to melt and lightly brown the Brie."
+            ],
+            note: "Home-recreation recipe supplied for the passport; not presented as Manduka's exact recipe.",
+            source: "Recipe supplied for the food passport."
+          },
+          {
+            name: "Tostada de salmón ahumado, queso y huevo",
+            category: "Breakfast",
+            ingredients: [
+              "4 thick slices of rustic bread or sourdough loaf",
+              "5 oz (150 g) sliced smoked salmon",
+              "4 fresh eggs",
+              "5 oz (150 g) cream cheese",
+              "1 teaspoon fresh or dried dill, optional",
+              "Extra virgin olive oil",
+              "Salt and freshly ground black pepper, to taste",
+              "A splash of white vinegar, for poaching"
+            ],
+            instructions: [
+              "Mix cream cheese with dill and black pepper. Add a few drops of olive oil if needed to soften it.",
+              "Toast the bread until crunchy outside but soft inside. Drizzle lightly with olive oil.",
+              "Bring water to a gentle simmer, add vinegar, and poach each egg for exactly 3 minutes so the white sets while the yolk stays runny. Drain.",
+              "Spread the seasoned cream cheese over each toast, add smoked salmon, then place a warm poached egg on top.",
+              "Make a small cut in the egg so the yolk peeks out. Season with salt and black pepper."
+            ],
+            note: "Home-recreation recipe supplied for the passport; not presented as Manduka's exact recipe.",
+            source: "Recipe supplied for the food passport."
+          },
+          {
+            name: "Huevos rotos de jamón serrano",
+            category: "Main Course",
+            ingredients: [
+              "4 large potatoes",
+              "4 large fresh eggs",
+              "5 oz (150 g) high-quality Serrano ham",
+              "Extra virgin olive oil, plenty for frying",
+              "Salt, to taste"
+            ],
+            instructions: [
+              "Peel and cut the potatoes into thick rustic fries or thin patatas panadera slices. Rinse and dry thoroughly.",
+              "Gently confit the potatoes in olive oil over medium-low heat for 10–12 minutes, then increase the heat for the final 2 minutes to crisp and brown them. Drain and season.",
+              "Fry the eggs over high heat for about 1 minute, aiming for crispy lacy puntilla edges while keeping the yolks liquid.",
+              "Place the potatoes on a serving dish, arrange the Serrano ham over them, and place the fried eggs on top.",
+              "At the table, break the eggs with a knife and fork and mix the runny yolks into the potatoes and ham."
+            ],
+            note: "Home-recreation recipe supplied for the passport; not presented as Manduka's exact recipe.",
+            source: "Recipe supplied for the food passport."
+          },
+          {
+            name: "Huevos rotos de chorizo",
+            category: "Main Course",
+            ingredients: [
+              "4 large potatoes, suitable for frying",
+              "4 large fresh eggs",
+              "5 oz (150 g) fresh chorizo sausage",
+              "Extra virgin olive oil",
+              "Salt, to taste"
+            ],
+            instructions: [
+              "Peel and cut the potatoes into thick rustic fries. Rinse and dry. Fry in plenty of olive oil over medium heat for 10–12 minutes, then increase the heat for the final 2 minutes. Drain, season and arrange on a platter.",
+              "Remove the chorizo casing and slice or crumble it. Cook over medium heat with little or no oil until cooked through and slightly crispy. Spoon over the potatoes and drizzle 1–2 tablespoons of the chorizo fat over them.",
+              "Fry the eggs one by one in very hot oil for about 1 minute, keeping the yolks liquid and creating crisp puntilla edges.",
+              "Place the eggs over the chorizo and serve hot. Break the eggs and mix everything together."
+            ],
+            note: "Home-recreation recipe supplied for the passport; not presented as Manduka's exact recipe.",
+            source: "Recipe supplied for the food passport."
+          },
+          {
+            name: "Croissant a la plancha",
+            category: "Breakfast",
+            ingredients: [
+              "1–2 bakery croissants, ideally day-old",
+              "Butter, at room temperature",
+              "Jam, marmalade or chocolate spread, optional"
+            ],
+            instructions: [
+              "Slice the croissant horizontally all the way through.",
+              "Spread a thin, even layer of butter over both exposed inside faces.",
+              "Heat a skillet, griddle or flat pan over medium-low heat. Place the halves buttered-side down and press firmly. Grill for about 2–3 minutes until golden, crispy and slightly caramelized.",
+              "Optionally flip and press for another minute to warm the crust.",
+              "Serve immediately, plain or with strawberry or peach jam."
+            ],
+            note: "Home-recreation recipe supplied for the passport; not presented as Manduka's exact recipe.",
+            source: "Recipe supplied for the food passport."
+          }
+        ]
+      },,
+
+      {
         id: "quirico",
         name: "Quirico",
         city: "Madrid",
         country: "Spain",
         date: "Several Times",
-        address: "Paseo San Francisco de Sales, 28, 28003 Madrid, Spain",
+        address: "Paseo de San Francisco de Sales, 28, 28003 Madrid, Spain",
         coordinates: { lat: 40.44056, lng: -3.71556 },
         photo: "images/madrid/madrid-quirico-storefront.png",
         story: "Like Manduka, Quirico became our afternoon and night snack spot where we would go to study and also work and talk about our various case studies. My favorite moment was when you ordered Cola Cao at night, the owner of the bar brought the drink, started laughing, and then responded with \"This is what my 8 year-old kid drinks at night. You should be drinking, at least, a beer.\"",
         memories: [
-          "Quirico became one of our afternoon and night snack spots while we studied, worked, and talked about our various case studies.",
+          "Quirico became our afternoon and night snack spot where we would study, work, and talk about our various case studies.",
           "The Cola Cao moment became one of our favorite memories of the bar."
         ],
         photos: [
@@ -484,15 +668,15 @@ const cities = [
               "Add the broth. If you prefer a smooth sauce, blend it with a hand blender and return it to the pan.",
               "Put the meatballs back into the sauce and simmer on low heat for 15 to 20 minutes so they absorb all the flavors."
             ],
-            note: "Home-recreation recipe collected for the food passport; not presented as Quirico's exact recipe.",
+            note: "Home-recreation recipe supplied for the passport; not presented as Quirico's exact recipe.",
             source: "Recipe supplied for the food passport."
           },
           {
             name: "Patatas Bravas",
             category: "Ración",
             ingredients: [
-              "3 large potatoes (such as Russet or Yukon Gold)",
-              "Olive oil (plenty for frying)",
+              "3 large potatoes",
+              "Olive oil, plenty for frying",
               "Sea salt to taste",
               "4 tbsp olive oil for the brava sauce",
               "1 tbsp all-purpose flour",
@@ -500,7 +684,7 @@ const cities = [
               "1 tbsp spicy Spanish paprika (pimentón picante)",
               "1 cup (250 ml) chicken or vegetable broth",
               "Salt to taste",
-              "1/2 cup mayonnaise for the optional quick garlic aioli",
+              "1/2 cup mayonnaise for optional quick garlic aioli",
               "1 garlic clove, finely grated",
               "1 tsp lemon juice",
               "A pinch of salt"
@@ -509,15 +693,14 @@ const cities = [
               "Warm 4 tablespoons of olive oil in a small saucepan over medium-low heat.",
               "Stir in both types of paprika and the flour. Cook for 1 minute while stirring constantly to toast the spices without burning them.",
               "Slowly pour in the broth while whisking vigorously to avoid lumps.",
-              "Simmer gently for about 10 minutes until the sauce thickens to a velvety consistency. Season with salt, then blend with a hand mixer if needed until completely smooth.",
-              "For the optional aioli, whisk together the mayonnaise, grated garlic, lemon juice, and salt. Set aside in the fridge.",
-              "Peel the potatoes and cut them into bite-sized, irregular 1-inch cubes. Pat them completely dry with a paper towel.",
-              "Heat a generous amount of olive oil in a deep pan to medium heat (around 280°F / 140°C). Cook the potatoes for about 7–10 minutes until they are soft inside but still pale on the outside. Remove and drain on paper towels.",
-              "Crank the heat up to high (around 375°F / 190°C). Fry the potatoes a second time for 2–3 minutes until they turn deeply golden and incredibly crunchy.",
-              "Remove immediately, drain, and toss with sea salt.",
-              "Place the hot, crispy potatoes on a plate. Drizzle generously with the warm spicy Brava sauce, and add dollops of the cool garlic aioli if using."
+              "Simmer gently for about 10 minutes until the sauce thickens. Season with salt, then blend if needed until smooth.",
+              "For the optional aioli, whisk together mayonnaise, grated garlic, lemon juice and salt. Refrigerate.",
+              "Peel the potatoes, cut into bite-sized irregular cubes and pat completely dry.",
+              "First fry at about 280°F / 140°C for 7–10 minutes until soft inside but pale. Drain.",
+              "Second fry at about 375°F / 190°C for 2–3 minutes until deeply golden and crunchy. Drain and season with sea salt.",
+              "Serve the hot potatoes with warm brava sauce and optional garlic aioli."
             ],
-            note: "Home-recreation recipe collected for the food passport; not presented as Quirico's exact recipe.",
+            note: "Home-recreation recipe supplied for the passport; not presented as Quirico's exact recipe.",
             source: "Recipe supplied for the food passport."
           },
           {
@@ -525,23 +708,21 @@ const cities = [
             category: "Ración",
             ingredients: [
               "1 slab of marinated/cured pork belly (panceta curada/adobada), ideally from Soria, cut into thick slices about 1 to 1.5 inches (2.5–3 cm) wide",
-              "Sunflower oil or mild olive oil (enough to cover the bottom of the pan)",
+              "Sunflower oil or mild olive oil",
               "Coarse sea salt to taste"
             ],
             instructions: [
-              "Take the pork belly slices out of the fridge at least 2 to 3 hours before cooking. The rind (skin) must be completely dry to the touch.",
-              "Pour a shallow layer of oil into a cold frying pan, just enough to cover the bottom, about half an inch. Place the pork belly slices in the pan standing upright, skin-side down.",
-              "Turn the heat to low. As the oil warms up, the fat will begin to render and the rind will start to crackle and form small, uniform bubbles. Cook on low heat for about 20 to 30 minutes. Do not rush this step.",
-              "Once the skin is fully covered in crispy blisters, lay the slices down on one of their flat, meaty sides and raise the heat to medium-high.",
-              "Fry for about 3 to 4 minutes on one side, then flip to fry the other side for another 3 to 4 minutes until the meat is deeply golden and cooked through.",
-              "Remove the torreznos from the pan and let them drain on paper towels for 1 minute.",
-              "Use a sharp knife to cut each thick slice into bite-sized chunks. Sprinkle with a touch of coarse sea salt and serve immediately while hot."
+              "Take the pork belly slices out of the fridge at least 2 to 3 hours before cooking. The rind must be completely dry.",
+              "Place the slices standing upright, skin-side down, in a cold frying pan with a shallow layer of oil. Start on low heat.",
+              "Cook for about 20 to 30 minutes while the fat renders and the rind forms crispy bubbles.",
+              "Lay the slices on their meaty sides, raise the heat to medium-high, and fry each side for about 3 to 4 minutes until deeply golden and cooked through.",
+              "Drain on paper towels, cut into bite-sized chunks, season with coarse sea salt, and serve immediately."
             ],
-            note: "Home-recreation recipe collected for the food passport; not presented as Quirico's exact recipe.",
+            note: "Home-recreation recipe supplied for the passport; not presented as Quirico's exact recipe.",
             source: "Recipe supplied for the food passport."
           }
         ]
-      },
+      }
     ]
   }
 ];

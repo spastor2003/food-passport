@@ -618,6 +618,93 @@ const cities = [
       },
 
       {
+        id: "kai-thai",
+        name: "Kai Thai",
+        city: "Madrid",
+        country: "Spain",
+        date: "Several visits",
+        address: "Calle de la Princesa, 13, 28008 Madrid, Spain",
+        coordinates: { lat: 40.4257, lng: -3.71301 },
+        photo: "images/madrid/kai-thai-storefront.png",
+        story: "We would always come here for their two soups and then they also had some decent Pad Thai.",
+        memories: [
+          "We would always come here for their two soups.",
+          "Sopa Tom Yam became one of the dishes we kept coming back for.",
+          "Sopa Tom Kha was another regular favorite.",
+          "They also had some decent Pad Thai."
+        ],
+        photos: [
+          "images/madrid/kai-thai-storefront.png",
+          "images/madrid/kai-thai-tom-yam.png",
+          "images/madrid/kai-thai-tom-kha.png"
+        ],
+        photoCaptions: [
+          "Kai Thai storefront",
+          "Sopa Tom Yam",
+          "Sopa Tom Kha"
+        ],
+        recipes: [
+          {
+            name: "Sopa Tom Kha",
+            category: "Soup",
+            ingredients: [
+              "400 ml (1 can) full-fat coconut milk",
+              "500 ml chicken broth (or vegetable broth if using tofu)",
+              "400 g boneless chicken thighs, cut into thin strips, or 400 g firm tofu, cut into 2 cm cubes",
+              "150 g mushrooms (oyster, shiitake, or button), quartered or sliced",
+              "1 large shallot or small onion, thinly sliced",
+              "1 piece fresh galangal (about 5 cm), cut into thin slices",
+              "2 stalks lemongrass, bruised and cut into 5 cm pieces",
+              "5 kaffir lime leaves (makrut), torn lightly by hand",
+              "2–3 Thai bird's eye chilies, lightly smashed (optional)",
+              "2 tbsp fish sauce (or light soy sauce for the tofu option)",
+              "1 tbsp palm sugar (or brown sugar)",
+              "3 tbsp fresh lime juice (about 1 to 2 limes)",
+              "Fresh cilantro leaves, for garnish"
+            ],
+            instructions: [
+              "In a medium pot, combine the chicken or vegetable broth with the galangal, lemongrass, and kaffir lime leaves. Bring to a gentle boil, then lower the heat and simmer for 5 minutes until highly aromatic.",
+              "Reduce the heat to low. Pour in the coconut milk and stir well. Add the chicken strips or tofu cubes. Simmer gently for 5–6 minutes until the chicken is fully cooked through. Do not let the soup boil rapidly, or the coconut milk may separate.",
+              "Stir in the mushrooms, shallots, and smashed chilies. Simmer for another 3 minutes until the mushrooms are tender.",
+              "Turn off the heat. Stir in the fish sauce or soy sauce, palm sugar, and fresh lime juice. Mix well until the sugar dissolves. Taste the broth; it should balance creamy, sour, salty, and a hint of spice. Adjust seasonings to your liking.",
+              "Ladle into bowls and garnish generously with fresh cilantro."
+            ],
+            note: "Home-recreation recipe supplied for the passport; not presented as Kai Thai's exact recipe.",
+            source: "Recipe supplied for the food passport."
+          },
+          {
+            name: "Sopa Tom Yam",
+            category: "Soup",
+            ingredients: [
+              "1 liter water, chicken broth, or vegetable broth",
+              "2 tbsp Nam Prik Pao (Thai roasted chili paste)",
+              "400 g large prawns (shrimp), peeled and deveined, or 400 g firm tofu, cut into bite-sized cubes",
+              "200 g mushrooms (straw mushrooms, oyster, or button mushrooms), halved",
+              "1 medium tomato, cut into wedges",
+              "1 small white onion, cut into wedges",
+              "1 piece fresh galangal (about 5 cm), cut into thin rounds",
+              "3 stalks lemongrass, lower pale part smashed and cut into 5 cm pieces",
+              "6 kaffir lime leaves (makrut), torn in half",
+              "3–5 Thai bird's eye chilies, lightly smashed",
+              "3 tbsp fish sauce (or light soy sauce for the tofu option)",
+              "4 tbsp fresh lime juice",
+              "1 tsp sugar (optional)",
+              "Fresh cilantro leaves, for garnish"
+            ],
+            instructions: [
+              "Bring the broth or water to a boil in a medium pot. Add the smashed lemongrass, galangal, kaffir lime leaves, and fresh chilies. Reduce the heat slightly and let it boil gently for 5 minutes until intensely fragrant.",
+              "Stir in the Thai roasted chili paste (Nam Prik Pao) until completely dissolved. Add the onions, tomatoes, and mushrooms. Simmer for about 3 minutes until the vegetables start to soften.",
+              "Add the prawns or tofu cubes to the pot. If using prawns, cook for only 2–3 minutes until they turn pink and opaque. Avoid overcooking the prawns.",
+              "Turn off the stove completely. Stir in the fish sauce or soy sauce and the fresh lime juice. Taste the broth; it should be robustly sour, salty, and spicy. Adjust with a pinch of sugar or more lime or fish sauce if needed.",
+              "Pour into bowls, ensuring everyone gets a mix of ingredients. Garnish with plenty of fresh cilantro."
+            ],
+            note: "Home-recreation recipe supplied for the passport; not presented as Kai Thai's exact recipe.",
+            source: "Recipe supplied for the food passport."
+          }
+        ]
+      },
+
+      {
         id: "quirico",
         name: "Quirico",
         city: "Madrid",

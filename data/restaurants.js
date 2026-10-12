@@ -814,13 +814,118 @@ const cities = [
       }
     ]
   },
-
-  {
+{
     id: "brussels",
     city: "Brussels",
     country: "Belgium",
     flag: "🇧🇪",
     coordinates: { lat: 50.8503, lng: 4.3517 },
-    restaurants: []
+    restaurants: [
+      {
+        id: "le-clan-des-belges",
+        name: "Le Clan des Belges",
+        city: "Brussels",
+        country: "Belgium",
+        date: "8 November 2025",
+        address: "Rue de la Paix 20, 1050 Ixelles, Belgium",
+        coordinates: { lat: 50.83561, lng: 4.36481 },
+        photo: "images/brussels/le-clan-des-belges-storefront.png",
+        story: "We had a full day in Brussels and had seen pretty much all of the sites on our list. We then decided to go find food since the weather had turned to very recognizable fall weather: grey skies, drizzling rain, and freezing wind. We wandered some very cool quiet streets until we stopped at a small church square where we would have our best meal in Brussels. Thank god there were heaters and blankets in the outside seating or else we would have turned into ice cubes.",
+        memories: [
+          "A full day exploring Brussels before heading out to find food in the cold, drizzling autumn weather.",
+          "Wandering quiet, beautiful streets until we reached a small church square near Saint-Boniface.",
+          "Our best meal in Brussels, made even better by the outdoor heaters and blankets that kept us from turning into ice cubes."
+        ],
+        photos: [
+          "images/brussels/le-clan-des-belges-carbonade-flamande.png",
+          "images/brussels/le-clan-des-belges-jambonneau-kriek.png",
+          "images/brussels/le-clan-des-belges-storefront.png"
+        ],
+        photoCaptions: [
+          "Carbonade Flamande avec frites",
+          "Jambonneau à la Kriek, purée maison",
+          "Le Clan des Belges outdoor terrace"
+        ],
+        recipes: [
+          {
+            name: "Jambonneau à la Kriek, purée maison",
+            category: "Main Course",
+            ingredients: [
+              "For the jambonneau and Kriek sauce:",
+              "2 fresh pork knuckles/hocks (jambonneaux), about 600–700 g each",
+              "2 bottles (330 ml each) Belgian Kriek beer",
+              "2 tablespoons butter or lard",
+              "2 large yellow onions, roughly chopped",
+              "2 carrots, sliced into rounds",
+              "2 cloves garlic, minced",
+              "1 bouquet garni (2 bay leaves and a few sprigs of fresh thyme)",
+              "1 tablespoon brown sugar or apple syrup, to balance the sourness if using dry Kriek",
+              "1 thick slice of gingerbread (peperkoek / pain d'épices), spread generously with Dijon mustard",
+              "Salt and freshly ground black pepper",
+              "For the purée maison:",
+              "1 kg floury potatoes (such as Bintje, Yukon Gold, or Russet), peeled and quartered",
+              "50 g unsalted butter",
+              "100 ml warm whole milk or heavy cream",
+              "1 pinch ground nutmeg",
+              "Salt and white pepper, to taste"
+            ],
+            instructions: [
+              "Prep time: 20 minutes. Cook time: 2.5–3 hours. Servings: 2–3.",
+              "Pat the jambonneaux completely dry with paper towels and season generously with salt and black pepper.",
+              "Melt the butter in a large heavy-bottomed Dutch oven over medium-high heat. Sear the pork hocks until golden-brown on all sides, about 8–10 minutes. Remove and set aside.",
+              "Turn the heat down to medium. In the same pot, sauté the onions and carrots for about 5 minutes until softened and slightly caramelized. Stir in the garlic and cook for another minute until fragrant.",
+              "Pour in the Kriek beer, scraping up the browned bits from the bottom of the pot. Return the pork hocks to the pot. Add the bouquet garni and brown sugar; add a little water or stock if the liquid does not come halfway up the meat.",
+              "Place the gingerbread slice, mustard-side down, directly on top of the liquid. Bring to a boil, then immediately reduce the heat to the lowest setting. Cover tightly and simmer gently for 2.5–3 hours, turning the meat halfway through, until it is very tender and pulling away from the bone.",
+              "About 30 minutes before the pork is done, place the potatoes in a large pot of salted cold water. Bring to a boil and cook for 20–25 minutes until fork-tender. Drain completely.",
+              "Mash the potatoes while hot. Stir in the butter, warm milk or cream, nutmeg, salt and white pepper. Whip until smooth and creamy, then keep warm.",
+              "Carefully remove the jambonneaux and vegetables from the braising pot and keep warm. Discard the bouquet garni. The gingerbread should have dissolved into the liquid.",
+              "Increase the heat to medium-high and reduce the sauce uncovered for 5–10 minutes until glossy and slightly syrupy. Taste and adjust the seasoning.",
+              "Serve a generous scoop of purée maison beside the pork and spoon the rich cherry-beer sauce over the meat.",
+              "Chef's tip: Stir a handful of pitted fresh or canned sour cherries into the sauce during the last 10 minutes of reduction for extra fruit flavor and texture."
+            ],
+            note: "Home-recreation recipe supplied for the food passport; not presented as Le Clan des Belges' exact recipe.",
+            source: "Recipe supplied for the food passport, with reference links supplied by the user."
+          },
+          {
+            name: "Carbonade Flamande avec frites",
+            category: "Main Course",
+            ingredients: [
+              "For the carbonade flamande:",
+              "1 kg beef chuck, blade, or cheek (paleron or macreuse), cut into large cubes",
+              "4 large onions, thinly sliced",
+              "2 slices gingerbread (pain d'épices) or thick brown bread",
+              "2 tablespoons strong Dijon mustard",
+              "330 ml Belgian dark ale",
+              "200 ml beef stock",
+              "2 tablespoons brown sugar, preferably vergeoise or dark brown sugar",
+              "1 tablespoon red wine vinegar or apple cider vinegar",
+              "2 tablespoons butter and 1 tablespoon vegetable oil",
+              "2 bay leaves and 3 sprigs fresh thyme",
+              "Salt and freshly cracked black pepper",
+              "1 tablespoon all-purpose flour (optional, for extra thickening)",
+              "For the Belgian frites:",
+              "1.5 kg floury, high-starch potatoes (such as Russet, Bintje, or Agria)",
+              "Beef tallow (blanc de bœuf), or high-smoke-point vegetable oil such as peanut or sunflower oil",
+              "Fine sea salt",
+              "Prep time and serving count were not supplied for this recipe."
+            ],
+            instructions: [
+              "Sear the beef: Pat the beef cubes completely dry and season generously with salt and pepper. Heat 1 tablespoon butter and the oil in a heavy-bottomed Dutch oven over medium-high heat. Sear the beef in batches until deeply browned on all sides. Remove and set aside.",
+              "Caramelize the onions: Lower the heat to medium and melt the remaining tablespoon of butter in the same pot. Add the onions and cook for about 15 minutes, stirring frequently, until soft, sweet and deeply golden. Stir in the brown sugar and cook for 2 minutes.",
+              "Combine and deglaze: Return the beef and its juices to the pot. If using, sprinkle over the flour and toss for 1 minute. Pour in the Belgian dark ale and beef stock, scraping up the browned bits. Stir in the vinegar, thyme and bay leaves.",
+              "The secret thickener: Spread the Dijon mustard thickly onto the gingerbread slices. Place them mustard-side down directly on top of the stew liquid; do not stir them in yet.",
+              "Slow simmer (mijoter): Cover tightly and simmer over the lowest heat for 2.5–3 hours. Stir gently every 45 minutes as the gingerbread dissolves into the sauce. The beef is ready when completely fork-tender.",
+              "Cut and rinse the frites: Peel the potatoes and cut into thick batons about 1–1.2 cm thick. Soak in cold water for 30 minutes, drain, and dry thoroughly.",
+              "First fry: Heat the tallow or oil to 150°C (300°F). Fry the potatoes in small batches for 5–6 minutes until cooked through but still pale. Lift out and drain on paper towels.",
+              "Rest: Let the fries cool completely at room temperature for at least 30 minutes. This can be done while the stew simmers.",
+              "Second fry: Just before serving, heat the oil to 190°C (375°F). Fry the potatoes in batches for 2–3 minutes until golden-brown and crisp.",
+              "Season and serve: Drain the fries, toss with fine sea salt, and serve immediately beside the carbonade. Serve mayonnaise or extra mustard on the side if desired."
+            ],
+            note: "Home-recreation recipe supplied for the food passport; not presented as Le Clan des Belges' exact recipe. The fries are double-cooked Belgian frites.",
+            source: "Recipe supplied for the food passport, with reference links supplied by the user."
+          }
+        ]
+      }
+    ]
   }
 ];

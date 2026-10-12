@@ -928,4 +928,13 @@ const cities = [
       }
     ]
   }
+  ,{
+    id: "ghent",
+    city: "Ghent",
+    country: "Belgium",
+    flag: "🇧🇪",
+    coordinates: { lat: 51.0543, lng: 3.7174 },
+    restaurants: []
+  }
+
 ];

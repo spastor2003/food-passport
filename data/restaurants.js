@@ -934,7 +934,110 @@ const cities = [
     country: "Belgium",
     flag: "🇧🇪",
     coordinates: { lat: 51.0543, lng: 3.7174 },
-    restaurants: []
+    restaurants: [
+      {
+        id: "t-klokhuys",
+        name: "'t Klokhuys",
+        city: "Ghent",
+        country: "Belgium",
+        date: "9 November 2025",
+        address: "Corduwaniersstraat 65, 9000 Gent, Belgium",
+        coordinates: { lat: 51.0574, lng: 3.7211 },
+        photo: "images/ghent/t-klokhuys-storefront.jpg",
+        story: "Our last day in Belgium was dedicated to day trips to Bruges and Ghent, with Ghent as the final stop of our trip. We decided to have dinner there after our plans for lunch in Bruges fell through because our intended restaurant closed earlier than expected. Thanks to some clever restaurant research in Dutch and French, we discovered this absolute gem. 't Klokhuys felt like something straight out of a Christmas storybook. It was a cold evening, but the food was warm and comforting, and the experience felt genuinely local, away from the tourist crowds. I rank this as the best dining experience I've ever had. The atmosphere, the food, and the feeling of discovering somewhere truly special made it unforgettable.",
+        memories: [
+          "Our last evening in Belgium, after a day trip to Bruges and Ghent.",
+          "Finding this gem through restaurant research in Dutch and French, away from the tourist crowds.",
+          "A cold evening, warm and comforting food, and an interior that felt like something out of a Christmas storybook.",
+          "The best dining experience I've ever had, remembered for the atmosphere as much as the food."
+        ],
+        photos: [
+          "images/ghent/t-klokhuys-interior.png",
+          "images/ghent/t-klokhuys-gentse-kassei.jpg",
+          "images/ghent/t-klokhuys-waterzooi.jpg",
+          "images/ghent/t-klokhuys-storefront.jpg"
+        ],
+        photoCaptions: [
+          "The warm, storybook interior of 't Klokhuys",
+          "Gentse Kassei — 230 g beef steak with fresh fries and natural pan sauce",
+          "Gentse Waterzooi van hoevekip — farmhouse chicken in a creamy broth with potatoes and vegetables",
+          "'t Klokhuys glowing warmly on a cold Ghent evening"
+        ],
+        recipes: [
+          {
+            name: "Gentse Waterzooi van Hoevekip",
+            category: "Main Course",
+            ingredients: [
+              "For the chicken broth:",
+              "4 chicken thighs, preferably from a farm-raised chicken",
+              "1 bunch celery, roughly chopped",
+              "2 carrots, roughly chopped",
+              "2 onions, each studded with 2 cloves",
+              "Fresh thyme, 1–2 bay leaves, and parsley stems",
+              "Salt and black pepper",
+              "Water to cover",
+              "For the waterzooi:",
+              "30 g butter",
+              "3 tablespoons all-purpose flour",
+              "1.5 litres strained chicken broth",
+              "1 thick leek, sliced into fine strips",
+              "3 large carrots, cut into fine strips",
+              "5 celery stalks, cut into fine strips",
+              "1 fennel bulb, sliced (optional traditional-style addition)",
+              "200 ml cream",
+              "1 egg yolk",
+              "800 g waxy potatoes, peeled",
+              "½ bunch fresh parsley, chopped",
+              "Salt and pepper, to taste"
+            ],
+            instructions: [
+              "Prep time: about 20 minutes. Cook time: 45–60 minutes. Serves: 4.",
+              "Make the broth: Place the chicken thighs, roughly chopped celery and carrots, clove-studded onions, thyme, bay leaves, parsley stems, salt, and pepper in a large pot. Cover with water and bring to a boil.",
+              "Reduce to a gentle simmer and cook for about 25 minutes, or until the chicken is cooked through. Remove the chicken, strain the broth, and reserve 1.5 litres.",
+              "Prepare the vegetables: Cut the leek, carrots, and celery into fine, even strips. Slice the fennel if using. Boil the potatoes separately in salted water until tender, then drain.",
+              "Build the base: Melt the butter in a large saucepan. Stir in the flour and cook briefly. Gradually whisk in the warm chicken broth until smooth.",
+              "Add the prepared vegetables and simmer until tender but still holding their shape.",
+              "Finish the creamy broth: Whisk the egg yolk into the cream. Slowly whisk a ladle of warm broth into the cream mixture to temper it, then stir it into the pot. Keep the heat low and do not let the soup boil vigorously after adding the cream and yolk.",
+              "Return the chicken to the pot and warm gently. Taste and adjust the seasoning.",
+              "Serve the chicken and creamy broth in deep bowls with the boiled potatoes and chopped parsley.",
+              "Chef's tip: For a silky finish, keep the heat gentle after adding the egg yolk and cream. The recipe is a home recreation based on a published traditional Ghent waterzooi recipe and the ingredients remembered from the meal."
+            ],
+            note: "Home recreation based on a published traditional Ghent waterzooi recipe and the dish description provided for the passport; not presented as 't Klokhuys's exact kitchen recipe.",
+            source: "Sofie Dumont, Ghent chicken waterzooi: https://www.sofiedumont.be/pages/recept-gentse-waterzooi"
+          },
+          {
+            name: "Gentse Kassei with Natural Pan Sauce",
+            category: "Main Course",
+            ingredients: [
+              "1 beef steak, 230 g",
+              "300–350 g floury potatoes, for fresh fries",
+              "Neutral oil or beef tallow, for frying",
+              "1 tablespoon butter, plus 1 teaspoon for the sauce if needed",
+              "Salt and freshly ground black pepper",
+              "For the natural pan sauce:",
+              "1 small shallot, finely chopped",
+              "100 ml beef stock",
+              "1 teaspoon butter to finish the sauce",
+              "A small splash of water, if needed to loosen the pan juices",
+              "Mayonnaise, to serve"
+            ],
+            instructions: [
+              "Prep time: about 15 minutes. Cook time: 30–40 minutes. Serves: 1.",
+              "Prepare the fries: Cut the potatoes into even sticks, rinse away excess starch, and dry thoroughly with a clean towel.",
+              "First fry: Heat oil or beef tallow to 150°C. Fry the potatoes for 5–6 minutes until softened but not browned. Remove and rest on a rack for at least 20–30 minutes.",
+              "Cook the steak: Pat dry and season with salt and pepper. Heat a skillet until hot, add a little oil, and sear the steak. For a steak around 2–3 cm thick, cook approximately 2–4 minutes per side for medium-rare, adjusting for thickness and preference. Add butter near the end and baste.",
+              "Transfer the steak to a warm plate and rest for 5–10 minutes.",
+              "Make the natural pan sauce: In the same skillet, soften the shallot briefly in the pan fat. Add the beef stock and scrape up the browned bits. Simmer until the liquid reduces slightly and develops a richer flavour. Whisk in the teaspoon of butter for a smooth, glossy finish; add a splash of water if the sauce becomes too concentrated.",
+              "Second fry: Heat the oil to 180–190°C. Fry the potatoes for 2–3 minutes until golden and crisp. Drain and season immediately with salt.",
+              "Serve the steak with the natural pan sauce, fresh fries, and mayonnaise.",
+              "Chef's tip: The natural pan sauce is selected because its dark, glossy appearance most closely resembles the sauce in the meal photo; the exact restaurant sauce has not been confirmed."
+            ],
+            note: "Home recreation based on the supplied description (230 g steak, fresh fries, and choice of sauce) and the meal photo. Natural pan sauce was selected as the closest visual match; this is not a verified copy of the restaurant's recipe.",
+            source: "Home recreation for the Digital Food Passport; the restaurant's exact recipe was not found in a published source."
+          }
+        ]
+      }
+    ]
   }
 
 ];

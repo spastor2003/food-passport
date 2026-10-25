@@ -815,6 +815,14 @@ const cities = [
     ]
   },
 {
+    id: "bruges",
+    city: "Bruges",
+    country: "Belgium",
+    flag: "🇧🇪",
+    coordinates: { lat: 51.2093, lng: 3.2247 },
+    restaurants: []
+  },
+  {
     id: "brussels",
     city: "Brussels",
     country: "Belgium",

@@ -820,7 +820,67 @@ const cities = [
     country: "Belgium",
     flag: "🇧🇪",
     coordinates: { lat: 51.2093, lng: 3.2247 },
-    restaurants: []
+    restaurants: [
+      {
+        id: "tea-room-de-proeverie",
+        name: "Tea-Room De Proeverie",
+        city: "Bruges",
+        country: "Belgium",
+        date: "9 November 2025",
+        address: "Katelijnestraat 5, 8000 Brugge, Belgium",
+        coordinates: { lat: 51.2036, lng: 3.2244 },
+        photo: "images/bruges/tea-room-de-proeverie-waffle.png",
+        photos: [
+          "images/bruges/tea-room-de-proeverie-exterior.png",
+          "images/bruges/tea-room-de-proeverie-waffle.png"
+        ],
+        photoCaptions: [
+          "Tea-Room De Proeverie exterior",
+          "Brussels waffle served with powdered sugar and chocolate sauce"
+        ],
+        story: "We visited the beautiful city of Bruges, with its picturesque canals, stunning architecture, and charming streets. Even now, we still admire the photos we took there and remember how special the city felt. We were lucky to have great weather and meet wonderful people along the way.\n\nOne of the highlights of our visit was stopping at this lovely restaurant to try our very first Belgian waffles. It was a perfect way to experience a little more of Belgium’s food culture and make another memory from our trip. Bruges was a beautiful place to visit, and I hope you enjoyed it as much as I did!",
+        memories: [
+          "Exploring Bruges’ picturesque canals, striking architecture, and charming streets.",
+          "Enjoying lovely weather and meeting wonderful people along the way.",
+          "Trying our very first Belgian waffles at Tea-Room De Proeverie."
+        ],
+        recipes: [
+          {
+            name: "Brussels Waffle with Whipped Cream",
+            category: "Dessert",
+            ingredients: [
+              "For the waffles:",
+              "250 g all-purpose flour",
+              "200 ml whole milk, warmed to about 40°C",
+              "200 ml sparkling water",
+              "7 g instant dry yeast",
+              "125 g unsalted butter, melted and cooled",
+              "3 large eggs, separated",
+              "3 g fine sea salt",
+              "For the hand-whisked Chantilly cream:",
+              "240 ml heavy cream (about 35% fat), very cold",
+              "20 g powdered sugar",
+              "1 tsp vanilla extract or vanilla bean paste",
+              "For serving:",
+              "Powdered sugar, for dusting"
+            ],
+            instructions: [
+              "Chill a mixing bowl and whisk for the Chantilly cream. Keep the heavy cream cold.",
+              "Whisk the cold cream with the powdered sugar and vanilla until medium-stiff peaks form. Refrigerate until serving.",
+              "In a bowl, stir the warmed milk and instant yeast together.",
+              "In a large mixing bowl, whisk the egg yolks with the yeast-milk mixture and sparkling water. Add the sifted flour and salt, then whisk until smooth. Stir in the melted, cooled butter.",
+              "In a clean bowl, whip the egg whites to stiff peaks. Gently fold them into the batter so it stays airy.",
+              "Cover the batter and leave it to rise in a warm place for 45–60 minutes.",
+              "Preheat a deep-pocket Belgian waffle iron to its highest setting. Lightly grease it if needed, then cook portions of batter for about 4–5 minutes, or until the waffles are golden and crisp. Follow your waffle iron’s instructions.",
+              "Keep cooked waffles on a wire rack in a 200°F / 95°C oven while finishing the batch. Do not stack them, so they stay crisp.",
+              "Dust the waffles with powdered sugar and serve with the chilled Chantilly cream on the side."
+            ],
+            note: "A home recreation inspired by the Brussels waffle we enjoyed in Bruges. This is not a verified recipe from Tea-Room De Proeverie.",
+            source: "Home-recreation recipe prepared for The Digital Food Passport."
+          }
+        ]
+      }
+    ]
   },
   {
     id: "brussels",

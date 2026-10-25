@@ -781,6 +781,16 @@ function init(){
 
 showScreen("masterPassport");
 init();
+
+// Support city-specific QR codes, e.g. ?city=paris or ?city=ghent.
+// Wait until the page's city data and navigation have initialized.
+const requestedCityId = new URLSearchParams(window.location.search).get("city");
+if (requestedCityId) {
+  const normalizedCityId = requestedCityId.trim().toLowerCase();
+  if (["paris", "madrid", "bruges", "brussels", "ghent"].includes(normalizedCityId)) {
+    openCityPage(normalizedCityId);
+  }
+}
 </script>
 </body>
 </html>
